@@ -1,4 +1,4 @@
-# TCP/IP vs OSI_7_Layer
+# TCP/IP vs OSI 7 Layer
 
 
 <p align="center">
