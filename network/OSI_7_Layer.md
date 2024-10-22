@@ -76,3 +76,6 @@
 - 프로토콜 : HTTP, FTP, SMTP
 
 </br>
+
+## 참고 자료
+- [TCP/IP와 OSI 7 Layer 차이점](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/network/TCP_IP_VS_OSI_7_Layer.md)
