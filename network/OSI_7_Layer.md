@@ -6,7 +6,12 @@
 - 총 7개의 계층이 존재하며, 각각 계층에서의 하는 일이 명확히 구분되어 있다.
 - 7번 부터 하위로 Encapsulation (반대는 Decapsulation)
 
-<사진>
+</br>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/dda8fc0c-608c-4f8b-a14d-f8bde2c92145" width="40%" height="40%"></p>
+<p align="center">출처 : wikimedia</p>
+
+
 
 </br>
 
