@@ -4,6 +4,14 @@
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FArdorHoon%2Fcomputer-science-for-developer&count_bg=%233A2BA4&title_bg=%23555555&icon=&icon_color=%23D7CACA&title=repository+view&edge_flat=false"/></a>
 </p>
 
+## Introduction
+
+> 공부 차원에서 정리하는 CS 지식 모음집 💻, 향후 클라우드 Part도 추가예정
+
+(잘못된 내용이 있을 수 있으니, [**이슈**](https://github.com/ArdorHoon/computer-science-for-developer/issues)또는 [**PR**](https://github.com/ArdorHoon/computer-science-for-developer/pulls)로 알려주세요! 😉)
+
+</br>
+
 ## Index
 
 * ### OS
