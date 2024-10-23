@@ -18,6 +18,10 @@
 내용 추가...
 
 ## JVM 구성
+<p align="center">
+<img src="https://github.com/user-attachments/assets/925d45ff-18bc-4f2a-b7de-4895a07d271a" width="70%" height="70%"></br>
+</p></br>
+
 내용 추가...
 
 
