@@ -10,12 +10,14 @@
      1. [JDK](#JDK)
      2. [JRE](#JRE)
 
+</br></br>
 
-## 1️⃣ JVM 이란?
+
+## JVM 이란?
 
 내용 추가...
 
-## 2️⃣ JVM 구성
+## JVM 구성
 내용 추가...
 
 
@@ -51,4 +53,6 @@ JDK를 이용해서 프로그램을 <code>**생성**</code>, <code>**실행**</c
 
 ### JRE
 <mark>**JVM + Java Class Library 등으로 구성**</mark></br>
-컴파일 된 Java 프로그램을 실행하는데 필요한 패키지 
+컴파일 된 Java 프로그램을 실행하는데 필요한 패키지
+
+
