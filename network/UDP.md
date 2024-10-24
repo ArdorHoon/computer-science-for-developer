@@ -20,7 +20,7 @@
 
 
 
-## UDP 구현
+## UDP 구현 (Java)
 
 ### UDP Client
 ```java
