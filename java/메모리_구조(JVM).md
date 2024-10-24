@@ -21,8 +21,8 @@ JVM (Java Virtual Machine) 직역하면 자바 가상 머신인데 Java는 특�
 </br>
 
 일반적으로 <code>.java 파일</code>은 CPU가 인식하지 못하기 때문에 기계어로 Compile해야한다. 이를 Java complier 통해서 <code>.class 파일</code>로 변환해준다.
-이 <code>.class 파일</code>을 JVM을 통해서 OS에서 동작할 수 있개 해준다. 
-
+이 <code>.class 파일</code>을 JVM을 통해서 OS에서 동작할 수 있개 해준다.
+</br>
 
 ## JVM 구성
 <p align="center">
@@ -37,6 +37,7 @@ JVM은 크게 아래와 같이 구성되어 있다.</br>
      - 가비지 콜렉터(Garbage collector)
 - 런타임 데이터 영역 (Runtime Data Area)
 
+</br>
 
 ### Class Loader
 
