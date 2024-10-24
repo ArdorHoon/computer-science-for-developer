@@ -68,7 +68,21 @@ runtime 시, 클래스를 처음 참조할 때, 해당 클래스를 로드하고
 
 ### RunTime Data Area 
 
-내용 추가 ---
+<p align="center">
+<img src="https://github.com/user-attachments/assets/71706273-d87b-4e43-a32e-09c9f1aa68ab" width="60%" height="60%"></br>
+</p></br>
+
+<mark>**프로그램을 수행하기 위해 OS에서 할당받은 메모리 공간**</mark></br>
+
+- JVM 스택 영역
+     - 프로그램 실행과정에서 임시로 할당되었다가 메소드를 빠져나가면 바로 소멸되는 특성의 데이터를 저장하기 위한 영역
+- Native method stack
+     - 자바 프로그램이 컴파일되어 생성되는 바이트 코드가 아닌 실제 실행할 수 있는 기계어로 작성된 프로그램을 실행시키는 영역.
+- Method Area
+     - 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간
+
+</br>
+
 
 ## JDK, JRE
 
