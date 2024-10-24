@@ -14,8 +14,11 @@
 
 
 ## JVM 이란?
+<mark>**OS에 종속받지 않고 CPU가 JAVA를 인식, 실행할 수 있게 하는 가상 컴퓨터**</mark>
 
-내용 추가...
+JVM (Java Virtual Machine) 직역하면 자바 가상 머신인데 Java는 특정 OS에 종속적이지 않다는 특징을 가지고 있다. </br>
+이때 Java 프로그램을 OS 위에서 실행시키기 위해 필요한 장치가 바로 JVM이다.</br>
+</br>
 
 ## JVM 구성
 <p align="center">
