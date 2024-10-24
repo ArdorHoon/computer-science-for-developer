@@ -1,19 +1,19 @@
 # 메모리 구조(JVM) 
 
 ## 목차
-1. [JVM 이란?](#🔶-JVM-이란?)
-2. [JVM 구성](#🔶-JVM-구성)
+1. [JVM 이란?](#JVM-이란?)
+2. [JVM 구성](#JVM-구성)
      1. [클래스 로더 (Class Loader)](#🔹-Class-Loader)
      2. [실행 엔진 (Execution Engine)](#🔹-Execution-Engine)
      3. [RunTime Data Area](#🔹-RunTime-Data-Area)
-3. [JDK, JRE](#🔶-JDK,-JRE)
+3. [JDK, JRE](#JDK,-JRE)
      1. [JDK](#JDK)
      2. [JRE](#JRE)
 
 </br></br>
 
 
-## 🔶 JVM 이란?
+## JVM 이란?
 <mark>**OS에 종속받지 않고 CPU가 JAVA를 인식, 실행할 수 있게 하는 가상 컴퓨터**</mark>
 
 JVM (Java Virtual Machine) 직역하면 자바 가상 머신인데 Java는 특정 OS에 종속적이지 않다는 특징을 가지고 있다. </br>
@@ -24,7 +24,7 @@ JVM (Java Virtual Machine) 직역하면 자바 가상 머신인데 Java는 특�
 이 <code>.class 파일</code>을 JVM을 통해서 OS에서 동작할 수 있개 해준다.
 </br>
 
-## 🔶 JVM 구성
+## JVM 구성
 <p align="center">
 <img src="https://github.com/user-attachments/assets/925d45ff-18bc-4f2a-b7de-4895a07d271a" width="70%" height="70%"></br>
 </p></br>
@@ -87,7 +87,7 @@ runtime 시, 클래스를 처음 참조할 때, 해당 클래스를 로드하고
 </br>
 
 
-## 🔶 JDK, JRE
+## JDK, JRE
 
 ### JDK
 <mark>**Java를 사용하기 위해 필요한 모든 기능을 갖춘 Java용 SDK**</mark></br>
