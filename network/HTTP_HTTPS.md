@@ -24,7 +24,7 @@
 #### 🔵 Client-Server 구조
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/bee8baaf-a9e9-47ab-bfaa-5eca77d7eb82" width="50%" height="50%"></br>
+<img src="https://github.com/user-attachments/assets/cbe02892-82d7-4473-a8ea-117783d4b455" width="50%" height="50%"></br>
 </p></br>
 
 
