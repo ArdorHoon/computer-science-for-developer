@@ -13,8 +13,8 @@
 
 ### http 특징
 - Client-Server 구조
-- 무상태 프로토콜
-- 비연결성
+- 무상태 프로토콜(stateless)
+- 비연결성(connectionless)
 - HTTP 메세지
 - 단순함, 확장가능
 - 거의 모든 형태의 데이터 전송 가능 (HTML, TEXT, 이미지, 음성 영상, 파일) 
@@ -33,8 +33,7 @@
 
 #### 🔵 Stateless(무상태) 프로토콜
 
-Stateless(무상태)
-- Server가 Client의 상태를 보존하지 않음
+- <mark>Server가 Client의 상태를 보존하지 않음</mark>
 - 장점 : Scale out (서버 확장성이 높음)
 - 단점 : 클라이언트가 추가 데이터 전송 
 
@@ -48,7 +47,7 @@ Stateless(무상태)
 
 #### 🔵 비연결성(connectionless)
 
-- HTTP는 기본이 연결을 유지하지 않는 모델
+- <mark>HTTP는 기본이 연결을 유지하지 않는 모델</mark>
 - 일반적으로 초 단위의 이하의 빠른 속도로 응답
 - 서버 자원을 효율적으로 사용할 수 있음
 - 지속 연결을 해야 하는 경우 **HTTP 지속 연결(Persistent Connections)** 로 문제해결
