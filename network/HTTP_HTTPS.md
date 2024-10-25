@@ -1,7 +1,7 @@
 # Http와 Https
 
 
-## http
+## 🟥 Http
 <mark>HyperText Transfer Protocol, 텍스트 기반의 통신 규약으로 **인터넷에서 데이터를 주고받을 수 있는 프로토콜**</mark>
 
 **Http Version**
@@ -22,6 +22,11 @@
 </br>
 
 #### 🔵 Client-Server 구조
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/bee8baaf-a9e9-47ab-bfaa-5eca77d7eb82" width="50%" height="50%"></br>
+</p></br>
+
 
 - Request Response 구조
 - 클라이언트는 서버에 요청을 보내고 응답을 대기
@@ -70,13 +75,14 @@
 </br>
 
 
-## https 
+## 🟥 Https 
 <mark>HyperText Transfer Protocol Secure, HTTP의 보안 버전</mark>
 
 HTTPS는 기본적으로 대칭키 암호화와 공개키 암호화를 조합하여 동작한다. SSL이나 TLS 프로토콜을 통해 Session 데이터를 암호화하며, 기본 포트는 443이고,
 SSL 프로토콜 위에서 HTTPS 프로토콜이 동작한다. 주로 사용자 정보가 통신되는 과정에서 HTTPS 통신은 필수 요건이 된다. 
 
-예를 들어 우리가 흔히 사용하는 was인 tomcat에서 server.xml에서 https 설정을 할 수 있다. 단, 이때 우리는 CA기관에서 발급하는 SSL 인증서가 필요하다.
+예를 들어 우리가 흔히 사용하는 was인 tomcat에서 server.xml에서 https 설정을 할 수 있다. 단, 이때 우리는 CA기관에서 발급하는 SSL 인증서가 필요하다.</br>
+
 ```xml
 < connector port="443" protocol="org.apache.coyote.http11.Http11NioProtocol"
           maxthreads="150" sslenabled="true" scheme="https" secure="true"
