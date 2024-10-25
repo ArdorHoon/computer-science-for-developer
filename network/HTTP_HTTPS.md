@@ -2,7 +2,7 @@
 
 
 ## http
-<mark>텍스트 기반의 통신 규약으로 **인터넷에서 데이터를 주고받을 수 있는 프로토콜**</mark>
+<mark>HyperText Transfer Protocol, 텍스트 기반의 통신 규약으로 **인터넷에서 데이터를 주고받을 수 있는 프로토콜**</mark>
 
 **Http Version**
 ```
@@ -71,3 +71,21 @@
 
 
 ## https 
+<mark>HyperText Transfer Protocol Secure, HTTP의 보안 버전</mark>
+
+HTTPS는 기본적으로 대칭키 암호화와 공개키 암호화를 조합하여 동작한다. SSL이나 TLS 프로토콜을 통해 Session 데이터를 암호화하며, 기본 포트는 443이고,
+SSL 프로토콜 위에서 HTTPS 프로토콜이 동작한다. 주로 사용자 정보가 통신되는 과정에서 HTTPS 통신은 필수 요건이 된다. 
+
+예를 들어 우리가 흔히 사용하는 was인 tomcat에서 server.xml에서 https 설정을 할 수 있다. 단, 이때 우리는 CA기관에서 발급하는 SSL 인증서가 필요하다.
+```xml
+< connector port="443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+          maxthreads="150" sslenabled="true" scheme="https" secure="true"
+          clientauth="false" sslprotocol="TLS"
+          keystorepass="password" keystorefile="C:/OpenSSL-Win64/bin/.keystore" >
+
+```
+
+
+
+
+
