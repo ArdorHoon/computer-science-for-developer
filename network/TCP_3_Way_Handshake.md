@@ -17,11 +17,12 @@
 
 # TCP의 3-Way Handshake
 <mark>TCP 통신을 이용하여 데이터를 전송하기 위해 네트워크 연결을 설정(Connection Establish) 하는 과정</mark></br>
+TCP/IP 프로토콜을 이용해서 통신을 하는 응용 프로그램이 데이터를 전송하기 전에 먼저 정확한 전송을 보장하기 위해 상대방과 사저에 세션을 수립하는 과정을 의미
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/37ae3089-228c-408a-ba7e-a5d3cce1d6b2" width="60%" height="60%"></p>
 
-1. 먼저 open()을 실행한 클라이언트가 SYN을 보내고, SYN_SENT 상태로 대기한다.
-2. 서버는 SYN_RCVD 상태로 바꾸고 SYN과 응답 ACK를 보낸다
-3. SYN과 응답 ACK을 받은 클라이언트는 ESTABLISHED 상태로 변경하고 서버에게 응답 ACK를 전송한다
-4. 응답 ACK를 받은 서버는 ESTABLISHED 상태로 변경한다.
+1. 먼저 open()을 실행한 클라이언트가 SYN을 보내고, SYN_SENT 상태로 대기
+2. 서버는 SYN_RCVD 상태로 바꾸고 SYN과 응답 ACK를 보냄
+3. SYN과 응답 ACK을 받은 클라이언트는 ESTABLISHED 상태로 변경하고 서버에게 응답 ACK를 전송
+4. 응답 ACK를 받은 서버는 ESTABLISHED 상태로 변경
