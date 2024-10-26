@@ -1,6 +1,6 @@
 # TCP/IP suite
 
-<mark>**네트워크에서 사용되는 통신 프로토콜의 집합, Layer들은 프로토콜의 네트워킹 범위에 따라 4개의 추상화 Layer로 구성**</mark>
+<mark>**인터넷에서 사용되는 통신 프로토콜의 집합 (패킷 통신 방식의 인터넷 프로토콜 IP + 전송 프로토콜 TCP)**, Layer들은 프로토콜의 네트워킹 범위에 따라 4개의 추상화 Layer로 구성</mark>
 
 ![tcpipstack-vs-osimodel](https://github.com/user-attachments/assets/ad2d6f8a-58fa-42d7-aafd-a9b5b1523d37)
 
