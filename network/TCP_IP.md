@@ -2,6 +2,10 @@
 
 <mark>**인터넷에서 사용되는 통신 프로토콜의 집합 (패킷 통신 방식의 인터넷 프로토콜 IP + 전송 프로토콜 TCP)**, Layer들은 프로토콜의 네트워킹 범위에 따라 4개의 추상화 Layer로 구성</mark>
 
+IP는 패킷 전달 여부를 보증하지 않고, 패킷을 보낸 순서와 받는 순서가 다를 수 있다. 이를 보완하기 위해 TCP를 같이 사용해준다. TCP는 IP 위에서 동작하는 프로토콜로, 데이터 전달을 보증하고 순서대로 받게 해준다. (IP - 배달원 , TCP - 네비게이션)</br></br>
+
+</br>
+
 ![tcpipstack-vs-osimodel](https://github.com/user-attachments/assets/ad2d6f8a-58fa-42d7-aafd-a9b5b1523d37)
 
 
