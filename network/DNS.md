@@ -22,8 +22,7 @@
 ## DNS 조회 8단계 (사용자가 도메인 이름으로 서버에 리소스 요청 시)
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/418975d7-ca86-44f1-a4d8-613ad4b1773a" width="80%" height="80%"></p></br>
-
+<img src="https://github.com/user-attachments/assets/5ed6c739-6cac-4a99-a080-ecad414dec3a" width="80%" height="80%"></p></br>
 
 
 
