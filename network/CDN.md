@@ -4,10 +4,6 @@
 <mark>**Content Delivery Network**의 약자인 CDN은 **지리적 제약 없이 전 세계 사용자에게 빠르고 안전하게 콘텐츠를 전송**할 수 있는 콘텐츠 전송 기술</mark></br>
 
 
-</br>
-<p align="center">
-<img src="https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821" width="50%" height="50%"></p>
-<p align="center>
   
 - 왼쪽 : CDN을 사용하지 않을 경우
 - 오른쪽 : CDN을 사용할 경우
