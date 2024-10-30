@@ -5,7 +5,7 @@
 
 </br>
 <p align="center">
-<img src="https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821" width="70%" height="70%"></p>
+<img src="https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821" width="50%" height="50%"></p>
 <p align="center>
 
 - 왼쪽 : CDN을 사용하지 않을 경우
