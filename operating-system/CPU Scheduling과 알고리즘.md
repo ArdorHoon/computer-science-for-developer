@@ -7,6 +7,10 @@
 
 Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이 Context Switch이다. <code> **CPU utilization**(이용률)</code>과 <code>**Throughput** (처리량)</code>을 통해 스케줄링 성능을 평가할 수 있다. CPU 이용률을 최대화하는 것이 다중 프로세서 운영체제 설계의 핵심!
 
+</br>
+
+
+
 ### ▶︎ 그렇다면 왜 CPU는 Scheduling이 필요할까?</br>
 
 컴퓨터 시스템 내의 프로세스의 CPU 버스트를 분석해보면 대부분의 경우 짧은 CPU 버스트를 가지며, 극히 일부분만 긴 CPU 버스트를 갖는다. 이는 I/O 작업을 수행하는 프로세스가 상당히 많은 부분을 차지한다는 뜻이다. 즉, 대화형 작업을 많이 수행해야 하는데, 사용자에 대한 빠른 응답을 위해서는 해당 프로세스한테 우선적으로 CPU를 할당해야한다. 이러한 이유로 CPU 스케줄링이 필요해졌다.
@@ -43,11 +47,12 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 
 ## 🔵 Scheduling 알고리즘
 
-### 1. 선입선출 스케줄링 (FCFS, First-Come First Served)
+### 1. 선입선출 스케줄링 (FCFS, First-Come First Served) 
 - 먼저 온 순서대로 처리하는 방식 (비선점)
 - CPU를 오래쓰는 프로세스를 할당받으면 나머지는 기다려야 하기때문에 비효율적임
 
 
+</br>
 
 ### 2. 최단 작업 우선 스케줄링 (SJF, Shortest-Job-First)
 - CPU 버스트가 가장 짧은 프로세스에게 제일 먼저 CPU를 할당하는 방식
@@ -57,9 +62,9 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
     - 긴 프로세스가 영원히 CPU를 잡지 못할 수 있음
 - CPU 버스트 시간을 미리 알 수 없다는 문제점이 있음
 
+</br>
 
-
-### 3. 우선순위 스케줄링 (Priority Scheduling)
+### 3. 우선순위 스케줄링 (Priority Scheduling) 
 - 우선 순위가 제일 높은 프로세스에게 CPU 할당
 - 비선점형, 선점형 두 가지 방식 모두 존재
 - Starvation (기아) 문제가 있음
@@ -67,7 +72,7 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 - 무한 봉쇄 문제가 있다.
     - 실행 준비는 되어있으나 cpu를 사용하지 못하는 프로세스는 CPU를 기다리면서 봉쇄된 것으로 간주할 수 있음
 
-
+</br>
 
 
 ### 4. 라운드 로빈 스케줄링 (RR, Round Robin)
@@ -79,6 +84,9 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
     - time quantum이 커질수록 FCFS에 가까워짐
     - time quantum이 작아질수록 context switch 오버헤드가 증가함
 - 모든 시간이 동일한 job만 있을 때는 비효율적이다.
+
+
+</br>
 
 ### 5. 멀티레벨 큐 (Multi-Level Queue)
 - Ready Queue를 우선순위에 따라 여러개로 분할
@@ -92,8 +100,10 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
         - 각 큐에 CPU time을 적절한 비율로 할당
 
 
+
+</br>
         
-### 6. 멀티 레벨 피드백 큐 (Multi-Level Feedback Queue)
+### 6. 멀티 레벨 피드백 큐 (Multi-Level Feedback Queue) 
 - 프로세스가 여러개로 분할된 Ready Queue 내에서 다른 큐로 이동이 가능
 - aging 기법으로 구현 가능
     - 우선순위가 낮은 큐에서 오래 기다렸으면 우선순위가 높은 큐로 승격하는 방식
