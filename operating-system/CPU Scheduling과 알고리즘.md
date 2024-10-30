@@ -47,14 +47,14 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 
 ## 🔵 Scheduling 알고리즘
 
-### 1. 선입선출 스케줄링 (FCFS, First-Come First Served) 
+### <mark>1. 선입선출 스케줄링 (FCFS, First-Come First Served) </mark>
 - 먼저 온 순서대로 처리하는 방식 (비선점)
 - CPU를 오래쓰는 프로세스를 할당받으면 나머지는 기다려야 하기때문에 비효율적임
 
 
 </br>
 
-### 2. 최단 작업 우선 스케줄링 (SJF, Shortest-Job-First)
+### <mark>2. 최단 작업 우선 스케줄링 (SJF, Shortest-Job-First)</mark>
 - CPU 버스트가 가장 짧은 프로세스에게 제일 먼저 CPU를 할당하는 방식
 - 평균 대기 시간을 가장 짧게하는 알고리즘
 - 비선점형, 선점형 두가지 방식 모두 존재
@@ -64,7 +64,7 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 
 </br>
 
-### 3. 우선순위 스케줄링 (Priority Scheduling) 
+### <mark>3. 우선순위 스케줄링 (Priority Scheduling) </mark>
 - 우선 순위가 제일 높은 프로세스에게 CPU 할당
 - 비선점형, 선점형 두 가지 방식 모두 존재
 - Starvation (기아) 문제가 있음
@@ -75,7 +75,7 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 </br>
 
 
-### 4. 라운드 로빈 스케줄링 (RR, Round Robin)
+### <mark>4. 라운드 로빈 스케줄링 (RR, Round Robin)</mark>
 - 각 프로세스는 동일한 크기의 할당 시간인 time quantum을 가짐
 - 할당 시간이 지나면 프로세스는 CPU를 뺏기고 Ready Queue 맨 뒤에서 줄을 서게 됨
 - 짧은 응답 시간 보장
@@ -88,7 +88,7 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 
 </br>
 
-### 5. 멀티레벨 큐 (Multi-Level Queue)
+### <mark>5. 멀티레벨 큐 (Multi-Level Queue)</mark>
 - Ready Queue를 우선순위에 따라 여러개로 분할
     - 빠른 응답을 필요로하는 대화형 작업은 전위 큐에 넣고 주로 라운드로빈을 사용
     - 계산 위주의 작업은 후위 큐에 넣고 주로 FCFS를 사용
@@ -103,7 +103,7 @@ Dispather를 통해 CPU를 해당 프로세스에게 넘겨준다. 이 과정이
 
 </br>
         
-### 6. 멀티 레벨 피드백 큐 (Multi-Level Feedback Queue) 
+### <mark>6. 멀티 레벨 피드백 큐 (Multi-Level Feedback Queue)</mark>
 - 프로세스가 여러개로 분할된 Ready Queue 내에서 다른 큐로 이동이 가능
 - aging 기법으로 구현 가능
     - 우선순위가 낮은 큐에서 오래 기다렸으면 우선순위가 높은 큐로 승격하는 방식
