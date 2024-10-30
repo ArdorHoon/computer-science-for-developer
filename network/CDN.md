@@ -2,10 +2,17 @@
 
 <mark>**Content Delivery Network**의 약자인 CDN은 **지리적 제약 없이 전 세계 사용자에게 빠르고 안전하게 콘텐츠를 전송**할 수 있는 콘텐츠 전송 기술</mark></br>
 
-![cdn](https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821)
+
+</br>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821" width="70%" height="70%"></p>
+<p align="center>
 
 - 왼쪽 : CDN을 사용하지 않을 경우
 - 오른쪽 : CDN을 사용할 경우
+
+
+</br></br>
 
 CDN은 서버와 사용자 사이의 물리적인 거리를 줄여 콘텐츠 로딩에 소요되는 시간을 최소화</br>
 CDN은 각 지역에 캐시 서버(PoP, Points of presence)를 분산 배치해, 근접한 사용자의 요청에 원본 서버가 아닌 캐시 서버가 콘텐츠를 전달
@@ -17,6 +24,9 @@ CDN은 각 지역에 캐시 서버(PoP, Points of presence)를 분산 배치해,
 인터넷을 통해 비즈니스를 운영하거나 웹 사이트에서 그래픽 이미지, 동영상 파일 등의 콘텐츠를 제공한다면 CDN 서비스를 이용할 필요가 있다.</br>
 
 CDN은 동영상 스트리밍이나 온라인 게임, 대용량 파일 전송, 그리고 해상도가 높아 용량이 큰 이미지를 다루는 쇼핑몰, 포털 사이트 등에서 안정적인 서비스 제공을 위해 활용되고 있다.
+
+
+</br>
 
 
 ## CDN 사용 이점
