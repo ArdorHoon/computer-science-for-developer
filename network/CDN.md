@@ -7,17 +7,14 @@
 <p align="center">
 <img src="https://github.com/user-attachments/assets/4908eca9-b7f0-4c5e-93f1-e745eebdb821" width="50%" height="50%"></p>
 <p align="center>
-
+  
 - 왼쪽 : CDN을 사용하지 않을 경우
 - 오른쪽 : CDN을 사용할 경우
 
 
 </br>
 
-CDN은 서버와 사용자 사이의 물리적인 거리를 줄여 콘텐츠 로딩에 소요되는 시간을 최소화</br>
-CDN은 각 지역에 캐시 서버(PoP, Points of presence)를 분산 배치해, 근접한 사용자의 요청에 원본 서버가 아닌 캐시 서버가 콘텐츠를 전달
-
-
+CDN은 서버와 사용자 사이의 물리적인 거리를 줄여 콘텐츠 로딩에 소요되는 시간을 최소화한다. CDN은 각 지역에 캐시 서버(PoP, Points of presence)를 분산 배치해, 근접한 사용자의 요청에 원본 서버가 아닌 캐시 서버가 콘텐츠를 전달한다.
 </br>
 
 ## CDN 사용 이유
