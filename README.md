@@ -17,6 +17,7 @@
 * ### OS
   - [프로세스와 스레드](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/operating-system/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80_%EC%8A%A4%EB%A0%88%EB%93%9C.md)
   - [CPU Scheduling과 알고리즘](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/operating-system/CPU%20Scheduling%EA%B3%BC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md)
+  - [메모리 관리](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/operating-system/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EA%B4%80%EB%A6%AC.md)
 
 * ### DataBase
 
