@@ -28,7 +28,10 @@ GC는 특정 객체가 garbage인지 아닌지 판단하기 위해, Reachability
 객체에 reference가 있다면 Reachable로 구분되고, 객체가 유효한 reference가 없다면 Unreachable로 구분해서 수거한다.
 
 
-![jvm_object](https://github.com/user-attachments/assets/532fe553-77a9-477f-9a12-074abed3679c)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/532fe553-77a9-477f-9a12-074abed3679c" width="70%" height="70%"></br>
+</p></br>
+
 
 
 
