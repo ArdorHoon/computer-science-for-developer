@@ -23,6 +23,12 @@ C언어 같은 경우, free() 함수를 통해 개발자가 직접 메모리를 
 
 ## Garbage Collection 대상
 
+GC는 특정 객체가 garbage인지 아닌지 판단하기 위해, Reachability(도달성)이라는 개념을 사용한다.
+
+객체에 reference가 있다면 Reachable로 구분되고, 객체가 유효한 reference가 없다면 Unreachable로 구분해서 수거한다.
+
+
+![jvm_object](https://github.com/user-attachments/assets/532fe553-77a9-477f-9a12-074abed3679c)
 
 
 
