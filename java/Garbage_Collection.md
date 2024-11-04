@@ -21,7 +21,7 @@ C언어 같은 경우, free() 함수를 통해 개발자가 직접 메모리를 
 위의 문제를 최소화 하기 위해 GC 최적화 작업(GC 튜닝)을 한다.
 
 
-## Garbage Collection 대상
+## 1️⃣ Garbage Collection 대상
 
 GC는 특정 객체가 garbage인지 아닌지 판단하기 위해, Reachability(도달성)이라는 개념을 사용한다.
 
@@ -38,9 +38,9 @@ JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되�
 
 </br>
 
-## Garbage Collection 동작 방식
+## 2️⃣ Garbage Collection 동작 방식
 
-### Mark and Sweep
+### 🏝️ Mark and Sweep
 
 
 <p align="center">
@@ -59,7 +59,7 @@ JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되�
 </br>
 
 
-## Heap 메모리 구조
+## 3️⃣ Heap 메모리 구조
 
 JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 1. 대부분의 객체는 금방 접근 불가능한 상태가 돤다. (Unreachable)
@@ -77,7 +77,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 
 
 
-#### Young Generation (Young 영역)
+### 🌋 <mark>Young Generation (Young 영역)</mark>
 - 새롭게 객체가 할당되는 영역
 - 대부분 객체가 금방 Unreachable 상태가 되기 때문에, 많은 객체가 Young 영역에서 생성되었다가 사라짐
 - Young 영역은 Eden, Survival0, Survival1 3가지 영역으로 나눈다. 
@@ -89,7 +89,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 
 </br>
 
-#### Old Generation (Old 영역)
+### 🌋 <mark>Old Generation (Old 영역)</mark>
 - Young 영역에서 Reachable 상태를 유지하여 살아남은 객체가 복사되는 영역
 - Young 영역보다 크게 할당되며, 영역의 크기가 큰 만큼 Garbage는 적게 발생
 - java7 까지는 Parmanent 영역까지 있엇지만 이후에 Native Method Stack에 편입
@@ -99,7 +99,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 </br>
 
 
-## Minor GC 그리고 Major GC
+## 4️⃣ Minor GC 그리고 Major GC
 
 
 <p align="center">
@@ -107,7 +107,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 </p></br>
 
 
-### Minor GC
+### 🌐 <mark>Minor GC</mark>
 
 1. 새로 생성된 객체가 Eden 영역에 할당
 2. 객체가 계속 생성디어 Eden 영역이 꽉차게 되고 Minor GC가 실행 (mark & sweep)
@@ -123,7 +123,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 </br>
 
 
-### Major GC (Full GC)
+### 🌐 <mark>Major GC (Full GC)</mark>
 1. Old 영역의 메모리가 부족해지면 발생
 2. Old 영역에 있는 모든 객체들을 검사하여 Unreachable한 객체들을 한꺼번에 삭제하는 Major GC 실행 
 
