@@ -49,7 +49,7 @@ JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되�
 
 
 
-- <mark>Mark</mark> : 사용되는 메모리와 사용되지 않는 메모리를 식별하는 작업
+- <mark>Mark</mark> : 사용되는 메모리와 사용되지 않는 메모리를 식별하는 작업 (CG Root Space로부터 그래프 순회 방식으로 찾아냄)
 - <mark>Sweep</mark> : Mark 되지 않은 메모리를 해제하는 작업
 
 </br>
@@ -71,7 +71,33 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 
 객체의 생존 기간에 따라 물리적인 Heap 영역을 나누게 되었고 <code>Young</code>, <code>Old</code> 총 2가지 영역으로 설계되었다. 
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/eb4746e9-412f-47e6-9ec1-fdc6f05e6a1a" width="80%" height="80%"></br>
+</p></br>
 
 
 
+#### Young Generation (Young 영역)
+- 새롭게 객체가 할당되는 영역
+- 대부분 객체가 금방 Unreachable 상태가 되기 때문에, 많은 객체가 Young 영역에서 생성되었다가 사라짐
+- Young 영역은 Eden, Survival0, Survival1 3가지 영역으로 나눈다. 
+- Young 영역에 대한 가비지 컬렉션을 Minor CG라고 함
 
+> Eden : new를 통해 새로 생성된 객체가 위치
+> Survivor 0 / Survivor 1 : 
+
+
+</br>
+
+#### Old Generation (Old 영역)
+- Young 영역에서 Reachable 상태를 유지하여 살아남은 객체가 복사되는 영역
+- Young 영역보다 크게 할당되며, 영역의 크기가 큰 만큼 Garbage는 적게 발생
+- java7 까지는 Parmanent 영역까지 있엇지만 이후에 Native Method Stack에 편입
+- Old 영역에 대한 가비지 컬렉션을 Major GC라고 함
+
+
+### Minor GC
+
+
+
+### Major GC
