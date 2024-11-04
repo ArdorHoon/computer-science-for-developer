@@ -81,7 +81,7 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 - 새롭게 객체가 할당되는 영역
 - 대부분 객체가 금방 Unreachable 상태가 되기 때문에, 많은 객체가 Young 영역에서 생성되었다가 사라짐
 - Young 영역은 Eden, Survival0, Survival1 3가지 영역으로 나눈다. 
-- Young 영역에 대한 가비지 컬렉션을 Minor CG라고 함
+- Young 영역에 대한 가비지 컬렉션을 Minor GC라고 함
 
 > Eden : new를 통해 새로 생성된 객체가 위치</br>
 > Survivor 0 / Survivor 1 : 최소 1번의 GC 이상 살아남은 객체가 존재하는 영역 (둘 중 하나는 꼭 비어 있어야함)
