@@ -59,7 +59,7 @@ JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되�
 </br>
 
 
-### Heap 메모리 구조 (Minor GC & Major GC)
+## Heap 메모리 구조
 
 JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 1. 대부분의 객체는 금방 접근 불가능한 상태가 돤다. (Unreachable)
@@ -96,6 +96,11 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 - Old 영역에 대한 가비지 컬렉션을 Major GC라고 함
 
 
+</br>
+
+
+## Minor GC 그리고 Major GC
+
 ### Minor GC
 
 1. 새로 생성된 객체가 Eden 영역에 할당
@@ -112,5 +117,20 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 </br>
 
 
-
 ### Major GC (Full GC)
+1. Old 영역의 메모리가 부족해지면 발생
+2. Old 영역에 있는 모든 객체들을 검사하여 Unreachable한 객체들을 한꺼번에 삭제하는 Major GC 실행 
+
+> 일반적으로 Minor GC는 0.5초에서 1초 사이에 끝나지만 Major GC는 10배 이상의 시간을 사용한다. Major GC가 일어날 때 앞서 말한 Stop the world 문제가 발생하게 된다. 따라서 자바 개발진들은 계속해서 가비지 컬렉션 알고리즘을 발전 시켰다.
+
+
+</br>
+
+간단히 표로 정리하면 아래와 같다. 
+
+|GC 종류|Minor GC|Major GC|
+|------|---|---|
+|대상|Young Generation|Old Generation|
+|실행 시점|Eden 영역이 꽉 찬 경우 |Old 영역이 꽉 찬 경우|
+|실행 속도|빠름|느림|
+
