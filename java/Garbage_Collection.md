@@ -101,6 +101,12 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 
 ## Minor GC 그리고 Major GC
 
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/7903e3c0-608b-479e-bd90-cf17d26392b9" width="70%" height="70%"></br>
+</p></br>
+
+
 ### Minor GC
 
 1. 새로 생성된 객체가 Eden 영역에 할당
