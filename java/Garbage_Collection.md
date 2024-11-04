@@ -33,6 +33,7 @@ GC는 특정 객체가 garbage인지 아닌지 판단하기 위해, Reachability
 </p></br>
 
 
+JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되고 Native Method area나 Stack area에서는 해당 객체의 주소를 참조하는 형식으로 구성된다. 이 때 Heap 영역에 생성된 객체 중 어디도 참조하고 있지 않은 객체들을 주기적으로 Garbage Collector에서 수거해 삭제해준다.
 
 
 ## Heap 메모리 구조 (Minor GC & Major GC)
