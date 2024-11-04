@@ -83,8 +83,8 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 - Young 영역은 Eden, Survival0, Survival1 3가지 영역으로 나눈다. 
 - Young 영역에 대한 가비지 컬렉션을 Minor CG라고 함
 
-> Eden : new를 통해 새로 생성된 객체가 위치
-> Survivor 0 / Survivor 1 : 
+> Eden : new를 통해 새로 생성된 객체가 위치</br>
+> Survivor 0 / Survivor 1 : 최소 1번의 GC 이상 살아남은 객체가 존재하는 영역 (둘 중 하나는 꼭 비어 있어야함)
 
 
 </br>
@@ -98,6 +98,19 @@ JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 
 ### Minor GC
 
+1. 새로 생성된 객체가 Eden 영역에 할당
+2. 객체가 계속 생성디어 Eden 영역이 꽉차게 되고 Minor GC가 실행 (mark & sweep)
+   1. Eden 영역에서 사용되지 않는 객체의 메모리가 해제 
+   2. Eden 영역에서 살아남은 객체는 1개의 Survivor 영역으로 이동 (이 때 해당 객체의 age를 하나 증가시킴)
+3. 1~2번 과정이 반복되다가 Survivor 영역이 가득 차게 되면 Survivor 영역의 살아남은 객체를 다른 Survivor 영역으로 이동
+4. 이러한 과정을 반복하여 살아남은 객체는 Old generation으로 이동(Promotion)
+
+> age : Survivor 영역에서 객체의 객체가 살아남은 횟수를 의미하는 값, Object Header에 기록</br>
+> 만일 age 값이 임계값에 다다르면 Promotion(Old 영역으로 이동) 여부를 결정 (일반적인 임계값 31) 
 
 
-### Major GC
+</br>
+
+
+
+### Major GC (Full GC)
