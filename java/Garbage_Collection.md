@@ -36,14 +36,42 @@ GC는 특정 객체가 garbage인지 아닌지 판단하기 위해, Reachability
 JVM 메모리에서는 객체들은 실질적으로 Heap영역에서 생성되고 Native Method area나 Stack area에서는 해당 객체의 주소를 참조하는 형식으로 구성된다. 이 때 Heap 영역에 생성된 객체 중 어디도 참조하고 있지 않은 객체들을 주기적으로 Garbage Collector에서 수거해 삭제해준다.
 
 
-## Heap 메모리 구조 (Minor GC & Major GC)
+</br>
+
+## Garbage Collection 동작 방식
+
+### Mark and Sweep
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/aa53eb1b-88f2-47f6-bf4c-5d88f7704348" width="70%" height="70%"></br>
+</p></br>
+
+
+
+- <mark>Mark</mark> : 사용되는 메모리와 사용되지 않는 메모리를 식별하는 작업
+- <mark>Sweep</mark> : Mark 되지 않은 메모리를 해제하는 작업
+
+</br>
+
+앞서 Stop The world를 통해 GC가 동작할 때, GC는 stack 모든 변수 또는 Reachable한 객체를 스캔하면서 어떤 객체를 참조하고 있는지를 탐색한다. 이를 통해 사용되고 있는 메모리를 식별(mark)하고 Mark가 되지 않은 객체들을 메모리에서 제거(sweep)한다.
+
+</br>
+
+
+### Heap 메모리 구조 (Minor GC & Major GC)
 
 JVM의 Heap 영역은 2가지를 전제로 설계 되었다.
 1. 대부분의 객체는 금방 접근 불가능한 상태가 돤다. (Unreachable)
 2. 오래된 객체에서 새로운 객체로의 참조는 아주 적게 존재한다.
 
-이를 종합하면 "객체는 대부분 일회성되며, 메모리에 오랫동안 남아있는 경우는 드물다"라고 정의할 수 있다.
+이를 종합하면 **"객체는 대부분 일회성되며, 메모리에 오랫동안 남아있는 경우는 드물다"**"라고 정의할 수 있다.
 
 </br>
 
 객체의 생존 기간에 따라 물리적인 Heap 영역을 나누게 되었고 <code>Young</code>, <code>Old</code> 총 2가지 영역으로 설계되었다. 
+
+
+
+
+
