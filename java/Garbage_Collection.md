@@ -6,15 +6,18 @@ C언어 같은 경우, free() 함수를 통해 개발자가 직접 메모리를 
 
 하지만 장점만 있는 것은 아니다. 메모리를 언제 해제되는지 정확하게 개발자는 알 수 없고, GC가 동작하는 동안에는 다른 동작을 멈추기 때문에 Overhead가 발생되는 문제점이 있다. (Stop-The-World)
 
+</br>
 
-> Stop the World
-> GC를 수행하기 위해 JVM이 프로그램 실행을 멈추는 현상을 의미
+
+> **Stop the World**</br>
+> GC를 수행하기 위해 JVM이 프로그램 실행을 멈추는 현상을 의미</br>
 > 이 시간 동안 다른 Thread는 멈춰있기 때문에 이 시간을 최소화 시키는 것이 핵심이다.
-> 
-> ![stw](https://github.com/user-attachments/assets/fd70c1a8-192b-471a-bcbf-73122549a05c)
+>
+><img src="https://github.com/user-attachments/assets/fd70c1a8-192b-471a-bcbf-73122549a05c" width="40%" height="40%">
 
 
+</br>
 
-
+내용 추가..
 
 
