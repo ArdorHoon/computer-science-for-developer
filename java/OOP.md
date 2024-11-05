@@ -3,6 +3,9 @@
 <mark>객체 지향의 핵심은 적절한 책임을 수행하는 역할 간의 유연하고 견고한 협력 관계를 구축하는 것</mark>
 
 
+</br>
+
+
 ## OOP의 핵심 객체와 클래스
 - 객체 : 클래스의 인스턴스 / 속성(Field)과 행위(Method)로 구성되어 있음
 - 클래스 : 객체에 대한 템플릿
@@ -14,6 +17,47 @@
 
 ### 캡슐화(Encapsulation)
 
+<mark>객체의 속성(Field)과 행위(Method)를 하나로 묶고, 외부로 부터 내부를 감싸 숨기는 것</mark></br>
+
+보통 외부의 잘못된 접근을 막기 위해 클래스 내의 변수나 함수를 감추거나 드러내는 은닉성을 가지고 있다. 
+
+```java
+public class Car {
+	private String model;
+	private int speed;
+	
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	
+	public void getModel() {
+		return model;
+	 }
+	
+	public void getSpeed() {
+		return speed;
+	 }
+
+}
+public class Main {
+	public static void main(String[] args) {
+		Car car = new Car();
+		car.setModel("Kia");
+		car.setSpeed(200);
+
+		System.out.println("모델 :" +student.getModel());
+		System.out.println("속도 :" +student.getSpeed());
+	}
+}
+
+```
+
+차의 변수에 직접 접근을 못하도록 변수에 private 접근 제한자를 사용하였고 method를 통해 get/set을 할 수 있게 캡슐화 하였다. 
 
 
 </br>
@@ -55,7 +99,9 @@ public class main {
 </br>
 
 ### 다형성(Polymorphism)
-<mark>**어떤 객체의 속성이나 기능이 상황에 따라 여러 가지 형태를 가질 수 있는 성질**</mark>
+<mark>**어떤 객체의 속성이나 기능이 상황에 따라 여러 가지 형태를 가질 수 있는 성질**</mark></br>
+
+다형성의 대표적인 예로 Overloading과 Overriding이 있다. 
 
 #### Overloading (오버로딩)
 같은 이름의 메소드가 매개변수의 타입, 개수, 순서 등의 차이로 인해 다른 동작을 수행할 수 있도록 할 수 있다.
