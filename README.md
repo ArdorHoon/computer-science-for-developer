@@ -40,6 +40,7 @@
 * ### Java
   - [메모리 구조(JVM)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EA%B5%AC%EC%A1%B0(JVM).md)
   - [가비지 컬렉션(Garbage Collection)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/Garbage_Collection.md)
+  - [객체 지향 프로그래밍(OOP)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/OOP.md)
 
 * ### Spring Framework
    - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
