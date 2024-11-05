@@ -17,7 +17,7 @@
 
 ## OOP의 4가지 주요 개념
 
-### 캡슐화(Encapsulation)
+### 🌐 캡슐화(Encapsulation)
 
 <mark>객체의 속성(Field)과 행위(Method)를 하나로 묶고, 외부로 부터 내부를 감싸 숨기는 것</mark></br>
 
@@ -67,7 +67,7 @@ public class Main {
 
 
 
-### 상속(Inheritance)
+### 🌐 상속(Inheritance)
 하나의 클래스가 부모클래스의 속성과 핻동을 얻게 되는 방법
 
 ```java
@@ -100,7 +100,7 @@ public class main {
 
 </br>
 
-### 다형성(Polymorphism)
+### 🌐 다형성(Polymorphism)
 <mark>**어떤 객체의 속성이나 기능이 상황에 따라 여러 가지 형태를 가질 수 있는 성질**</mark></br>
 
 다형성의 대표적인 예로 Overloading과 Overriding이 있다. 
@@ -148,7 +148,7 @@ public class Car extends Vehicle {
 </br>
 
 
-### 추상화(Abstraction)
+### 🌐 추상화(Abstraction)
 <mark>**객체의 공통적인 속성과 기능을 추출하여 정의하는것**</mark>
 
 예를 들어 자동차와 오토바이 등 다양한 이동 수단을 하나의 interface를 정의할 수 있다.
