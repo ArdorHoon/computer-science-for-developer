@@ -42,7 +42,7 @@
   - [가비지 컬렉션(Garbage Collection)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/Garbage_Collection.md)
   - [객체 지향 프로그래밍(OOP)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/OOP.md)
   - [객체 지향 설계 원칙(SOLID)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84_%EC%9B%90%EC%B9%99.md)
-  - [기본/ 참조 자료형과 래퍼 클래스]()
+  - [기본/ 참조 자료형과 래퍼 클래스](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EA%B8%B0%EB%B3%B8_%EC%B0%B8%EC%A1%B0_%EC%9E%90%EB%A3%8C%ED%98%95%EA%B3%BC_%EB%9E%98%ED%8D%BC_%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 * ### Spring Framework
    - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
