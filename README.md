@@ -6,7 +6,7 @@
 
 ## Introduction
 
-> 공부 차원에서 정리하는 CS 지식 모음집 💻, 향후 클라우드 Part도 추가예정
+> Backend Engineer에게 필요한 지식 위주로 정리하는 CS 지식 모음집 💻
 
 (잘못된 내용이 있을 수 있으니, [**이슈**](https://github.com/ArdorHoon/computer-science-for-developer/issues)또는 [**PR**](https://github.com/ArdorHoon/computer-science-for-developer/pulls)로 알려주세요! 😉)
 
