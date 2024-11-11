@@ -34,10 +34,10 @@
 
 ## RDBMS 종류
 
-- Key-Value Database : KEY-VALUE 하나의 묶음(Unique)으로 저장되는 구조, 단순한 구조이기에 속도가 빠르며 분산 저장 시 용이(ex : Redis, VoldeMorte, Oracle NoSQL)
-- Wide-Column Database : 행마다 키와 해당 값을 저장할 때마다 각각 다른값의 다른 수의 스키마를 가질 수 있다. (ex : GoogleBigTable, Vertica, Hbase)
-- Document Database : 테이블의 스키마가 유동적, 즉 레코드마다 각각 다른 스키마를 가질 수 있다. 보통 XML, JSON을 이용해 레코드 저장 (ex : MongoDB, CouchDB, Azure Cosmos DB)
-- Graph Database : 데이터를 노드로 표현하며 노드 사이의 관계를 엣지로 표현, RDBMS 보다 성능이 좋고 유지보수 용이 (ex : Neo4j, BlazeGraph, OrientDB) 
+- <mark>**Key-Value Database**</mark> : KEY-VALUE 하나의 묶음(Unique)으로 저장되는 구조, 단순한 구조이기에 속도가 빠르며 분산 저장 시 용이(ex : Redis, VoldeMorte, Oracle NoSQL)
+- <mark>**Wide-Column Database**</mark> : 행마다 키와 해당 값을 저장할 때마다 각각 다른값의 다른 수의 스키마를 가질 수 있다. (ex : GoogleBigTable, Vertica, Hbase)
+- <mark>**Document Database**</mark> : 테이블의 스키마가 유동적, 즉 레코드마다 각각 다른 스키마를 가질 수 있다. 보통 XML, JSON을 이용해 레코드 저장 (ex : MongoDB, CouchDB, Azure Cosmos DB)
+- <mark>**Graph Database**</mark> : 데이터를 노드로 표현하며 노드 사이의 관계를 엣지로 표현, RDBMS 보다 성능이 좋고 유지보수 용이 (ex : Neo4j, BlazeGraph, OrientDB) 
 
 </br>
 
