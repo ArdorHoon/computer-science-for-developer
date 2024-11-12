@@ -46,6 +46,7 @@
   - [기본/ 참조 자료형과 래퍼 클래스](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EA%B8%B0%EB%B3%B8_%EC%B0%B8%EC%A1%B0_%EC%9E%90%EB%A3%8C%ED%98%95%EA%B3%BC_%EB%9E%98%ED%8D%BC_%ED%81%B4%EB%9E%98%EC%8A%A4.md)
   - [상속과 다형성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EC%83%81%EC%86%8D%EA%B3%BC_%EB%8B%A4%ED%98%95%EC%84%B1.md)
   - [예외 처리](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EC%98%88%EC%99%B8_%EC%B2%98%EB%A6%AC.md)
+  - [람다 표현식](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%9E%8C%EB%8B%A4_%ED%91%9C%ED%98%84%EC%8B%9D.md)
 
 * ### Spring Framework
    - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
