@@ -58,15 +58,32 @@ Stream 객체는 원본 데이터를 변경하지 않습니다. 단, 새로운 �
 
 그레서 보통 원본 데이터 변경 없이 원본 데이터에서 새로운 데이터를 만들어내야 할 때 많이 사용한다. 해당 방법을 통해 쉽게 새로운 데이터를 만들어 낼 수 있다. 
 
+</br>
 
 ### 2️⃣ 일회용이다.
 
+스트림은 데이터를 모두 읽고나면 사라지는 일회용이다. 즉 이미 한번 사용한 스트림 객체를다시 사용할 경우 runtime error가 발생한다.
 
+```java
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape"});
+
+        Stream<String> stream = fruitList.stream();
+        List<String> newFruitList =stream.sorted().collect(Collectors.toList());
+        
+        //stream 객체 재사용 시, java.lang.IllegalStateException: stream has already been operated upon or closed 발생
+        stream.forEach(System.out::println);
+
+
+```
+
+</br>
 
 
 ### 3️⃣ 내부 반복으로 작업을 처리한다. 
 
 
+
+</br>
 
 ## 자주 사용하는 Stream API
 
