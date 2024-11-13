@@ -38,6 +38,8 @@ Stream을 이용하면 한 줄로 표현할 수 있다.
 
 ```
 
+</br>
+
 ## 🏷️ Stream API 특징
 
 
@@ -157,4 +159,25 @@ Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
   List<String> list = fruitList.stream().map(n -> n.toLowerCase()).toList(); //result : [melon, apple, kiwi, grape, apple]
 
 ```
+
+</br>
+
+### 🔵 Max/Min/Sum/Average/Count
+
+Stream 에서 최종적으로 결과 값을 내기 위한 연산 (최대, 최소, 합계, 평균, 개수)
+
+```java
+
+        OptionalInt min = IntStream.of(1, 3, 5, 7, 9).min();
+        int max = IntStream.of().max().orElse(0);
+        IntStream.of(1, 3, 5, 7, 9).average().ifPresent(System.out::println);
+
+        long count = IntStream.of(1, 3, 5, 7, 9).count(); //stream 비어 있는 경우 0
+        long sum = LongStream.of(1, 3, 5, 7, 9).sum(); // stream 비어 있는 경우 0
+
+```
+
+</br>
+
+
 
