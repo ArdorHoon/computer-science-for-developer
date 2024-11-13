@@ -38,7 +38,7 @@ Stream을 이용하면 한 줄로 표현할 수 있다.
 
 ```
 
-## Stream API 특징
+## 🏷️ Stream API 특징
 
 
 ### 1️⃣ 원본의 데이터를 변경하지 않는다. 
@@ -86,7 +86,7 @@ Stream 사용 시, 코드가 간결해지는 이유는 내부 반복 때문이�
 
 </br>
 
-## 자주 사용하는 Stream API
+## 🏷️ 자주 사용하는 Stream API
 
 
 ### 🔵 Sorted
