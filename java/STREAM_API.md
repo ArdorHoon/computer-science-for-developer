@@ -164,7 +164,7 @@ Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
 
 ### 🔵 Max/Min/Sum/Average/Count
 
-Stream 에서 최종적으로 결과 값을 내기 위한 연산 (최대, 최소, 합계, 평균, 개수)
+Stream 에서 최종적으로 결과 값을 내기 위한 함수 (최대, 최소, 합계, 평균, 개수)
 
 ```java
 
@@ -179,5 +179,37 @@ Stream 에서 최종적으로 결과 값을 내기 위한 연산 (최대, 최소
 
 </br>
 
+### 🔵 collect
+
+Stream의 요소들을 List나 Set, Map, 등 다른 종류의 결과로 수집하고 싶을 때 사용하는 함수
+
+```java
+
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
+
+        List<String> list = fruitList.stream().collect(Collectors.toList()); // list로 반환받기
+
+        //collectors.joining() : 1개의 String으로 이어붙이고 싶을 때 사용
+        String result = fruitList.stream().collect(Collectors.joining()); // result : MelonAppleKiwiGrapeApple
+        String result2 = fruitList.stream().collect(Collectors.joining(" ")); // result : Melon Apple Kiwi Grape Apple
+
+
+       //collectors.groupingBy() : 연산 결과를 특정 그룹으로 묶기를 원할 때 사용
+        List<Fruit> fruits = Arrays.asList(
+                new Fruit(1, "Melon"),
+                new Fruit(3, "Grape"),
+                new Fruit(1, "Apple"),
+                new Fruit(2, "Kiwi")
+        );
+
+        Map<Integer, List<Fruit>> mapOfList = fruits.stream()
+                        .collect(Collectors.groupingBy(Fruit::getAmount));
+
+        /*
+              result : {1=[Fruit{amount=1, name='Melon'}, Fruit{amount=1, name='Apple'}], 2=[Fruit{amount=1, name='Kiwi'}], 3=[Fruit{amount=1, name='Grape'}]}
+        */
+```
+
+</br>
 
 
