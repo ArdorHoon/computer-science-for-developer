@@ -41,18 +41,46 @@ Stream을 이용하면 한 줄로 표현할 수 있다.
 ## Stream API 특징
 
 
-### 원본의 데이터를 변경하지 않는다. 
+### 1️⃣ 원본의 데이터를 변경하지 않는다. 
+
+Stream 객체는 원본 데이터를 변경하지 않습니다. 단, 새로운 변수에 직접 할당한다면 해당 데이터는 조작한 데이터로 나오게 된다.
+
+```java
+
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape"});
+        List<String> newFruitList = fruitList.stream().sorted().collect(Collectors.toList());
+
+        System.out.println(fruitList); // result : [Melon, Apple, Kiwi, Grape]
+        System.out.println(newFruitList); // result : [Apple, Grape, Kiwi, Melon]
+
+```
+
+
+그레서 보통 원본 데이터 변경 없이 원본 데이터에서 새로운 데이터를 만들어내야 할 때 많이 사용한다. 해당 방법을 통해 쉽게 새로운 데이터를 만들어 낼 수 있다. 
+
+
+### 2️⃣ 일회용이다.
 
 
 
-### 일회용이다.
+
+### 3️⃣ 내부 반복으로 작업을 처리한다. 
 
 
 
+## 자주 사용하는 Stream API
 
-### 내부 반복으로 작업을 처리한다. 
 
 
+### forEach
+
+
+
+### filter
+
+
+
+### map
 
 
 
