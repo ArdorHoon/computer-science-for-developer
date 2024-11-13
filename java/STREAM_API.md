@@ -92,7 +92,7 @@ Stream 사용 시, 코드가 간결해지는 이유는 내부 반복 때문이�
 
 
 ### 🔵 Sorted
-Stream의 요소들을 정렬하기 위해 사용, 파라미터로 Comparator를 넘길 수 있다. 
+<mark>Stream의 요소들을 정렬하기 위해 사용</mark>, 파라미터로 Comparator를 넘길 수 있다. 
 
 ```java
         List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape"});
@@ -108,7 +108,7 @@ Stream의 요소들을 정렬하기 위해 사용, 파라미터로 Comparator를
 
 
 ### 🔵 Distinct
-Stream 요소의 중복된 데이터를 제거
+<mark>Stream 요소의 중복된 데이터를 제거</mark>
 
 ```java
         List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
@@ -122,7 +122,7 @@ Stream 요소의 중복된 데이터를 제거
 
 ### 🔵 forEach
 
-Stream에서 요소들을 반복하기 위한 연산
+<mark>Stream에서 요소들을 반복하기 위한 연산/mark>
 
 ```java
         List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
@@ -135,7 +135,7 @@ Stream에서 요소들을 반복하기 위한 연산
 
 
 ### 🔵 filter
-Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션을 만들어내는 연산
+<mark>Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션을 만들어내는 연산</mark>
 
 ```java
 
@@ -150,7 +150,7 @@ Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션�
 
 ### 🔵 map
 
-Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
+<mark>Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산</mark>
 
 ```java
 
@@ -164,7 +164,7 @@ Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
 
 ### 🔵 Max/Min/Sum/Average/Count
 
-Stream 에서 최종적으로 결과 값을 내기 위한 함수 (최대, 최소, 합계, 평균, 개수)
+<mark>Stream 에서 최종적으로 결과 값을 내기 위한 함수 (최대, 최소, 합계, 평균, 개수)</mark>
 
 ```java
 
@@ -181,7 +181,7 @@ Stream 에서 최종적으로 결과 값을 내기 위한 함수 (최대, 최소
 
 ### 🔵 collect
 
-Stream의 요소들을 List나 Set, Map, 등 다른 종류의 결과로 수집하고 싶을 때 사용하는 함수
+<mark>Stream의 요소들을 List나 Set, Map, 등 다른 종류의 결과로 수집하고 싶을 때 사용하는 함수</mark>
 
 ```java
 
