@@ -89,7 +89,7 @@ Stream 사용 시, 코드가 간결해지는 이유는 내부 반복 때문이�
 ## 자주 사용하는 Stream API
 
 
-### Sorted
+### 🔵 Sorted
 Stream의 요소들을 정렬하기 위해 사용, 파라미터로 Comparator를 넘길 수 있다. 
 
 ```java
@@ -105,7 +105,7 @@ Stream의 요소들을 정렬하기 위해 사용, 파라미터로 Comparator를
 </br>
 
 
-### Distinct
+### 🔵 Distinct
 Stream 요소의 중복된 데이터를 제거
 
 ```java
@@ -118,7 +118,7 @@ Stream 요소의 중복된 데이터를 제거
 </br>
 
 
-### forEach
+### 🔵 forEach
 
 Stream에서 요소들을 반복하기 위한 연산
 
@@ -132,7 +132,7 @@ Stream에서 요소들을 반복하기 위한 연산
 </br>
 
 
-### filter
+### 🔵 filter
 Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션을 만들어내는 연산
 
 ```java
@@ -146,7 +146,7 @@ Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션�
 
 </br>
 
-### map
+### 🔵 map
 
 Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
 
