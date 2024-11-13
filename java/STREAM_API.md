@@ -81,6 +81,7 @@ Stream 객체는 원본 데이터를 변경하지 않습니다. 단, 새로운 �
 
 ### 3️⃣ 내부 반복으로 작업을 처리한다. 
 
+Stream 사용 시, 코드가 간결해지는 이유는 내부 반복 때문이다. 일반적으로 반복문을 작성하기 위해서는 for문이나 while문을 사용해야 하는데 stream에서는 해당 문법들을 내부에 숨기고 있어서 간결한 코드 작성이 가능하다.
 
 
 </br>
@@ -88,16 +89,72 @@ Stream 객체는 원본 데이터를 변경하지 않습니다. 단, 새로운 �
 ## 자주 사용하는 Stream API
 
 
+### Sorted
+Stream의 요소들을 정렬하기 위해 사용, 파라미터로 Comparator를 넘길 수 있다. 
+
+```java
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape"});
+
+        //오름차순 정렬
+        fruitList.stream().sorted().toList();
+        
+        //내림차순 정렬
+        fruitList.stream().sorted(Comparator.reverseOrder()).toList();
+```
+
+</br>
+
+
+### Distinct
+Stream 요소의 중복된 데이터를 제거
+
+```java
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
+
+        List<String> list = fruitList.stream().distinct().toList(); //result : [Melon, Apple, Kiwi, Grape]
+```
+
+
+</br>
+
 
 ### forEach
 
+Stream에서 요소들을 반복하기 위한 연산
+
+```java
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
+
+        fruitList.stream().forEach(System.out::println);
+
+```
+
+</br>
 
 
 ### filter
+Stream에서 조건에 맞는 데이터만을 정제하여 더 작은 컬렉션을 만들어내는 연산
+
+```java
+
+        List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
+
+        List<String> list = fruitList.stream().filter(name -> name.contains("A")).toList(); //result : [Apple, Apple]
+
+```
 
 
+</br>
 
 ### map
 
+Stream 요소들을 변환하여 새로운 Stream을 형성하는 연산
 
+```java
+
+  List<String> fruitList = Arrays.asList(new String[] {"Melon", "Apple", "Kiwi", "Grape", "Apple"});
+
+  List<String> list = fruitList.stream().map(n -> n.toLowerCase()).toList(); //result : [melon, apple, kiwi, grape, apple]
+
+```
 
