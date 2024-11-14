@@ -7,8 +7,9 @@
 </br>
 
 
-
-![collection](https://github.com/user-attachments/assets/45ba79ed-f613-41a3-9e1a-19d27f303032)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/45ba79ed-f613-41a3-9e1a-19d27f303032" width="70%" height="70%"></br>
+</p>
 
 
 </br> 
