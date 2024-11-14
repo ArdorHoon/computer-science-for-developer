@@ -41,7 +41,7 @@
 
 순서가 있는 저장공간
 
-### 특징
+### 🟥 특징
 
 - 저장 순서가 유지되는 collection을 구현하는데 사용
 - 같은 요소의 중복 저장 허용
@@ -50,14 +50,14 @@
 - 요소 사이에 빈공간을 허용하지 않아서 삽입, 삭제 시 배열이 이동함
 
 
-### 주요 메서드
+### 🟥 주요 메서드
 - Object get(int index) :지정된 위치(index)에 있는 객체를 반환
 - Object remove(int index) : 지정된 위치(index)에 있는 객체를 삭제
 - int indexOf(Object o) : 지정된 객체의 위치(index)를 반환
 
 </br>
 
-#### ArrayList
+#### 🔶 ArrayList
 
 - 배열을 이용하여 만든 리스트
 - 테이터의 저장순서가 유지되고 중복 허용
@@ -81,7 +81,7 @@
 
 </br>
 
-#### LinkedList
+#### 🔶 LinkedList
 
 - 노드를 연결하여 리스트 처럼 만든 Collection
 - 테이터의 중간 삽입, 삭제가 빈번할 경우 빠른 성능 보장
@@ -101,7 +101,7 @@
 
 </br>
 
-#### Vector
+#### 🔶 Vector
 
 - ArrayList의 구형 버전
 - ArrayList와 차이는 모든 메소드가 동기화 되어 있어 Thread-safe하다.
@@ -119,7 +119,7 @@
 
 </br>
 
-#### Stack 
+#### 🔶 Stack 
 
 - LIFO(Last-In-First-Out) 자료구조
 - 들어올 때는 push, 나갈 때는 pop을 사용
