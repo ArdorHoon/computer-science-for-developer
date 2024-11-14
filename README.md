@@ -48,7 +48,7 @@
   - [예외 처리](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EC%98%88%EC%99%B8_%EC%B2%98%EB%A6%AC.md)
   - [람다 표현식](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%9E%8C%EB%8B%A4_%ED%91%9C%ED%98%84%EC%8B%9D.md)
   - [Stream API](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/STREAM_API.md)
-  - [Collection 정리](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/COLLECTION_%EC%A0%95%EB%A6%AC.md)
+  - [Collection Framework](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/COLLECTION_FRAMEWORK.md)
 
 * ### Spring Framework
    - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
