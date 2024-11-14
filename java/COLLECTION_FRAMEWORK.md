@@ -146,6 +146,7 @@
 - FIFO(First-In-First-Out) 구조
 - 추가할 때는 add, 꺼낼 때는 poll을 사용
 - java에서는 Queue 는 인터페이스이고 필요에 따라 큐 컬렉션 사용 가능
+- LinkedList 클래스를 통해서 Queue를 구현할 수 있다.
  
 
 ```java
