@@ -15,3 +15,33 @@
 </br> 
 
 
+## Collection interface
+
+
+</br> 
+
+
+## List interface
+
+
+
+</br> 
+
+
+## Queue interface
+
+
+
+</br> 
+
+
+## Set interface
+
+
+</br>
+
+
+## Map interface
+
+
+</br>
