@@ -174,9 +174,30 @@
 - 사이즈 제한 없음
 - null 요소는 저장되지 않음
 
+|Deque	| Stack | Queue|
+|----|---|---|
+|offerLast() |	push()|offer()|
+|pollLast()|pop()|-|
+|pollFirst()|-|	poll()|
+|peekFirst()|-|peek()|
+|peekLast()|peek()|-|
 
+```java
 
- 
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        deque.offerLast(10); // result : [10]
+        deque.offerFirst(20); // result : [20, 10]
+        deque.offerFirst(30); // result : [30, 20, 10]
+        deque.offerLast(40); // result : [30, 20, 10, 40]
+
+        deque.pollFirst(); // result : 30  <= [20, 10, 40]
+        deque.pollLast(); // result : [20, 10] => 40
+        deque.pollFirst(); // result : 20 <= [10]
+        deque.pollLast(); // result : [] => 10
+
+```
+
 
 </br> 
 
