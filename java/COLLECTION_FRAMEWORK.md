@@ -281,12 +281,13 @@
 
 #### 🔶 HashMap
 
-- Hashtable을 보완한 컬렉션
+- HashTable을 보완한 컬렉션 (HashTable은 동기화 지원, null 허용하지 않음)
 - 배열과 연결이 결합된 Hashing형태로, 키(key)와 값(value)을 묶어 하나의 데이터로 저장
 - 중복을 허용하지 않고 순서를 보장하지 않음 => 순서를 보장하고 싶으면 LinkedHashMap을 사용
 - null 허용
 - 추가, 삭제, 접근성이 모두 뛰어남
 - HashMap은 비동기로 작동하기에 멀티 쓰레드 환경에서 쓰기 어려움, 대신에 ConcurrentHashMap 사용
+
 
 
 ```java
