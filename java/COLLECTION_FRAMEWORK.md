@@ -262,5 +262,85 @@
 
 ## 5️⃣ Map interface
 
+- 키(Key)와 값(value)의 쌍으로 연관지어 이루어진 데이터의 집합
+- 키 : 고유한 값, 값 : 중복을 허용
+- 중복된 key 값으로 데이터를 저장한다면 기존의 값은 사라지고 새로 들어온 데이터로 교체
+- 저장 순서가 유지 되지 않음
+
+ ### 🟥 주요 메서드
+- void clear() : Map의 모든 객체를 삭제
+- boolean isEmpty() : Map이 비어있는지 확인
+- int size() : Map에 저장된 key-value쌍의 개수를 반환
+- Collection values() : Map에 저장된 모든 value객체를 반환
+- Set keySet() : Map에 저장된 모든 key객체를 반환
+- Object put(Object key, Object value) : Map에 key객체와 value객체를 연결(mapping)하여 저장
+- Object get(Object key) : 지정한 key객체에 대응하는 value객체를 반환
+- Object remove(Object key) : 지정한 key객체와 일치하는 key-value객체를 삭제
+
+
+
+#### 🔶 HashMap
+
+- Hashtable을 보완한 컬렉션
+- 배열과 연결이 결합된 Hashing형태로, 키(key)와 값(value)을 묶어 하나의 데이터로 저장
+- 중복을 허용하지 않고 순서를 보장하지 않음 => 순서를 보장하고 싶으면 LinkedHashMap을 사용
+- null 허용
+- 추가, 삭제, 접근성이 모두 뛰어남
+- HashMap은 비동기로 작동하기에 멀티 쓰레드 환경에서 쓰기 어려움, 대신에 ConcurrentHashMap 사용
+
+
+```java
+
+        Map<String, Integer> hashMap = new HashMap<>();
+
+        hashMap.put("jhon", 10);
+        hashMap.put("hoon", 20);
+        hashMap.put("hemi", 30);
+
+        hashMap.get("jhon"); // 10
+
+        hashMap.keySet().stream().forEach(key -> System.out.println(key + " : " + hashMap.get(key)));
+
+        //result
+        //    hoon : 20
+        //    hemi : 30
+        //    jhon : 10
+
+```
+
+</br>
+
+
+#### 🔶 TreeMap
+
+- 이진 검색 트리의 형태로 키와 값의 쌍으로 이루어진 데이터를 저장
+- SortedMap을 구현하고 있어 Key 값을 기준으로 정렬
+- 키와 값을 저장하는 동시에 정렬하기 때문에 저장에 시간이 걸림 (단, 검색 속도는 빠르다)
+- 정렬 순서 : 숫자 -> 알파벳 대문자 -> 알파벳 소문자 -> 한글
+
+
+```java
+
+        Map<Integer, String> treeMap = new TreeMap<>();
+
+        treeMap.put(10, "Jane");
+        treeMap.put(20, "Juicy");
+        treeMap.put(20, "Mike"); // 중복을 허용하지 않기에 Mike 가 삽입
+        treeMap.put(30, "Marty");
+        treeMap.put(40, "Ardor");
+        treeMap.put(50, "Thor");
+
+
+        treeMap.keySet().stream().forEach(key ->  System.out.println(key + " : " + treeMap.get(key)));
+
+        /*
+        10 : Jane
+        20 : Mike
+        30 : Marty
+        40 : Ardor
+        50 : Thor
+         */
+
+```
 
 </br>
