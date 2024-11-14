@@ -4,5 +4,13 @@
 
 주로 java에서 자료 구조와 데이터를 처리할 때 사용한다고 생각하면 된다. Collection Framework 중 자주 사용하는 클래스들의 종류와 계층도는 아래와 같다.
 
+</br>
+
+
+
+![collection](https://github.com/user-attachments/assets/45ba79ed-f613-41a3-9e1a-19d27f303032)
+
+
+</br> 
 
 
