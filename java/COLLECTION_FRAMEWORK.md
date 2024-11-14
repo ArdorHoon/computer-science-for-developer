@@ -17,6 +17,22 @@
 
 ## 1️⃣ Collection interface
 
+<code>List</code>, <code>Set</code>, <code>Queue</code>에 상속을하는 실질적인 최상위 컬렉션 타입
+
+### 주요 메서드
+
+- boolean add(Object o): 지정된 객체들을 Collection에 추가
+- boolean addAll (Collcection c) : 지정된 Collection의 객체들을 Collection에 추가
+- boolean remove(Object o) : 지정된 객체들을 Collection에서 삭제
+- boolean removeAll (Collcection c) : 지정된 Collection의 객체들을 Collection에서 삭제
+- boolean retainAll(Collection c) :  지정된 Collection에 포함된 객체만을 남기고 다른 객체들은 Collection에서 삭제
+- boolean contains(Object o) : 지정된 객체가 Collection에 포함되어있는지 확인
+- boolean containsAll(Collection c) : 지정된 Collection의 객체들이 Collection에 포함되어있는지 확인
+- boolean equals(Object o) : 동일한 Collection인지 비교
+- void clear() : Collection의 모든 객체를 삭제
+- int size() : Collection에 저장된 객체의 개수를 반환
+- boolean isEmpty() : Collection이 비어있는지 확인
+
 
 </br> 
 
