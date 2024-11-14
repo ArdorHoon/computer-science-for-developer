@@ -143,7 +143,40 @@
 
 ## 3️⃣ Queue interface
 
+- FIFO(First-In-First-Out) 구조
+- 추가할 때는 add, 꺼낼 때는 poll을 사용
+- java에서는 Queue 는 인터페이스이고 필요에 따라 큐 컬렉션 사용 가능
+ 
 
+```java
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(10);
+        queue.add(20);
+
+        queue.poll(); //10
+        queue.poll(); //20
+
+```
+
+
+ ### 🟥 Dequeue interface
+ 
+- 양쪽으로 넣고 빼는 것이 가능한 큐를 말함
+- Stack으로도 사용할 수 있고, Queue로도 사용할 수 있음 
+- 구현체로는 ArrayDeque 또는 LinkedList 등이 있다.
+
+
+#### 🔶 ArrayDeque
+
+- stack으로 사용 시, stack 클래스보다 빠르고, 대기열로 사용할 때는 LinkedList보다 빠르다.
+- 사이즈 제한 없음
+- null 요소는 저장되지 않음
+
+
+
+ 
 
 </br> 
 
