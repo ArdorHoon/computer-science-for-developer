@@ -30,7 +30,7 @@ List<String> // 여기서 String은 매개변수화된 타입이라고 한다.
 ```
 
 Generic에서는 <T> 부분에서 실행부에서 타입을 받아와 내부에서 T 타입으로 지정한 맴버들에게 전파하여 타입이 구체적으로 설정된다.
-이를 구체화(Specialization)라고 한다.
+이를 **구체화(Specialization)** 라고 한다.
 
 
 ### ♦️ Generic Class 
@@ -94,6 +94,32 @@ class Model<T> implements Sample<T>{
 
 </br>
 
+
+
+### ♦️ Generic Method
+
+- 일반 메서드 : 클래스의 타입 파라미터를 받아와 사용하는 메서드
+- 제너릭 메서드 : 클래스의 타입과 상관없이 직접 타입을 설정해서 독립적으로 운용하는 메서드 
+
+```java
+class BallBox<T> {
+	
+    // 클래스의 타입 파라미터를 받아와 사용하는 (일반 메서드)
+    public T addBall(T x, T y) {
+        // ...
+    }
+    
+    // 독립적으로 타입 할당 운영되는 제네릭 메서드 => 호출 시에 매개 타입을 지정하기에 static 가능 (제너릭 메서드)
+    public static <T> T addBallStatic(T x, T y) {
+        // 순서대로
+        // <T>          T             T
+        // genric type, return type, parameter type 
+    }
+}
+
+```
+
+</br>
 
 일반적으로 제네릭은 아래 표의 타입들이 많이 쓰인다.
 
