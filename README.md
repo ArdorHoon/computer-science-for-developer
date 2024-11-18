@@ -52,6 +52,7 @@
   - [Stream API](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/STREAM_API.md)
   - [Collection Framework](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/COLLECTION_FRAMEWORK.md)
   - [멀티스레드 환경에서 동시성 이슈](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%A9%80%ED%8B%B0%EC%8A%A4%EB%A0%88%EB%93%9C_%ED%99%98%EA%B2%BD%EC%9D%98_%EB%8F%99%EC%8B%9C%EC%84%B1_%EC%9D%B4%EC%8A%88.md)
+  - [Generic](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/GENERIC.md)
 
 * ### Spring Framework
    - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
