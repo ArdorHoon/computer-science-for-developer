@@ -17,7 +17,7 @@ ArrayList<String> strList = new ArrayList<>();
 
 </br>
 
-## Generic 사용법
+## 1️⃣ Generic 사용법
 
 Generic은 <> 다이아몬드 연산자를 통해 사용한다. 
 
@@ -32,6 +32,8 @@ List<String> // 여기서 String은 매개변수화된 타입이라고 한다.
 Generic에서는 <T> 부분에서 실행부에서 타입을 받아와 내부에서 T 타입으로 지정한 맴버들에게 전파하여 타입이 구체적으로 설정된다.
 이를 구체화(Specialization)라고 한다.
 
+
+### ♦️ Generic Class 
 
 ```java
 import java.util.ArrayList;
@@ -65,6 +67,34 @@ public class Main {
 
 </br>
 
+### ♦️ Generic Interface
+```java
+interface Sample<T>{
+    public void add(T t, int index);
+    public T get(int index);
+    
+}
+
+class Model<T> implements Sample<T>{
+
+    private T[] array;
+    
+    @Override
+    public void add(T t, int index) {
+        array[index] = t;
+    }
+
+    @Override
+    public T get(int index) {
+        return array[index];
+    }
+}
+
+```
+
+</br>
+
+
 일반적으로 제네릭은 아래 표의 타입들이 많이 쓰인다.
 
 |타입|설명|
@@ -79,11 +109,23 @@ public class Main {
 
 </br>
 
-## Generic의 장점
+## 2️⃣ Generic의 장점
 
 1. 잘못된 타입이 들어올 수 있는 것을 Compile 단계에서 방지할 수 있다.
-2. 클래스 외부에서 타입을 지정해주기 때문에 따로 타입을 체크하고 변환해줄 필요가 없다.
+2. 클래스 외부에서 타입을 지정해주기 때문에 따로 타입을 체크하고 변환해줄 필요가 없다. (불필요한 캐스팅을 없애 성능 향상)
 3. 비슷한 기능을 지원하는 경우 코드의 재사용성이 높아진다.
 
 
+</br>
 
+## 3️⃣ Generic의 주의사항
+
+1. <mark>제네릭 타입의 객체는 생성 불가</mark>
+    - new 연산자 뒤에 제네릭 타입 파라미터가 올 수가 없다. 
+3. <mark>static 맴버에 제너릭 타입이 올 수 없음</mark>
+    - static 맴버는 제너릭 객체가 생성되기 전에 이미 자료 타입이 정해져 있어야 하기 때문이다.
+4. <mark>제네릭으로 배열 선언 주의점</mark>
+    - 기본적으로 제네릭 클래스 자체를 배열로 만들 수는 없다.
+
+
+</br>
