@@ -15,6 +15,7 @@ ArrayList<String> strList = new ArrayList<>();
 
 이렇게 제네릭은 배열의 타입을 지정하듯이 리스트 자료형 같은 Collection class나 method에서 사용할 내부 데이터 타입을 파라미터 주듯이 외부에서 지정하는 **타입을 변수화한 기능**이라고 생각하면 된다.<mark>(객체(object)에 타입을 지정해주는 것)</mark>
 
+</br>
 
 ## Generic 사용법
 
@@ -33,7 +34,7 @@ Generic에서는 <T> 부분에서 실행부에서 타입을 받아와 내부에�
 
 
 ```java
-  import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 class Ball {}
@@ -62,6 +63,21 @@ public class Main {
 }
 ```
 
+</br>
+
+일반적으로 제네릭은 아래 표의 타입들이 많이 쓰인다.
+
+|타입|설명|
+|----|---|
+| T | Type|
+|E|element|
+|K|Key|
+|V|value|
+|N|number|
+|S,U,V| 2번째, 3번째, 4번째에 선언된 타입|
+
+
+</br>
 
 ## Generic의 장점
 
