@@ -12,6 +12,13 @@
 
 ## 1️⃣ Optimizer 동작 방식
 
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/ab5936ee-8b61-4849-bb36-e5f0df39ecd0" width="70%" height="70%"></br>
+</p></br>
+
+
+
 1. <mark>**쿼리 파싱 (Query Parsing)** </mark> : SQL 쿼리는 구문 분석을 거쳐 **추상 구문 트리**로 변환함
 2. <mark>**논리적 최적화 (Logincal Optimization)** </mark> : 파싱된 쿼리는 논리적 최적화를 거친다. (불필요한 조건 제거, 조인 순서 변경, 조건 통합)
 3. <mark>**통계 정보 및 메타데이터 활용(Statistics and Metadata Utilization)** </mark> : 옵티마이저는 **테이블 통계, 인덱스 정보, 데이터 분포** 등을 기반으로 쿼리를 최적화
@@ -23,13 +30,18 @@
 </br>
 
 
-## 2️⃣ Optimizer 종류
-
-
+<code>**그림 Reference**</code>
+- Row-Source Generator : 옵티마이저가 생성한 계획을 SQL Engine이 실행 가능한 코드로 포맷
+- Parser : SQL문장을 분석하여 문법 검사와 구성요소를 파악하고 이를 파싱해서 파싱 트리 생성
+- Optimizer
+  1. Query Transformer : 파싱된 SQL을 보고 같은 결과를 도출하되, 좀 더 나은 실행 계획을 갖는 SQL로 변환이 가능한지를 판단한여 번환 작업 수행
+  2. Estimator : 시스템 통계정보를 dictionary로부터 수집하여 SQL을 실행할 때 소요되는 총비용 계산
+  3. Plan Generator : Estimator를 통해 계산된 값들을 토대로 후보군이 되는 실행계획을 도출
 
 
 </br>
 
+## 2️⃣ Optimizer 종류
 
 ### ⭕ 규칙 기반 옵티마이저(RBO : Rule-Based Optimizer)
 
