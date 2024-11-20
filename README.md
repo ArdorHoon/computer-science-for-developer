@@ -26,6 +26,7 @@
   - [RDBMS 특징](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/RDBMS_%ED%8A%B9%EC%A7%95.md)
   - [NoSQL 특징](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/NOSQL_%ED%8A%B9%EC%A7%95.md)
   - [옵티마이저](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/OPTIMIZER.md)
+  - [백업 및 복구]()
 
 * ### Network
 
