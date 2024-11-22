@@ -27,6 +27,7 @@
   - [NoSQL 특징](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/NOSQL_%ED%8A%B9%EC%A7%95.md)
   - [옵티마이저](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/OPTIMIZER.md)
   - [백업 및 복구](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EB%B0%B1%EC%97%85_%EB%B0%8F_%EB%B3%B5%EA%B5%AC.md)
+  - [고가용성 및 확장성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1_%EB%B0%8F_%ED%99%95%EC%9E%A5%EC%84%B1.md)
 
 * ### Network
 
