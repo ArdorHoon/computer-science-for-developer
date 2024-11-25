@@ -11,9 +11,12 @@ Executor가 하는 일은 크게 3가지
 
 </br>
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/59fb37a4-9d1a-4316-934b-91da2a1eaf26" width="70%" height="70%"></br>
+</p></br>
 
 
-![executor](https://github.com/user-attachments/assets/59fb37a4-9d1a-4316-934b-91da2a1eaf26)
+
 
 
 
