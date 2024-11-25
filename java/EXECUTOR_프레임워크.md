@@ -11,6 +11,14 @@ Executor가 하는 일은 크게 3가지
 
 </br>
 
+
+
+![executor](https://github.com/user-attachments/assets/59fb37a4-9d1a-4316-934b-91da2a1eaf26)
+
+
+
+</br>
+
 ## 주요 인터페이스
 
 ### 1️⃣ ExecutorService 
