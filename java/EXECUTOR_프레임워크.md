@@ -14,8 +14,32 @@ Executor가 하는 일은 크게 3가지
 ## 주요 인터페이스
 
 ### ExecutorService 
-<mark>Executor를 상속 받은 인터페이스로, Callable도 실행할 수 있으며, Executor를 종료 시키거나 여러 Callable을 동시에 실행하는 등의 기능을 제공</mark>
+<mark>**Executor를 상속 받은 인터페이스로, Callable도 실행할 수 있으며, Executor를 종료 시키거나 여러 Callable을 동시에 실행하는 등의 기능을 제공**</mark>
 
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Thread" + Thread.currentThread().getName());
+            }
+        });
+
+
+        executorService.submit(() -> System.out.println("Thread" + Thread.currentThread().getName()));
+
+        executorService.shutdown();
+
+    }
+}
+
+
+```
 
 </br>
 
