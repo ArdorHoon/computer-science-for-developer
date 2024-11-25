@@ -14,7 +14,13 @@ Executor가 하는 일은 크게 3가지
 ## 주요 인터페이스
 
 ### ExecutorService 
-Executor를 상속 받은 인터페이스로, Callable도 실행할 수 있으며, Executor를 종료 시키거나 여러 Callable을 동시에 실행하는 등의 기능을 제공
+<mark>Executor를 상속 받은 인터페이스로, Callable도 실행할 수 있으며, Executor를 종료 시키거나 여러 Callable을 동시에 실행하는 등의 기능을 제공</mark>
+
+
+</br>
 
 ### ScheduledExecutorService
-ExecutorService를 상속 받은 인터페이스로 특정 시간 이후에 또는 주기적으로 작업을 실행
+<mark>ExecutorService를 상속 받은 인터페이스로 특정 시간 이후에 또는 주기적으로 작업을 실행</mark>
+
+
+</br>
