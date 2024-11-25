@@ -11,14 +11,18 @@ Executor가 하는 일은 크게 3가지
 
 </br>
 
+## Executor Service 구조
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/59fb37a4-9d1a-4316-934b-91da2a1eaf26" width="70%" height="70%"></br>
 </p></br>
 
 
+Executor Service는 Thread Pool과 Blocking Queue로 구성되어 있다. submit된 task들은 Blocking Queue에 들어가게 되고 위에서 언급한 메커니즘에 의해 유후 thread에 할당된다. (thread-pool이 full이면 대기)
 
+</br>
 
-
+thread를 생성하는 것은 비용이 큰 작업이므로 이 작업을 최소화 하기 위해 Executor service에서는 미리 thread pool안에 thread를 생성해 놓고 관리한다.
 
 </br>
 
