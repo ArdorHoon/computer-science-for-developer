@@ -87,7 +87,29 @@ Task1 pool-1-thread-1
 </br>
 
 ### ScheduledExecutorService
-<mark>ExecutorService를 상속 받은 인터페이스로 특정 시간 이후에 또는 주기적으로 작업을 실행</mark>
+<mark>**ExecutorService를 상속 받은 인터페이스로 특정 시간 이후에 또는 주기적으로 작업을 실행**</mark>
+```java
+public class Main {
+    public static void main(String[] args) {
 
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+
+        //3초 정도 있다가 schedule() 실행
+        executorService.schedule(getRunnable("Task1"), 3, TimeUnit.SECONDS);
+
+        executorService.shutdown();
+
+    }
+
+
+    private static Runnable getRunnable(String message){
+        return () -> {
+            System.out.println(message + " " + Thread.currentThread().getName());
+        };
+    }
+}
+
+
+```
 
 </br>
