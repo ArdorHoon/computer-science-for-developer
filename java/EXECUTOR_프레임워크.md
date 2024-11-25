@@ -1,6 +1,6 @@
 # Executor 프레임워크
 
-<mark>**JDK에서 제공하는 framework, Java Application에서 실행되는 task를 간단하게 비동기로 처리할 수 있게 해주는 thread-pool과 API를 제공**</mark>
+<mark>**JDK에서 제공하는 framework, Java Application에서 thread를 만들고 관리하는 작업을 좀 더 고수준의 API에게 일을 위임할 수 있게 해준다**</mark>
 
 </br>
 
