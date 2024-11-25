@@ -30,16 +30,59 @@ public class Main {
             }
         });
 
-
+        //람다식으로 표현 
         executorService.submit(() -> System.out.println("Thread" + Thread.currentThread().getName()));
 
+        //작업 처리 후 종료
         executorService.shutdown();
 
     }
 }
 
+```
+
+ExecutorService는 어떤 작업을 실행하고 나면 다음 작업이 들어올 때까지 계속 대기를 하기 때문에, 프로세스가 죽지 않으므로 명시적으로 <code>**shutdown**</code>을 해주어야 한다. 작업을 처리 도중 즉시 종료하고 싶으면 <code>**shutdownNow**</code> 를 사용하면 된다. 
+
+</br>
+
+다음은 ExecutorService를 통해 Thread Pool을 생성하고 핸들링하는 코드이다. (3개의 thread-pool을 만들고 실행한 결과)
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        //make 10 thread
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+
+        executorService.submit(getRunnable("Task1"));
+        executorService.submit(getRunnable("Task2"));
+        executorService.submit(getRunnable("Task3"));
+        executorService.submit(getRunnable("Task4"));
+
+        executorService.shutdown();
+
+    }
+
+
+    private static Runnable getRunnable(String message){
+        return () -> {
+            System.out.println(message + " " + Thread.currentThread().getName());
+        };
+    }
+}
 
 ```
+
+위 코드의 결과는 아래와 같다.
+
+```java
+> Task :Main.main()
+Task3 pool-1-thread-3
+Task4 pool-1-thread-3
+Task2 pool-1-thread-2
+Task1 pool-1-thread-1
+```
+
 
 </br>
 
