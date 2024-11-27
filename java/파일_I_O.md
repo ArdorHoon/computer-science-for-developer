@@ -171,10 +171,15 @@ public class Main {
 
 
 ```java
+public class Main {
+    public static void main(String[] args) {
+
         long start = System.currentTimeMillis();
 
-        try (BufferedReader bin = new BufferedReader(new FileReader("C:/test/test.txt"));
-             BufferedWriter bout = new BufferedWriter(new FileWriter("C:/test/test5.txt"));) {
+        try{
+
+            BufferedReader bin = new BufferedReader(new FileReader("C:/test/test.txt"));
+            BufferedWriter bout = new BufferedWriter(new FileWriter("C:/test/test5.txt"));
             String line = "";
 
             while ((line = bin.readLine()) != null) {
@@ -189,6 +194,12 @@ public class Main {
         long end = System.currentTimeMillis();
         System.out.println("runtime : " + (end - start) / 1000.0 + "second");
     }
+
+}
+
+//result
+// Buffer 사용 =>  runtime : 0.001second
+// Buffer 미사용 => runtime : 0.003second
 
 ```
 
