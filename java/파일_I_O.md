@@ -106,8 +106,6 @@ public class Main {
             FileOutputStream fo = new FileOutputStream("C:/test/test_b.txt");
             BufferedOutputStream bout = new BufferedOutputStream(fo);
 
-
-
             int data;
 
             while((data = file.read()) != -1){
@@ -136,9 +134,37 @@ public class Main {
 
 ## Character기반 Stream
 
-### BufferedReader 
+### FileReader & FileWriter 
 
+Character기반 Stream이기 때문에 한글도 잘 읽고 잘 써진다.
 
-### BufferedWriter 
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        try{
+            FileReader fin = new FileReader("C:/test/test.txt");
+            FileWriter fout = new FileWriter("C:/test/test_outs.txt", false);
+
+            int data;
+            while ((data = fin.read()) != -1) {
+                System.out.print((char) data);
+                fout.write(data);
+            }
+
+            fout.close(); //안해주면 파일에 내용이 써지지 않는다.
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+```
+
+</br>
+
+### BufferedReader & BufferedWrite
 
 
