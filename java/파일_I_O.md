@@ -167,4 +167,29 @@ public class Main {
 
 ### BufferedReader & BufferedWrite
 
+마찬가지로 Buffer를 쓰면 실행 속도가 확실히 빨라진다.
 
+
+```java
+        long start = System.currentTimeMillis();
+
+        try (BufferedReader bin = new BufferedReader(new FileReader("C:/test/test.txt"));
+             BufferedWriter bout = new BufferedWriter(new FileWriter("C:/test/test5.txt"));) {
+            String line = "";
+
+            while ((line = bin.readLine()) != null) {
+                bout.write(line);
+                bout.newLine();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("runtime : " + (end - start) / 1000.0 + "second");
+    }
+
+```
+
+</br>
