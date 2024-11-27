@@ -21,13 +21,13 @@ public class Main {
 ```
 </br>
 
-## Byte 기반 Stream
+## 1️⃣ Byte 기반 Stream
 
 Byte 기반 입출력에 대한 파일 I/O 클래스들이다.
 
 </br>
 
-### FileInputStream
+### 🟥 FileInputStream
 <mark>**파일의 데이터를 읽어들일 때 사용 - Byte기반 스트림**</mark>
 
 ```java
@@ -57,7 +57,7 @@ public class Main {
 
 </br>
 
-### FileOutputStream
+### 🟥 FileOutputStream
 <mark>**파일의 데이터를 쓸때 사용 - Byte기반 스트림**</mark></br>
 
 
@@ -89,7 +89,7 @@ public class Main {
 기본적으로 한 바이트씩 입출력을 하기 때문에 기본적으로 시간이 오래걸린다. 그래서 이 속도를 빠르게 하기 위해 버퍼를 사용하는데 <code>**BufferedInputStream**</code>과 <code>**BufferedOutputStream**</code>이 대표적인 예시이다. 
 
 
-### BufferedInputStream & BufferedOutputStream
+### 🟥 BufferedInputStream & BufferedOutputStream
 
 위의 FileInputStream와 FileOutputStream와 시간을 비교하여 속도가 얼마나 빠른지 한 번 확인해보자!
 
@@ -132,9 +132,9 @@ public class Main {
 
 
 
-## Character기반 Stream
+## 2️⃣ Character기반 Stream
 
-### FileReader & FileWriter 
+### 🟥 FileReader & FileWriter 
 
 Character기반 Stream이기 때문에 한글도 잘 읽고 잘 써진다.
 
@@ -165,7 +165,7 @@ public class Main {
 
 </br>
 
-### BufferedReader & BufferedWrite
+### 🟥 BufferedReader & BufferedWrite
 
 마찬가지로 Buffer를 쓰면 실행 속도가 확실히 빨라진다.
 
