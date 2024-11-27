@@ -95,8 +95,40 @@ public class Main {
 
 ```java
 
+public class Main {
+    public static void main(String[] args){
+
+        try{
+            long start = System.currentTimeMillis();
+            FileInputStream file = new FileInputStream("C:/test/test.txt");
+            BufferedInputStream bin = new BufferedInputStream(file);
+
+            FileOutputStream fo = new FileOutputStream("C:/test/test_b.txt");
+            BufferedOutputStream bout = new BufferedOutputStream(fo);
 
 
+
+            int data;
+
+            while((data = file.read()) != -1){
+                bout.write(data);
+            }
+
+            long end = System.currentTimeMillis();
+            System.out.println( "run time : " + ( end - start )/1000.0 + "second");
+
+        }catch (IOException ex){
+
+            ex.printStackTrace();
+        }
+    }
+
+}
+
+/**
+버퍼 안 사용했을 때 => run time : 0.003second
+버퍼 사용했을 때 => run time : 0.001second
+**/
 
 ```
 
