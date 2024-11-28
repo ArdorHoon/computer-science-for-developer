@@ -29,6 +29,7 @@
   - [백업 및 복구](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EB%B0%B1%EC%97%85_%EB%B0%8F_%EB%B3%B5%EA%B5%AC.md)
   - [고가용성 및 확장성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1_%EB%B0%8F_%ED%99%95%EC%9E%A5%EC%84%B1.md)
   - [실행 계획](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%8B%A4%ED%96%89_%EA%B3%84%ED%9A%8D.md)
+  - [DB 인덱스 설계와 최적화]()
 
 * ### Network
 
