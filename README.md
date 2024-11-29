@@ -30,6 +30,7 @@
   - [고가용성 및 확장성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1_%EB%B0%8F_%ED%99%95%EC%9E%A5%EC%84%B1.md)
   - [실행 계획](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%8B%A4%ED%96%89_%EA%B3%84%ED%9A%8D.md)
   - [DB 인덱스 설계와 최적화](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%9D%B8%EB%8D%B1%EC%8A%A4_%EC%84%A4%EA%B3%84%EC%99%80_%EC%B5%9C%EC%A0%81%ED%99%94.md)
+  - [쿼리 튜닝](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%BF%BC%EB%A6%AC_%ED%8A%9C%EB%8B%9D.md)
 
 * ### Network
 
