@@ -10,15 +10,24 @@
 ### 🟥 동기
 <mark>**요청한 작업에 대해 완료 여부를 따져 순차적으로 처리**</mark>
 
+</br>
 
-![동기](https://github.com/user-attachments/assets/53a43c53-e1a2-4a76-9cde-0ae482fc2fdc)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/53a43c53-e1a2-4a76-9cde-0ae482fc2fdc" width="50%" height="50%"></br>
+</p></br>
+
 
 </br>
 
 ### 🟥 비동기
 <mark>**요청한 작업에 대해 완료 여부를 따지지 않고 다음 작업을 그대로 처리**</mark>
 
-![비동기](https://github.com/user-attachments/assets/6231ace0-da2b-4fa7-a61a-7796b0b50550)
+</br>
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/6231ace0-da2b-4fa7-a61a-7796b0b50550" width="50%" height="50%"></br>
+</p></br>
+
 
 </br>
 
