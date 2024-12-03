@@ -33,6 +33,7 @@
   - [DB 인덱스 설계와 최적화](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%9D%B8%EB%8D%B1%EC%8A%A4_%EC%84%A4%EA%B3%84%EC%99%80_%EC%B5%9C%EC%A0%81%ED%99%94.md)
   - [쿼리 튜닝](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%BF%BC%EB%A6%AC_%ED%8A%9C%EB%8B%9D.md)
   - [SQL(DDL, DML, DCL, TCL)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/SQL_DDL_DML_DCL_TCL.md)
+  - [조인 메서드](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%A1%B0%EC%9D%B8_%EB%A9%94%EC%84%9C%EB%93%9C.md)
 
 * ### Network
 
