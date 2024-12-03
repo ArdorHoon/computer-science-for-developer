@@ -34,6 +34,7 @@
   - [쿼리 튜닝](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%BF%BC%EB%A6%AC_%ED%8A%9C%EB%8B%9D.md)
   - [SQL(DDL, DML, DCL, TCL)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/SQL_DDL_DML_DCL_TCL.md)
   - [조인 메서드](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%A1%B0%EC%9D%B8_%EB%A9%94%EC%84%9C%EB%93%9C.md)
+  - [기본키, 외래키, 복합키](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EA%B8%B0%EB%B3%B8%ED%82%A4_%EC%99%B8%EB%9E%98%ED%82%A4_%EB%B3%B5%ED%95%A9%ED%82%A4.md)
 
 * ### Network
 
