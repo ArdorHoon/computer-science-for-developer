@@ -48,4 +48,12 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 
 </br>
 
-## 2️⃣ Spring MVC     //3️⃣ 4️⃣
+## 2️⃣ Spring MVC    
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/063200de-8904-43b7-98be-1c4f94a304fc" width="70%" height="70%"></br>
+</p></br>
+
+
+
