@@ -37,7 +37,6 @@ View는 **Model을 이용하여 웹 브라우저와 같은 애플리케이션의
 - PDF, Excel 등의 문서 형태로 출력
 - XML, JSON 등 특정 형식의 포맷으로 변환
 
-
 </br>
 
 ### 🟥 Controller
@@ -77,7 +76,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 ### 🟥 Spring MVC 요소
 
 #### ♦️ DispatcherServlet
-<mark>**Front Controller 역할을 숭행하며 Request를 각각의 Controller에게 위임**</mark> 
+<mark>**Front Controller 역할을 숭행하며 Request를 각각의 Controller에게 위임**</mark>
 
 가장 앞 단에서 client 요청을 처리하는 Controller로써 요청부터 응답까지 전반적인 처리 과정을 통제
 
