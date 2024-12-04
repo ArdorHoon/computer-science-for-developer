@@ -76,7 +76,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 ### 🟥 Spring MVC 요소
 
 #### ♦️ DispatcherServlet
-<mark>**Front Controller 역할을 숭행하며 Request를 각각의 Controller에게 위임**</mark>
+<mark>**Front Controller 역할을 수행하며 Request를 각각의 Controller에게 위임**</mark>
 
 가장 앞 단에서 client 요청을 처리하는 Controller로써 요청부터 응답까지 전반적인 처리 과정을 통제
 
@@ -84,7 +84,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 
 #### ♦️ HandlerMapping
 
-<mark>**요청을 직접 처리할 컨트롤러를 탐색**</mark>(구체적인 Mapping은 xml이나 java config 관련 어노테이션 등을 통해 처리할 수 있음)
+<mark>**요청을 직접 처리할 Controller를 탐색**</mark>(구체적인 Mapping은 xml이나 java config 관련 어노테이션 등을 통해 처리할 수 있음)
 
 </br>
 
