@@ -4,10 +4,14 @@
 
 MVC를 사용함으로써 **UI 영역**과 **도메인(비즈니스 로직) 영역**으로 구분되어 서로에게 영향을 주지 않으면서 개발과 유지보수가 가능하다.
 
-MVC 패턴을 구성하는 요소는 Model, View, Controller가 있다. 
+MVC 패턴을 구성하는 요소는 Model, View, Controller가 있다. </br>
 
 
-![mvc](https://github.com/user-attachments/assets/98c9537a-b325-4866-be5d-1bf8b0ae506d)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/98c9537a-b325-4866-be5d-1bf8b0ae506d" width="70%" height="70%"></br>
+</p></br>
+
+
 
 
 </br>
