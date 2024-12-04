@@ -61,7 +61,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 
 
 
-## 동작 순서
+### 동작 순서
 
 1. <code>**DispatcherServlet**</code>가 request를 받는다.
 2. <code>**DispatcherServlet**</code>가 적절한 controller를 선택하는 작업을 HandlerMapping에게 전달하고 HandlerMapping은 들어오는 요청 URL에 매핑되는 Controller를 선택된 Handler와 Controller를 <code>**DispatcherServlet**</code>에게 반환한다.
@@ -72,5 +72,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 7. <code>**DispatcherServlet**</code>는 반환된 view에 rendering process를 dispatch한다.
 8. View는 Model 데이터를 렌더링하고 응답을 반환한다.
 
+</br>
 
+### Spring MVC 요소
 
