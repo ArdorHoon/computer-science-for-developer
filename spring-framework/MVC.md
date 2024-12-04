@@ -68,6 +68,9 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 3. <code>**DispatcherServlet**</code>은 Controller의 비즈니스 로직을 실행하는 작업을 HandlerAdpater에 전달한다.
 4. HandlerAdpater는 Controller의 비즈니스 로직을 호출한다.
 5. Controller는 비즈니스 로직을 실행하고, 처리 결과를 Model에 설정하고, logical name of view을 HandlerAdapter에 반환한다.
+6. <code>**DispatcherServlet**</code>는 View 이름에 해당하는 View를 찾기 위해 ViewResolver에게 전달하고 ViewResolver는 view name에 매핑된 view를 반환한다.
+7. <code>**DispatcherServlet**</code>는 반환된 view에 rendering process를 dispatch한다.
+8. View는 Model 데이터를 렌더링하고 응답을 반환한다.
 
 
 
