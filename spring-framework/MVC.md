@@ -32,6 +32,12 @@ Spring MVC 기반의 웹 애플리케이션이 클라이언트의 요청을 전�
 
 View는 **Model을 이용하여 웹 브라우저와 같은 애플리케이션의 화면에 보이는 리소스(Resource)를 제공하는 역할**을 한다.
 
+#### @ Spring MVC에서 다양한 View 기술
+- HTML 페이지 출력
+- PDF, Excel 등의 문서 형태로 출력
+- XML, JSON 등 특정 형식의 포맷으로 변환
+
+
 </br>
 
 ### 🟥 Controller
