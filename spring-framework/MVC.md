@@ -6,6 +6,10 @@ MVC를 사용함으로써 **UI 영역**과 **도메인(비즈니스 로직) 영�
 
 MVC 패턴을 구성하는 요소는 Model, View, Controller가 있다. 
 
+
+![mvc](https://github.com/user-attachments/assets/98c9537a-b325-4866-be5d-1bf8b0ae506d)
+
+
 </br>
 
 ## 1️⃣ Model, View, Controller
