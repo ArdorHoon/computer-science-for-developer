@@ -61,7 +61,7 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 
 
 
-### 동작 순서
+### 🟥 동작 순서
 
 1. <code>**DispatcherServlet**</code>가 request를 받는다.
 2. <code>**DispatcherServlet**</code>가 적절한 controller를 선택하는 작업을 HandlerMapping에게 전달하고 HandlerMapping은 들어오는 요청 URL에 매핑되는 Controller를 선택된 Handler와 Controller를 <code>**DispatcherServlet**</code>에게 반환한다.
@@ -74,42 +74,42 @@ Controller는 **클라이언트 측의 요청을 직접적으로 전달받는 �
 
 </br>
 
-### Spring MVC 요소
+### 🟥 Spring MVC 요소
 
-#### DispatcherServlet
+#### ♦️ DispatcherServlet
 Front Controller 역할을 숭행하며 Request를 각각의 Controller에게 위임 
 
 가장 앞 단에서 client 요청을 처리하는 Controller로써 요청부터 응답까지 전반적인 처리 과정을 통제
 
 </br>
 
-#### HandlerMapping
+#### ♦️ HandlerMapping
 요청을 직접 처리할 컨트롤러를 탐색 (구체적인 Mapping은 xml이나 java config 관련 어노테이션 등을 통해 처리할 수 있음)
 
 </br>
 
-#### HandlerAdapter
+#### ♦️ HandlerAdapter
 매핑된 Controller의 실행을 요청
 
 </br>
 
-#### Controller
+#### ♦️ Controller
 DispatcherServlet이 전달해준 HTTP 요청을 처리하고 결과를 Model에 저장
 - 직접 요청을 처리하며, 처리 결과를 반환
 - 결과가 반환되면 HandlerAdapter가 ModelAndView 객체로 변환되며, 여기에는 View Name과 같이 응답을 통해 보여줄 View에 대한 정보와 관련된 데이터가 포함
 
 </br>
 
-#### ModelAndView
+#### ♦️ ModelAndView
 ModelAndView는 Controller에 의해 반환된 Model과 View가 Wrapping된 객체
 
 </br>
-#### View Resolver
+#### ♦️ View Resolver
 View Name을 확인한 후, 실제 Controller로부터 받은 로직 처리 결과를 반영할 View 파일(jsp)을 탐색
 
 </br>
 
-#### View
+#### ♦️ View
 로직 처리 결과를 반영한 최종 화면을 생성
 
 </br>
