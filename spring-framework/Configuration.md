@@ -27,3 +27,63 @@ public class AppConfig {
 }
 
 ```
+
+</br>
+
+
+## Java-Based Configuration이 내부적으로 동작하는 방식
+
+또 하나의 예시로 @Bean이 달린 메서드가 두 번 호출되었다고 했을 때, 우리는 ClientDao가 두 번 생성된걸로 보이겠지만 기본적으로 Spring에서 인스턴스화된 Bean은 기본적으로 Singleton 범위를 갖는다. 그래서 Spring에서는 @Configuration 클래스 시작 시, CGLIB로 서브클래싱이 되고 새 인스턴스를 만들기 전에 먼전 컨테이너에 캐시된 Bean이 있는지 확인한다.
+
+```java
+
+@Configuration
+public class AppConfig {
+
+	@Bean
+	public ClientService clientService1() {
+		ClientServiceImpl clientService = new ClientServiceImpl();
+		clientService.setClientDao(clientDao());
+		return clientService;
+	}
+
+	@Bean
+	public ClientService clientService2() {
+		ClientServiceImpl clientService = new ClientServiceImpl();
+		clientService.setClientDao(clientDao());
+		return clientService;
+	}
+
+	@Bean
+	public ClientDao clientDao() {
+		return new ClientDaoImpl();
+	}
+}
+
+```
+
+
+## Bean 간 종속성 주입 (Injecting Inter-bean Dependencies)
+
+beanOne은 생성자 주입을 통해서 beanTwo에 대한 챔조를 받는다.
+
+```java
+@Configuration
+public class AppConfig {
+
+	@Bean
+	public BeanOne beanOne() {
+		return new BeanOne(beanTwo());
+	}
+
+	@Bean
+	public BeanTwo beanTwo() {
+		return new BeanTwo();
+	}
+}
+
+```
+
+
+</br>
+
