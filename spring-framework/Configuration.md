@@ -30,6 +30,30 @@ public class AppConfig {
 
 </br>
 
+## Bean 간 종속성 주입 (Injecting Inter-bean Dependencies)
+
+beanOne은 생성자 주입을 통해서 beanTwo에 대한 챔조를 받는다.
+
+```java
+@Configuration
+public class AppConfig {
+
+	@Bean
+	public BeanOne beanOne() {
+		return new BeanOne(beanTwo());
+	}
+
+	@Bean
+	public BeanTwo beanTwo() {
+		return new BeanTwo();
+	}
+}
+
+```
+
+
+</br>
+
 
 ## Java-Based Configuration이 내부적으로 동작하는 방식
 
@@ -62,28 +86,4 @@ public class AppConfig {
 
 ```
 
-
-## Bean 간 종속성 주입 (Injecting Inter-bean Dependencies)
-
-beanOne은 생성자 주입을 통해서 beanTwo에 대한 챔조를 받는다.
-
-```java
-@Configuration
-public class AppConfig {
-
-	@Bean
-	public BeanOne beanOne() {
-		return new BeanOne(beanTwo());
-	}
-
-	@Bean
-	public BeanTwo beanTwo() {
-		return new BeanTwo();
-	}
-}
-
-```
-
-
-</br>
 
