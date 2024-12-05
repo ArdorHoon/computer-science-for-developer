@@ -75,7 +75,9 @@ public abstract class CommandManager {
 }
 ```
 
-하지만 <code>@Configuration</code>을 사용하면 추상 메서드인 createCommand()가 새로운 command 객체를 찾는 방식으로 재정의되는 CommandManager의 하위 클래스를 만들 수 있다. 아래가 그 예제이다.
+</br>
+
+하지만 <code>@Configuration</code>을 사용하면 추상 메서드인 createCommand()가 새로운 command 객체를 찾는 방식으로 재정의되는 CommandManager의 서브클래스를 만들 수 있다. 아래가 그 예제이다.
 
 ```java
 
@@ -132,4 +134,4 @@ public class AppConfig {
 
 ```
 
-
+</br>
