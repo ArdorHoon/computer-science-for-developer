@@ -70,6 +70,7 @@
   - [Executor 프레임워크](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/EXECUTOR_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC.md)
   - [리플렉션](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%A6%AC%ED%94%8C%EB%A0%89%EC%85%98.md)
   - [파일 I/O](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%ED%8C%8C%EC%9D%BC_I_O.md)
+  - [객체 모델링](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8%EB%A7%81.md)
 
 * ### Spring Framework
    - [IoC와 DI - 미작성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
