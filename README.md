@@ -38,6 +38,7 @@
   - [서브 쿼리](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%84%9C%EB%B8%8C_%EC%BF%BC%EB%A6%AC.md)
   - [엔티티와 모델링](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%97%94%ED%8B%B0%ED%8B%B0%EC%99%80_%EB%AA%A8%EB%8D%B8%EB%A7%81.md)
   - [정규화와 비정규화](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%EC%A0%95%EA%B7%9C%ED%99%94_%EB%B9%84%EC%A0%95%EA%B7%9C%ED%99%94.md)
+  - [트랜잭션 격리 수준](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/database/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98_%EA%B2%A9%EB%A6%AC_%EC%88%98%EC%A4%80%20.md)
 
 * ### Network
 
