@@ -1,5 +1,8 @@
 # IoC와 DI
 
+Spring의 IoC와 DI는 코드의 모듈화, 테스트 용이성, 유지보수성 등을 향상시키는 핵심 기능 중 하나이다.
+
+
 ## IoC (Inversion of Control)
 <mark>**IoC는 말 그대로 제어의 역전을 의미**</mark>  
 
