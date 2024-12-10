@@ -23,4 +23,70 @@ Spring은 이를 지원하기 위해 ApplicationContext 인터페이스를 통�
 
 </br>
 
-## DI
+## DI (Dependency Injection)
+
+<mark>**객체를 직접 생성하는 게 아닌 외부(IOC 컨테이너)에서 생성한 후 주입**</mark>  
+
+의존성 주입 방법을 3가지가 있다.
+
+- 생성자 주입 (Constructor Injection)
+- 수정자 주입 (Setter Injection)
+- 필드 주입 (Field Injection)
+
+이 중 스프링 IoC 컨테이너에서는 DI 시, **생성자 주입**을 사용한다.  
+
+
+### 생성자 주입 (Constructor Injection)
+생성자를 통해 의존성을 주입하는 방식
+
+``java
+@Service
+public class CustomerService {
+    @Autowired
+    private CustomerRepository CustomerRepository;
+    
+    // ...
+}
+
+```
+
+</br>
+
+
+### 수정자 주입 (Setter Injection)
+
+Setter 메서드를 통해 의존성을 주입하는 방식
+
+``java
+
+public class OrderService {
+    private PaymentGateway paymentGateway;
+
+    @Autowired
+    public void setPaymentGateway(PaymentGateway paymentGateway) {
+        this.paymentGateway = paymentGateway;
+    }
+    
+    // ...
+}
+
+```
+
+</br>
+
+### 필드 주입 (Field Injection)
+필드에 직접 의존성을 주입하는 방식 (Spring에서는 @Autowired 어노테이션을 사용하여 필드에 의존성 주입)
+
+``java
+@Service
+public class CustomerService {
+    @Autowired
+    private CustomerRepository CustomerRepository;
+    
+    // ...
+}
+
+```
+
+
+</br>
