@@ -74,6 +74,6 @@
   - [객체 모델링](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8%EB%A7%81.md)
 
 * ### Spring Framework
-   - [IoC와 DI - 미작성](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
+   - [IoC와 DI](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Ioc%EC%99%80_DI.md)
    - [MVC](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/MVC.md)
    - [Configuration](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Configuration.md)
