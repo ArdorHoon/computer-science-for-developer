@@ -39,15 +39,17 @@ Spring은 이를 지원하기 위해 ApplicationContext 인터페이스를 통�
 ### 생성자 주입 (Constructor Injection)
 생성자를 통해 의존성을 주입하는 방식
 
-``java
-@Service
-public class CustomerService {
+```java
+public class UserService {
+    private UserRepository userRepository;
+
     @Autowired
-    private CustomerRepository CustomerRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     
     // ...
 }
-
 ```
 
 </br>
@@ -57,7 +59,7 @@ public class CustomerService {
 
 Setter 메서드를 통해 의존성을 주입하는 방식
 
-``java
+```java
 
 public class OrderService {
     private PaymentGateway paymentGateway;
@@ -75,9 +77,9 @@ public class OrderService {
 </br>
 
 ### 필드 주입 (Field Injection)
-필드에 직접 의존성을 주입하는 방식 (Spring에서는 @Autowired 어노테이션을 사용하여 필드에 의존성 주입)
+필드에 직접 의존성을 주입하는 방식
 
-``java
+```java
 @Service
 public class CustomerService {
     @Autowired
