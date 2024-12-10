@@ -3,7 +3,7 @@
 Spring의 IoC와 DI는 코드의 모듈화, 테스트 용이성, 유지보수성 등을 향상시키는 핵심 기능 중 하나이다.
 
 
-## IoC (Inversion of Control)
+## 1️⃣ IoC (Inversion of Control)
 <mark>**IoC는 말 그대로 제어의 역전을 의미**</mark>  
 
 전통적인 프로그래밍에서는 개발자가 프로그램의 흐름과 제어를 직접 다룬다. 
@@ -23,7 +23,7 @@ Spring은 이를 지원하기 위해 ApplicationContext 인터페이스를 통�
 
 </br>
 
-## DI (Dependency Injection)
+## 2️⃣ DI (Dependency Injection)
 
 <mark>**객체를 직접 생성하는 게 아닌 외부(IOC 컨테이너)에서 생성한 후 주입**</mark>  
 
@@ -36,7 +36,7 @@ Spring은 이를 지원하기 위해 ApplicationContext 인터페이스를 통�
 이 중 스프링 IoC 컨테이너에서는 DI 시, **생성자 주입**을 사용한다.  
 
 
-### 생성자 주입 (Constructor Injection)
+### 🟥 생성자 주입 (Constructor Injection)
 생성자를 통해 의존성을 주입하는 방식
 
 ```java
@@ -55,7 +55,7 @@ public class UserService {
 </br>
 
 
-### 수정자 주입 (Setter Injection)
+### 🟥 수정자 주입 (Setter Injection)
 
 Setter 메서드를 통해 의존성을 주입하는 방식
 
@@ -76,7 +76,7 @@ public class OrderService {
 
 </br>
 
-### 필드 주입 (Field Injection)
+### 🟥 필드 주입 (Field Injection)
 필드에 직접 의존성을 주입하는 방식
 
 ```java
