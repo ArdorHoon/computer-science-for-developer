@@ -33,6 +33,17 @@ Bean 객체들은 Spring IoC 컨테이너가 의존성을 관리한다.
 
 ```
 
+* InitalizingBean은 afterPropertiesSet() 메소드로 초기화를 지원(의존관계 주입이 끝난 후에 초기화 진행)
+* DisposableBean은 destroy() 메소드로 소멸을 지원 (Bean 종료 전에 마무리 작업, 예를 들면 자원 - close()등)
+
+</br>
+
+##### 이 방식의 단점
+* InitalizingBean, DisposableBean 인터페이스는 스프링 전용 인터페이스이다. 해당 코드가 인터페이스에 의존
+* 코드를 커스터마이징 할 수 없는 외부 라이브러리에 적용 불가능
+* 초기화, 소멸 메소드를 오버라이드 하기 때문에 메소드명을 변경할 수 없음  
+
+
 </br>
 
 
