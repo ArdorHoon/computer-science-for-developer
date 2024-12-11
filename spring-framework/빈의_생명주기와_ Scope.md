@@ -136,21 +136,43 @@ public class ExampleBean {     
    * application
 
 
-### 싱글톤(Singleton)
+### 🔶 싱글톤(Singleton)
 <mark>**스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프**</mark>
 
 
 </br>
 
-### 프로토타입(Prototype)
+### 🔶 프로토타입(Prototype)
 <mark>**스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프**</mark>
+
+프로토타입 빈을 관리할 책임은 클라이언트에게 있다. 따라서 @PreDestroy와 같은 종료 콜백 메서드 호출되지 않음
 
 </br>
 
-### 웹 관련 스코프
+### 🔶 웹 관련 스코프
+<mark>**웹 환경에서만 동작, 프로토타입과 다르게 스프링이 해당 스코프의 종료 시점까지 관리, 따라서 종료 메서드가 호출**</mark>
 
-1. request : 웹 요청이 들어오고 나갈 때까지 유지되는 스코프
-2. session : 웹 세션이 생성되고 종료될 때까지 유지되는 스코프
-3. application : 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 스코프
+1. request : HTTP 요청 하나가 들어오고 나갈 때까지 유지되는 스코프, 각각의 HTTP 요청마다 별도의 빈 인스턴스가 생성되고 관리
+2. session : HTTP Session과 동일한 생명주기를 가지는 스코프
+3. application : 서블릿 컨텍스트와 동일한 생명주기를 가지는 스코프
+4. websocket : 웹 소켓과 동일한 생명주기를 가지는 스코프
+
+Spring Bean 등록 시, 웹 스코프를 그대로 주입받으면 오류가 발생한다. 웹 스코프의 경우 HTTP 요청이 올 때 새로 생성되고 응답하면 사라지기 때문에, 싱글톤 빈이 생성되는 시점에는 아직 생성되지 않아서 의존관계 주입이 불가능하다. 이를 프록시를 사용하면 문제를 해결할 수 있다. 
+
+</br>
+
+
+```java
+@Component
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_ClASS)
+public class MyLogger {
+
+}
+```
+
+proxyMode를 통해 MyLogger의 가짜 프록시 클래스를 만들어두고 HTTP request와 상관없이 가짜 프록시 클래스를 다른 Bean에 미리 주입해둘 수 있다.
+가짜 프록시 객체는 요청이 오면 그때 내부에서 진짜 빈을 요청하는 위임 로직이 들어있다.
+
+
 
 </br>
