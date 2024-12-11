@@ -136,6 +136,9 @@ public class ExampleBean {     
    * application
 
 
+</br>
+
+
 ### 🔶 싱글톤(Singleton)
 <mark>**스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프**</mark>
 
