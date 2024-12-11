@@ -27,7 +27,7 @@ Bean 객체들은 Spring IoC 컨테이너가 의존성을 관리한다.
 	
     	  @Override    
 	      public void destroy() throws Exception {       
-	       	// 소멸 전 콜백 (메모리 반납, 연결 종료와 같은 과정)    
+                      // 소멸 전 콜백 (메모리 반납, 연결 종료와 같은 과정)    
 	      }
 }
 
@@ -123,7 +123,34 @@ public class ExampleBean {     
 
 ## 2️⃣ 빈 Scope
 
+<mark>**빈 Scope는 Bean 생성 시 Bean이 존재할 수 있는 범위를 의미**</mark>
+
+**Spring에서 Bean은 기본적으로 Singleton Scope로 생성된다.** Spring에서는 아래와 같은 다양한 Scope를 지원한다.
 
 
+1. 싱글톤(Singleton)
+2. 프로토타입(Prototype)
+3. 웹 관련 스코프
+   * request
+   * session
+   * application
+
+
+### 싱글톤(Singleton)
+<mark>**스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프**</mark>
+
+
+</br>
+
+### 프로토타입(Prototype)
+<mark>**스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프**</mark>
+
+</br>
+
+### 웹 관련 스코프
+
+1. request : 웹 요청이 들어오고 나갈 때까지 유지되는 스코프
+2. session : 웹 세션이 생성되고 종료될 때까지 유지되는 스코프
+3. application : 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 스코프
 
 </br>
