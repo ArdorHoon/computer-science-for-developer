@@ -18,7 +18,7 @@ AOP는 위의 그림처럼 각 클래스에서 공통적으로 사용하는 관�
 
 </br>
 
-## Spring AOP 
+## 1️⃣ Spring AOP 
 
 Spring AOP는 어노테이션을 통해 구현할 수 있다. 기본적으로 AOP를 구현하려면 해당 클래스에 @Aspect, @Component 어노테이션을 붙여야 한다. 
 
@@ -73,17 +73,17 @@ public class SpringConfig {
 ```
 
 
-## 간단한 AOP 예제
+## 2️⃣ 간단한 AOP 예제
 Spring에서 로깅, 보안, 트랙잭션 관리, 캐싱 등 많은 곳에서 AOP를 사용하여 구현하는데 아래에서 예제 몇 개를 확인해보자.
 </br>
 
-### 로깅(Logging)
+### 🟥 로깅(Logging)
 메서드의 호출과 반환 값을 로깅하는 작업
  
 ```java
 @Aspect
 @Component
-public class LoggingAspect {
+public class LoggingAop {
 
     @Before("execution(* com.example.service.UserService.getUser(..))")
     public void logBeforeUserGet() {
@@ -96,13 +96,13 @@ public class LoggingAspect {
 </br>
 
 
-### 트랜잭션 관리(Transaction Management)
+### 🟥 트랜잭션 관리(Transaction Management)
 트랜잭션의 시작과 종료, 롤백 등을 처리
 
 ```java
 @Aspect
 @Component
-public class TransactionAspect {
+public class TransactionAop {
 
     @AfterReturning("execution(* com.example.service.ProductService.*(..))")
     public void commitTransaction() {
@@ -120,13 +120,13 @@ public class TransactionAspect {
 
 </br>
 
-#### 보안 (Security)
+#### 🟥 보안 (Security)
 인증과 권한 부여와 같은 보안 관련 작업
 
 ```java
 @Aspect
 @Component
-public class SecurityAspect {
+public class SecurityAop {
 
     @Before("execution(* com.example.controller.AdminController.*(..))")
     public void checkAdminPermission() {
@@ -141,13 +141,13 @@ public class SecurityAspect {
 
 </br>
 
-### 캐싱 (Caching)
+### 🟥 캐싱 (Caching)
 메서드 결과를 캐시하여 성능을 향상시키는 작업
 
 ```java
 @Aspect
 @Component
-public class CachingAspect {
+public class CachingAop {
 
     @AfterReturning(pointcut = "execution(* com.example.service.CacheService.*(..))", returning = "result")
     public void cacheMethodResult(Object result) {
