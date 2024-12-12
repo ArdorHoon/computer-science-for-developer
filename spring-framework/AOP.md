@@ -19,3 +19,82 @@ AOP는 위의 그림처럼 각 클래스에서 공통적으로 사용하는 관�
 </br>
 
 ## Spring AOP 
+
+앞서 말한 Spring에서 AOP를 쓰는 방법은 로깅, 보안, 트랙잭션 관리, 캐싱 등에서 어떤 방식으로 사용하는지 예시를 확인해 보자
+
+
+### 로깅(Logging)
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+
+    @Before("execution(* com.example.service.UserService.getUser(..))")
+    public void logBeforeUserGet() {
+        System.out.println("Getting user...");
+    }
+}
+
+```
+
+</br>
+
+
+### 트랜잭션 관리(Transaction Management)
+```java
+@Aspect
+@Component
+public class TransactionAspect {
+
+    @AfterReturning("execution(* com.example.service.ProductService.*(..))")
+    public void commitTransaction() {
+        System.out.println("Committing transaction...");
+    }
+
+    @AfterThrowing("execution(* com.example.service.ProductService.*(..))")
+    public void rollbackTransaction() {
+        System.out.println("Rolling back transaction due to exception...");
+    }
+}
+
+
+```
+
+</br>
+
+#### 보안 (Security)
+
+```java
+@Aspect
+@Component
+public class SecurityAspect {
+
+    @Before("execution(* com.example.controller.AdminController.*(..))")
+    public void checkAdminPermission() {
+        System.out.println("Checking admin permission...");
+    }
+}
+
+
+</br>
+
+```
+
+</br>
+
+### 캐싱 (Caching)
+
+```java
+@Aspect
+@Component
+public class CachingAspect {
+
+    @AfterReturning(pointcut = "execution(* com.example.service.CacheService.*(..))", returning = "result")
+    public void cacheMethodResult(Object result) {
+        // Cache the result...
+        System.out.println("Caching method result...");
+    }
+}
+
+```
