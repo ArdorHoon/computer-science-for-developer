@@ -121,7 +121,7 @@ public class TransactionAop {
 
 </br>
 
-#### 🟥 보안 (Security)
+### 🟥 보안 (Security)
 인증과 권한 부여와 같은 보안 관련 작업
 
 ```java
