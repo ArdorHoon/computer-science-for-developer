@@ -20,6 +20,45 @@ AOP는 위의 그림처럼 각 클래스에서 공통적으로 사용하는 관�
 
 ## Spring AOP 
 
+Spring AOP는 어노테이션을 통해 구현할 수 있다. 기본적으로 AOP를 구현하려면 해당 클래스에 @Aspect, @Component 어노테이션을 붙여야 한다. 
+
+이후 추가적인 메서드에 적용할 추가적인 어노테이션은 아래와 같다.
+
+|메서드|설명|
+|------|---|
+|@Before|대상 메서드가 실행되기 전에 Advice 실행|
+|@After|대상 메서드가 실행된 후에 Advice 실행|
+|@AfterReturning|대상 메서드가 정상적으로 실행되고 반환된 후에 Advice를 실행|
+|@AfterThrowing|대상 메서드가 예외가 발생 했을 때 Advice를 실행|
+|@Around|대상 메서드 실행 전, 후 또는 예외 발생 시에 Advice를 실행|
+
+</br>
+
+아래는 하나의 예시다.
+
+```java
+@Aspect
+@Component
+public class TimeTraceAop {
+
+    @Around("execution(* com.hunmo.examplespring..*(..))")
+    public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
+        long start = System.currentTimeMillis();
+
+        System.out.println("START: " + joinPoint.toString());
+        try {
+            return joinPoint.proceed();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("END: " + joinPoint.toString()+ " " + timeMs + "ms");
+        }
+    }
+}
+
+```
+
+
 앞서 말한 Spring에서 AOP를 쓰는 방법은 로깅, 보안, 트랙잭션 관리, 캐싱 등에서 어떤 방식으로 사용하는지 예시를 확인해 보자
 
 
