@@ -34,9 +34,12 @@ Spring AOP는 어노테이션을 통해 구현할 수 있다. 기본적으로 AO
 
 </br>
 
-아래는 하나의 예시다.
+아래는 프로젝트의 모든 메소드의 호출 시간을 측정하고 싶어서 만든 AOP 하나의 예시다. AOP를 작성하고 @Configuration을 통해 컨테이너에 Bean을 등록해주면 사용할 수 있다. 
 
 ```java
+
+/*TimeTraceAop.java*/
+
 @Aspect
 @Component
 public class TimeTraceAop {
@@ -56,14 +59,27 @@ public class TimeTraceAop {
     }
 }
 
+
+
+/*SpringConfig.java*/
+@Configuration
+public class SpringConfig {
+
+    @Bean
+    public TimeTraceAop timeTraceAop() { return new TimeTraceAop();}
+}
+
+
 ```
 
 
-앞서 말한 Spring에서 AOP를 쓰는 방법은 로깅, 보안, 트랙잭션 관리, 캐싱 등에서 어떤 방식으로 사용하는지 예시를 확인해 보자
-
+## 간단한 AOP 예제
+Spring에서 로깅, 보안, 트랙잭션 관리, 캐싱 등 많은 곳에서 AOP를 사용하여 구현하는데 아래에서 예제 몇 개를 확인해보자.
+</br>
 
 ### 로깅(Logging)
-
+메서드의 호출과 반환 값을 로깅하는 작업
+ 
 ```java
 @Aspect
 @Component
@@ -81,6 +97,8 @@ public class LoggingAspect {
 
 
 ### 트랜잭션 관리(Transaction Management)
+트랜잭션의 시작과 종료, 롤백 등을 처리
+
 ```java
 @Aspect
 @Component
@@ -103,6 +121,7 @@ public class TransactionAspect {
 </br>
 
 #### 보안 (Security)
+인증과 권한 부여와 같은 보안 관련 작업
 
 ```java
 @Aspect
@@ -123,6 +142,7 @@ public class SecurityAspect {
 </br>
 
 ### 캐싱 (Caching)
+메서드 결과를 캐시하여 성능을 향상시키는 작업
 
 ```java
 @Aspect
@@ -137,3 +157,5 @@ public class CachingAspect {
 }
 
 ```
+
+</br>
