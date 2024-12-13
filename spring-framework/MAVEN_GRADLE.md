@@ -2,6 +2,10 @@
 
 <mark>**소스 코드에서 application을 생성하면서 여러가지 **외부 라이브러리**를 사용하는데, 빌드 관리도구는 사용자가 관리할 필요 없이 필요한 라이브러리들을 자동으로 관리**</mark>
 
+- 빌드는 프로그램을 실행 가능 한 배포 파일을 만들어 내는 것, 즉 배포 가능한 형태로 만드는 것을 의미
+
+
+
 </br>
 
 ## 1️⃣ Maven
@@ -27,6 +31,50 @@
 
 Maven은 필요한 라이브러리 <code>**pom.xml**</code>에 정의한다. 이를 프로젝트 모델링이라고 한다. (pom은 Project Object Model의 약자로, <code>**프로젝트 정보**</code>, <code>**빌드 설정**</code>, <code>**빌드 환경**</code>, <code>**pom 연관 정보**</code>를 담고 있다.)
 
+</br>
+
+아래는 간단한 POM.xml 예제
+```xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0modelVersion>
+
+
+    <groupId>com.examplegroupId>
+    <artifactId>my-appartifactId>
+    <version>1.0-SNAPSHOTversion>
+
+    <properties>
+        <maven.compiler.source>1.8maven.compiler.source>
+        <maven.compiler.target>1.8maven.compiler.target>
+    properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junitgroupId>
+            <artifactId>junitartifactId>
+            <version>4.12version>
+            <scope>testscope>
+        dependency>
+    dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.pluginsgroupId>
+                <artifactId>maven-compiler-pluginartifactId>
+                <version>3.8.0version>
+                <configuration>
+                    <source>1.8source>
+                    <target>1.8target>
+                configuration>
+            plugin>
+        plugins>
+    build>
+project>
+
+```
 
 
 </br>
