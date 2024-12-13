@@ -81,6 +81,19 @@ Maven은 필요한 라이브러리 <code>**pom.xml**</code>에 정의한다. 이
 
 ## 2️⃣ Gradle
 
+<mark>**Maven을 대체할 수 있는 프로젝트 구성 관리 및 범용 빌드툴이며, Ant Builder와 Groovy script를 기반으로 구축되어 기존 Ant의 역할과 배포 스크립의 기능을 모두 사용가능하며 Spring Boot와 Android에서 사용**</mark>
+
+빌드 속도가 Maven에 비해 10~100배 가량 빠르며, Java, C/C++, Python 등을 지원
+
+> Groovy는 JVM에서 실행되는 스크립트 언어이다. JVM에서 동작하지만 소스코드를 컴파일할 필요 없다. (JAVA와 호환)
+
+### ✴️ Gradle 특징
+1. 가독성이 좋음 : 코딩에 의한 간결한 정의가 가능
+2. 재사용에 용이 : <code>설정 주입 방식</code>을 사용하므로 재사용에 용이
+3. 구조적이니 장점 : Build Script를 Groovy 기반의 DSL를 사용하여 코드로서 설정 정보를 구성하므로 구조적인 장점 
+4. 편리함 : Gradle 설치 없이 **Gradle wrapper**를 이용하여 빌드를 지원
+5. 멀티 프로젝트 : Gradle은 멀티 프로젝트 빌드를 지원하기 위해 설계된 빌드 관리 도구
+6. 지원 : Maven을 완전 지원
 
 
 </br>
