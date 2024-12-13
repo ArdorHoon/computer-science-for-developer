@@ -81,11 +81,13 @@ Maven은 필요한 라이브러리 <code>**pom.xml**</code>에 정의한다. 이
 
 ## 2️⃣ Gradle
 
-<mark>**Maven을 대체할 수 있는 프로젝트 구성 관리 및 범용 빌드툴이며, Ant Builder와 Groovy script를 기반으로 구축되어 기존 Ant의 역할과 배포 스크립의 기능을 모두 사용가능하며 Spring Boot와 Android에서 사용**</mark>
+<mark>**Maven을 대체할 수 있는 프로젝트 구성 관리 및 범용 빌드툴이며, Ant Builder와 Groovy script를 기반으로 구축되어 기존 Ant의 역할과 배포 스크립의 기능을 모두 사용가능**</mark>
 
 빌드 속도가 Maven에 비해 10~100배 가량 빠르며, Java, C/C++, Python 등을 지원
 
 > Groovy는 JVM에서 실행되는 스크립트 언어이다. JVM에서 동작하지만 소스코드를 컴파일할 필요 없다. (JAVA와 호환)
+
+</br>
 
 ### ✴️ Gradle 특징
 1. 가독성이 좋음 : 코딩에 의한 간결한 정의가 가능
@@ -94,6 +96,63 @@ Maven은 필요한 라이브러리 <code>**pom.xml**</code>에 정의한다. 이
 4. 편리함 : Gradle 설치 없이 **Gradle wrapper**를 이용하여 빌드를 지원
 5. 멀티 프로젝트 : Gradle은 멀티 프로젝트 빌드를 지원하기 위해 설계된 빌드 관리 도구
 6. 지원 : Maven을 완전 지원
+
+</br>
+
+아래는 간단한 gradle 예제
+
+```groovy
+
+buildscript {
+    ext {
+        springBootVersion = '2.3.7.RELEASE'
+        lombokVersion = '1.18.10'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'gradle.test.javaapp'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // api '...'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    // runtimeOnly '...'
+
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+}
+
+
+```
+
+</br>
+
+## 3️⃣ Maven과 Gradle 비교
+
+Maven은 간단한 프로젝트나 명확한 구조나 표준화가 요구되는 프로젝트에 적합하고, Gradle은 복잡한 빌드 요구사항을 효과적으로 처리할 수 있기 때문에 성능 최적화가 필요하거나 복잡한 빌드 프로세스를 관리해야하는 경우 선택하면 좋다.
 
 
 </br>
