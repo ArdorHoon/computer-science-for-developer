@@ -41,38 +41,38 @@ Maven은 필요한 라이브러리 <code>**pom.xml**</code>에 정의한다. 이
     <modelVersion>4.0.0modelVersion>
 
 
-    <groupId>com.examplegroupId>
-    <artifactId>my-appartifactId>
-    <version>1.0-SNAPSHOTversion>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>1.8maven.compiler.source>
-        <maven.compiler.target>1.8maven.compiler.target>
-    properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>junitgroupId>
-            <artifactId>junitartifactId>
-            <version>4.12version>
-            <scope>testscope>
-        dependency>
-    dependencies>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.pluginsgroupId>
-                <artifactId>maven-compiler-pluginartifactId>
-                <version>3.8.0version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>1.8source>
-                    <target>1.8target>
-                configuration>
-            plugin>
-        plugins>
-    build>
-project>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
 
 ```
 
