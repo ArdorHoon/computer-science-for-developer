@@ -54,6 +54,8 @@ URL : <code>http://localhost:8080/actuator</code>
 ```
 
 
+## 다양한 EndPoint
+
 일반적으로 application.yml에서 management를 통해 노출할 엔드포인트를 제한할 수 있다. 보안 문제 때문에 health나 info같은 기본적인 것들만 노출하길 권장한다. 
 
 ```yml
@@ -67,7 +69,7 @@ management.endpoints.web.exposure.include=*
 엔드 포인트 전체 노출 시, 아래와 같이 나온다. 
 
 ```json
-
+{
   "_links": {
     "self": {
       "href": "http://localhost:8080/actuator",
@@ -160,8 +162,18 @@ management.endpoints.web.exposure.include=*
   }
 }
 
+
 ```
 
+저 중 주로 사용할 만한 것에 대해 확인해 보면 아래와 같다.
 
+* beans : 스프링 컨테이너에 등뢱된 빈을 보여줌
+* env : Envrionment 정보 보여줌
+* info : application 정보를 보여줌
+* health : application 상태 정보 보여줌
+* metrics : application metric 정보를 보여줌
+* loggers : application logger 설정을 보여주고 변경 가능
+
+다른 엔드포인트에 대한 설명은 [공식 사이트](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints)를 참조하면 된다. 
 
 </br>
