@@ -238,7 +238,6 @@ show-details: always
 Actuator가 제공하는 기능은 application의 내부 정보를 너무 많이 노출하기 때문에 외부에 노출이 되면 안된다. 그래서 내부망 안에서만 사용할 필요가 있기에 이에 따른 여러 조치를 할 수 있다.
 
 아래 이외에도 actuator를 접속하는 경로에서 Spring Security,Servlet filter 등을 통해 인증된 사용자만 접근하도록 만드는게 좋다.
-
 </br>
 
 #### 🥎 다른 포트에서 실행
