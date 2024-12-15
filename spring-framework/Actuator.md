@@ -19,3 +19,47 @@ dependencies {
 }
 
 ```
+
+의존성을 추가 후 앱을 동작 시키고 아래 url로 가면 actuator가 제공하는 서비스 목록을 확인할 수 있다. 
+
+</br>
+
+URL : <code>http://localhost:8080/actuator</code>
+
+```xml
+{
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/actuator",
+      "templated": false
+    },
+    "health": {
+      "href": "http://localhost:8080/actuator/health",
+      "templated": false
+    },
+    "health-path": {
+      "href": "http://localhost:8080/actuator/health/{*path}",
+      "templated": true
+    }
+  }
+}
+
+```
+
+</br>
+
+해당 서비스의 health 정보를 확인하기 위해 http://localhost:8080/actuator/health를 url창에 입력 해보면 정상적일 경우 UP을 나타낸다.
+```json
+{"status":"UP"}
+```
+
+
+
+
+
+
+
+
+
+
+</br>
