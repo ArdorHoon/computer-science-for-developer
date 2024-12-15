@@ -8,7 +8,7 @@
 
 </br>
 
-## 사용법
+## 1️⃣ 사용법
 
 우선적으로 actuator 사용을 위해 라이브러리 의존성을 추가해주어야 한다. 
 
@@ -54,7 +54,7 @@ URL : <code>http://localhost:8080/actuator</code>
 ```
 
 
-## 다양한 EndPoint
+## 2️⃣ 다양한 EndPoint
 
 일반적으로 application.yml에서 management를 통해 노출할 엔드포인트를 제한할 수 있다. 보안 문제 때문에 health나 info같은 기본적인 것들만 노출하길 권장한다. 
 
