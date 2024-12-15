@@ -177,3 +177,92 @@ management.endpoints.web.exposure.include=*
 다른 엔드포인트에 대한 설명은 [공식 사이트](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints)를 참조하면 된다. 
 
 </br>
+
+
+## 3️⃣ 그 외 부가적인 설정
+
+### 🟦 Health
+Health 정보를 활용해 애플리케이션에 문제가 발생했을 때 문제를 빠르게 인지할 수 있다. 
+
+application.yml에서 아래와 같이 상세 옵션보기 설정할 수 있다.
+
+```yml
+management:
+endpoint:
+health:
+show-details: always
+```
+
+만일 Health check를 하는 component가 하나라도 문제가 있다면 <code>DOWN</code>이 된다.
+
+```json
+{
+  "status": "UP",
+  "components": {
+    "db": {
+      "status": "UP",
+      "details": {
+        "database": "H2",
+        "validationQuery": "isValid()"
+      }
+    },
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 250685575168,
+        "free": 58580029440,
+        "threshold": 10485760,
+        "path": "/Users/hunmoyang/Desktop/actuator/.",
+        "exists": true
+      }
+    },
+    "ping": {
+      "status": "UP"
+    },
+    "ssl": {
+      "status": "UP",
+      "details": {
+        "validChains": [],
+        "invalidChains": []
+      }
+    }
+  }
+}
+
+```
+
+</br>
+
+### 🟦 보안
+
+Actuator가 제공하는 기능은 application의 내부 정보를 너무 많이 노출하기 때문에 외부에 노출이 되면 안된다. 그래서 내부망 안에서만 사용할 필요가 있다. 
+
+#### 🥎 다른 포트에서 실행
+
+Actuator의 포트를 아래와 같이 application.yml에서 바꿀 수 있다. 
+
+```yml
+management:
+  server:
+    port: 9292
+
+```
+
+</br>
+
+#### 🥎 EndPoint 경로 변경
+
+```yml
+management:
+  endpoints:
+  	web:
+      base-path: "/manage"
+
+```
+
+이제 그러면 health를 확인하기 위해 아래 URL로 들어가면 된다.
+> http://localhost:8080/manage/health
+
+
+</br>
+
