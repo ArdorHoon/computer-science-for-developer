@@ -55,7 +55,11 @@
 <mark>**싱글턴 패턴은 인스턴스가 오직 하나만 생성하는 것을 보장하고 어디에서든 이 인스턴스를 접근할 수 있도록 하는 디자인 패턴**</mark>
 
 
-![single](https://github.com/user-attachments/assets/ae61ad5d-4529-4ac3-87e0-491b340a4c28)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/ae61ad5d-4529-4ac3-87e0-491b340a4c28" width="40%" height="40%"></br>
+</p>
+
 
 
 Application에서 하나의 인스턴스가 유지되어야 할 때 해당 패턴을 사용한다. (예 : 로그인 객체, 장바구니 객체 등)
