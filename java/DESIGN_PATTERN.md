@@ -23,8 +23,35 @@
 </br>
 
 ### 결과 
+정적 클래스를 사용해도 동일한 효과를 얻을 수 있지만 인터페이스를 구현하는 경우, 정적 메서드를 사용할 수 없기 때문에 아래와 같이 구현해야 한다.
+
+```java
+//Printer 인터페이스 
+public interface Printer{
+  public void print(String str);
+}
 
 
+//Printer 인터페이스를 가지고 구현한 V12Printer - 싱글턴 패턴
+pulbic class V12Printer implements Printer{
+
+  private static Printer printer = null;
+  private V12Printer() {}
+
+  public synchronized static Printer getPrinetr(){
+    if(printer == null)
+        printer = new V12Printer();
+
+    return printer;
+  }
+
+  public void print(String str){
+        //실제 프린터 하드웨어 조작하는 코드
+  }
+}
+
+
+```
 
 </br>
 
