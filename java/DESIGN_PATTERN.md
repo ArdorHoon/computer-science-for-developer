@@ -23,35 +23,7 @@
 </br>
 
 ### 결과 
-정적 클래스를 사용해도 동일한 효과를 얻을 수 있지만 인터페이스를 구현하는 경우, 정적 메서드를 사용할 수 없기 때문에 아래와 같이 구현해야 한다.
 
-```java
-//Printer 인터페이스 
-public interface Printer{
-  public void print(String str);
-}
-
-
-//Printer 인터페이스를 가지고 구현한 V12Printer - 싱글턴 패턴
-pulbic class V12Printer implements Printer{
-
-  private static Printer printer = null;
-  private V12Printer() {}
-
-  public synchronized static Printer getPrinetr(){
-    if(printer == null)
-        printer = new V12Printer();
-
-    return printer;
-  }
-
-  public void print(String str){
-        //실제 프린터 하드웨어 조작하는 코드
-  }
-}
-
-
-```
 
 </br>
 
@@ -155,12 +127,16 @@ public class Printer {
 * 정적 변수에 인스턴스를 만들어 바로 초기화하는 방법
 * 인스턴스를 만드는 메스드에 동기화하는 방법
 
-#### ♦️ 정적 변수에 인스턴스를 만들어 바로 초기화하는 방법
+#### ♦️ 정적 변수에 인스턴스를 만들어 바로 초기화하는 방법 (Eager Initialization)
+
+하지만 해당 방법은 static 멤버는 당장 객체를 사용하지 않더라도 메모리에 적재하기 때문에 만일 리소스가 큰 객체일 경우, 공간 자원 낭비가 발생한다.
+추가적으로 예외 처리를 할 수 없다.
+
 
 ```java
 public class Printer {
 
-    private static Printer printer = new Printer();
+    private static final Printer printer = new Printer();
     private Printer(){}
 
 
@@ -187,9 +163,12 @@ public class Printer {
 
 </br> 
 
-#### ♦️ 인스턴스를 만드는 메스드에 동기화하는 방법
+#### ♦️ 인스턴스를 만드는 메스드에 동기화하는 방법 (Thread safe initialization)
 
 Printer클래스의 객체를 얻는 <code>**getPrinter**</code> 메서드를 동기화하는 코드, 이를 통해 다중 스레드 환경에서 동시에 여러 스레드가 <code>**getPrinter**</code>메서드를 소유하는 객체에 접근하는 것을 방지
+
+하지만 여러개의 모듈들이 매번 객체를 가져올 때 synchronized 메서드를 매번 호출하여 동기화 처리 작업에 **overhead**가 발생해 성능 하락이 발생한다. 
+
 
 ```java
 public class Printer {
@@ -228,7 +207,35 @@ public class Printer {
 
 ### 🏷️ 결과 
 
+정적 클래스를 사용해도 동일한 효과를 얻을 수 있지만 인터페이스를 구현하는 경우, 정적 메서드를 사용할 수 없기 때문에 아래와 같이 구현해야 한다.
 
+```java
+//Printer 인터페이스 
+public interface Printer{
+  public void print(String str);
+}
+
+
+//Printer 인터페이스를 가지고 구현한 V12Printer - 싱글턴 패턴
+pulbic class V12Printer implements Printer{
+
+  private static Printer printer = null;
+  private V12Printer() {}
+
+  public synchronized static Printer getPrinetr(){
+    if(printer == null)
+        printer = new V12Printer();
+
+    return printer;
+  }
+
+  public void print(String str){
+        //실제 프린터 하드웨어 조작하는 코드
+  }
+}
+
+
+```
 
 </br>
 
