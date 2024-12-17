@@ -5,9 +5,20 @@
 아래는 하나의 Annotation을 사용하는 예이다.
 
 ```java
+@RestController
+public class TestController {
 
+    @GetMapping("/test")
+    public String testGet(@RequestParam String name, @RequestParam String id){
+        return name +": "+ id;
+    }
+}
 
 ```
+
+여기서 @가 붙은 친구들이 전부 어노테이션이다. 
+
+</br>
 
 
 ## Annotation 용도
