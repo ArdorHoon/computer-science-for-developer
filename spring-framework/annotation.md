@@ -32,7 +32,7 @@ public class TestController {
 ## Annotation 사용 순서
 1. Annotation 정의
 2. 클래스에 Annotation 어노테이션을 배치
-3. 코드가 실행되는 중에 Reflaction을 이용하여 추가정보를 획득하여 기능 실시 
+3. 코드가 실행되는 중에 [Reflaction](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/java/%EB%A6%AC%ED%94%8C%EB%A0%89%EC%85%98.md)을 이용하여 추가 정보를 획득하여 기능 실시 
 
 </br>
 
