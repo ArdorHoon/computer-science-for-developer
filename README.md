@@ -83,3 +83,4 @@
    - [Spring Actuator](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Actuator.md)
    - [Annotation(어노테이션)](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/annotation.md)
    - [트랜잭션 전파와 격리 레벨](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98_%EC%A0%84%ED%8C%8C%EC%99%80_%EA%B2%A9%EB%A6%AC_%EB%A0%88%EB%B2%A8%20.md)
+   - [Spring Event](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/%EC%9D%B4%EB%B2%A4%ED%8A%B8.md)
