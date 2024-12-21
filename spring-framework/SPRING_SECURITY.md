@@ -36,12 +36,19 @@ Filter는 Client와 리소스 사이에서 요청과 응답 정보를 이용해 
 > **Client(request) -> Filter -> DispatcherServlet -> Interceptor -> Controller**
 
 
+<그림 들어가기>
+
+
+
 
 Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본적으로 제공한다. 이러한 필터들은 **Security Filter Chain**이라고 한다.
 
 </br>
 
-### Spring Secuirty 인증 처리 과정 
+### 🟥 Spring Secuirty Architecture와 인증 처리 과정 
+
+
+<그림 들어ㅏㄱ기>
 
 1. Client가 로그인 시도
 2. AuthenticationFilter에서 인증 처리
