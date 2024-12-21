@@ -35,10 +35,10 @@ Filter는 Client와 리소스 사이에서 요청과 응답 정보를 이용해 
 
 > **Client(request) -> Filter -> DispatcherServlet -> Interceptor -> Controller**
 
+</br>
 
-<그림 들어가기>
 
-
+![client](https://github.com/user-attachments/assets/895f2d96-b4ad-42b3-9798-f55d945491cb)
 
 
 Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본적으로 제공한다. 이러한 필터들은 **Security Filter Chain**이라고 한다.
