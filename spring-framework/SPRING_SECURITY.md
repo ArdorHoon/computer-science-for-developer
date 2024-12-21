@@ -55,6 +55,9 @@ This generated password is for development use only. Your security configuration
 
 ```
 
+</br>
+</br>
+
 우리는 저 화면을 [Configuration](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Configuration.md)을 통해 원하는 페이지에 적용할 수 있다. 이제 <code>SecurityConfig.java</code>를 만들어 보자!
 
 ```java
