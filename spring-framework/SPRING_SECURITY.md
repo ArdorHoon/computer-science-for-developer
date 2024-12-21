@@ -200,12 +200,15 @@ public class AuthController {
 
 이제 user1으로 로그인에 테스트를 해보자 
 
+</br>
 
-localhost/normal로 접속
+<mark>**localhost/normal로 접속**</mark>
 
 ![normal](https://github.com/user-attachments/assets/4754c48b-4f84-41b3-b2a8-24c2e6ad7455)
 
-localhost/admin로 접속
+</br>
+
+<mark>**localhost/admin로 접속**</mark>
 
 ![admin](https://github.com/user-attachments/assets/89c7f548-a684-4619-b93e-4a81955e33cc)
 
