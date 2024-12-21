@@ -208,3 +208,28 @@ localhost/admin로 접속
 
 ![admin](https://github.com/user-attachments/assets/89c7f548-a684-4619-b93e-4a81955e33cc)
 
+</br>
+
+
+### Spring Secuirty 로그인 사용자 정보 조회하기
+
+로그인한 사용자 정보도 API로 출력할 수 있다. 
+
+Spring 설정 Bean 중에 UserDetailSerivce가 반환한 UserDetails 객체가 SecurityContext에 저장되어 Spring에서 제공하는 어노테이션을 이용하면 저장된 객체를 조회를 할 수 있는 것이다. 
+
+아래와 같이 작성해주면 된다. 
+
+```java
+    @GetMapping("/user")
+    public ResponseEntity user(@AuthenticationPrincipal UserDetails userDetails) {
+        return new ResponseEntity< >(
+                  userDetails.getUsername() + "\n" +
+                        userDetails.getPassword() + "\n" +
+                        userDetails.getAuthorities() + "\n"
+                , HttpStatus.OK);
+    }
+```
+
+아래는 그 결과이다. 
+
+![user](https://github.com/user-attachments/assets/8f9d6048-2bfb-4060-95cb-4884329a27d8)
