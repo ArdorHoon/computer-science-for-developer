@@ -28,6 +28,9 @@ Spring Security는 Filter 기반으로 동작하기 때문에 Spring MVC와 분�
 
 Filter는 Client와 리소스 사이에서 요청과 응답 정보를 이용해 다양한 처리를 하는데 목적이 있다. 
 
+</br>
+
+
 아래와 같은 순서로 동작한다.
 
 > **Client(request) -> Filter -> DispatcherServlet -> Interceptor -> Controller**
