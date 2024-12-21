@@ -134,7 +134,7 @@ Spring Security에서 인증, 인가를 처리하는 방법이기 때문에 해�
 
 </br>
 
-### 🟥 Spring Secuirty 인증
+### 🟥 Spring Security 인증
 
 Spring Security에서 아이디, 패스워드를 가지고 인증을 처리하는 방식을 확인해보자!
 
@@ -187,7 +187,7 @@ permitAll()을 authenticated()로 변경해주고 formLogin을 추가해주면 S
 
 </br>
 
-### 🟥 Spring Secuirty 인가
+### 🟥 Spring Security 인가
 
 또 Spring Security에서는 계정에 권한을 부여하는 인가를 통해 허용된 사이트만 들어가게 할 수 있다. 
 
@@ -271,7 +271,7 @@ public class AuthController {
 
 
 
-### 🟥 Spring Secuirty 로그인 사용자 정보 조회하기
+### 🟥 Spring Security 로그인 사용자 정보 조회하기
 
 로그인한 사용자 정보도 API로 출력할 수 있다. 
 
