@@ -142,12 +142,69 @@ permitAll()을 authenticated()로 변경해주고 formLogin을 추가해주면 S
 
 UserDetailsService에서 roles()를 통해 인가를 부여할 수 있다. 하나의 예제를 보자! 
 
+
+우선 user1 계정에 user라는 Role을 부여하는 코드이다.
+
 ```java
     @Bean
     public UserDetailsService userDetailsService(){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user1").password("1234").roles("user")build());
+        manager.createUser(User.withUsername("user1").password("1234").roles("user").build());
         return  manager;
     }
 
+```
+
+그리고 requestMatchers를 통해서 url에 대한 호출 권한을 지정한다. 
+
+```java
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+
+        http.authorizeHttpRequests((authorizeRequests)
+         -> authorizeRequests
+                        .requestMatchers("/normal").hasRole("user")
+                        .requestMatchers("/admin").hasRole("admin")
+                .anyRequest().authenticated()
+        )
+                .formLogin((formLogin) -> formLogin
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/", true)
+                );
+        return http.build();
+    }
+
+```
+
+그리고 인가를 확인하기 위해 간단한 Controller를 만들어준다.
+
+```java
+@RestController
+public class AuthController {
+    
+    @GetMapping("/normal")
+    public ResponseEntity normal() {
+
+        return new ResponseEntity< >("normal 페이지", HttpStatus.OK);
+    }
+
+    @GetMapping("/admin")
+    public ResponseEntity admin() {
+        return new ResponseEntity< >("admin 페이지", HttpStatus.OK);
+    }
+}
+
+```
+
+이제 user1으로 로그인에 테스트를 해보자 
+
+
+localhost/normal로 접속
+
+![normal](https://github.com/user-attachments/assets/4754c48b-4f84-41b3-b2a8-24c2e6ad7455)
+
+localhost/admin로 접속
+
+![admin](https://github.com/user-attachments/assets/89c7f548-a684-4619-b93e-4a81955e33cc)
 
