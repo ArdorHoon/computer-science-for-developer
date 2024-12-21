@@ -38,7 +38,9 @@ Filter는 Client와 리소스 사이에서 요청과 응답 정보를 이용해 
 </br>
 
 
-![client](https://github.com/user-attachments/assets/895f2d96-b4ad-42b3-9798-f55d945491cb)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/895f2d96-b4ad-42b3-9798-f55d945491cb" width="70%" height="70%"></br>
+</p></br>
 
 
 Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본적으로 제공한다. 이러한 필터들은 **Security Filter Chain**이라고 한다.
@@ -47,15 +49,15 @@ Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본�
 
 ### 🟥 Spring Secuirty의 Architecture와 인증 처리 과정 
 
-아래는 Spring Security의 Architecture이다. (붉은색 선 안쪽이 Spring Security가 적용되는 부분 )
-
-![security](https://github.com/user-attachments/assets/f5df2df9-0aa8-4a8c-a464-55eae3b529db)
+아래는 Spring Security의 Architecture이다. (붉은색 선 안쪽이 Spring Security가 적용되는 부분)
 
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/f5df2df9-0aa8-4a8c-a464-55eae3b529db" width="80%" height="80%"></br>
+</p></br>
 
-</br>
 
-Spring Security의 인증 처리 과정은 아래와 같습니다. 
+<mark>**Spring Security의 인증 처리 과정**</mark>은 아래와 같습니다. 
 
 1. Client가 로그인 시도
 2. AuthenticationFilter에서 인증 처리
@@ -84,7 +86,9 @@ Spring Security의 인증 처리 과정은 아래와 같습니다.
 
 해당 Dependcy를 추가하고 페이지를 확인하면 로그인 화면이 보일 것이다.
 
-![login](https://github.com/user-attachments/assets/cc114ee6-2786-4b00-a44e-906cf9cbadf0)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/cc114ee6-2786-4b00-a44e-906cf9cbadf0" ></br>
+</p></br>
 
 
 Spring Security에서는 웹사이트 보안에 가장 기본적인 기능인 아이디/패스워드 인증을 화면까지 지원합니다. 해당 화면에서 id는 user이고 패스워드는 console 로그(Using generated security password)를 보면 확인가능하다.
@@ -250,15 +254,21 @@ public class AuthController {
 
 <mark>**localhost/normal로 접속**</mark>
 
-![normal](https://github.com/user-attachments/assets/4754c48b-4f84-41b3-b2a8-24c2e6ad7455)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/4754c48b-4f84-41b3-b2a8-24c2e6ad7455" ></br>
+</p></br>
+
 
 </br>
 
 <mark>**localhost/admin로 접속**</mark>
 
-![admin](https://github.com/user-attachments/assets/89c7f548-a684-4619-b93e-4a81955e33cc)
 
-</br>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/89c7f548-a684-4619-b93e-4a81955e33cc" ></br>
+</p></br>
+
 
 
 ### 🟥 Spring Secuirty 로그인 사용자 정보 조회하기
@@ -282,6 +292,7 @@ Spring 설정 Bean 중에 UserDetailSerivce가 반환한 UserDetails 객체가 S
 
 아래는 그 결과이다. 
 
-![user](https://github.com/user-attachments/assets/8f9d6048-2bfb-4060-95cb-4884329a27d8)
 
-</br>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/8f9d6048-2bfb-4060-95cb-4884329a27d8" ></br>
+</p></br>
