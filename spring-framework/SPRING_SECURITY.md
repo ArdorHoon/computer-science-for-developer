@@ -45,10 +45,17 @@ Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본�
 
 </br>
 
-### 🟥 Spring Secuirty Architecture와 인증 처리 과정 
+### 🟥 Spring Secuirty의 Architecture와 인증 처리 과정 
+
+아래는 Spring Security의 Architecture이다. (붉은색 선 안쪽이 Spring Security가 적용되는 부분 )
+
+![security](https://github.com/user-attachments/assets/f5df2df9-0aa8-4a8c-a464-55eae3b529db)
 
 
-<그림 들어ㅏㄱ기>
+
+</br>
+
+Spring Security의 인증 처리 과정은 아래와 같습니다. 
 
 1. Client가 로그인 시도
 2. AuthenticationFilter에서 인증 처리
