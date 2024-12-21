@@ -22,16 +22,16 @@ Spring기반 Application 보안의 표준이다. Spring Security에서 기본으
 
 </br>
 
-## Spring Security 동작 원리
+## 1️⃣ Spring Security 동작 원리
 
 
 
 </br>
 
-## Spring Security 시작하기
+## 2️⃣ Spring Security 시작하기
 
 
-### Spring Security 기본 설정
+### 🟥 Spring Security 기본 설정
 
 우선 Spring Security를 설정하기 위해 dependency를 추가해준다. 
 
@@ -84,7 +84,7 @@ Spring Security에서 인증, 인가를 처리하는 방법이기 때문에 해�
 
 </br>
 
-### Spring Secuirty 인증
+### 🟥 Spring Secuirty 인증
 
 Spring Security에서 아이디, 패스워드를 가지고 인증을 처리하는 방식을 확인해보자!
 
@@ -135,8 +135,9 @@ permitAll()을 authenticated()로 변경해주고 formLogin을 추가해주면 S
 
 그리고 Spring에서 패스워드는 인코딩해야 하는데 PasswordEncoder를 통해 간단히 암호화할 수 있다. 
 
+</br>
 
-### Spring Secuirty 인가
+### 🟥 Spring Secuirty 인가
 
 또 Spring Security에서는 계정에 권한을 부여하는 인가를 통해 허용된 사이트만 들어가게 할 수 있다. 
 
@@ -211,7 +212,7 @@ localhost/admin로 접속
 </br>
 
 
-### Spring Secuirty 로그인 사용자 정보 조회하기
+### 🟥 Spring Secuirty 로그인 사용자 정보 조회하기
 
 로그인한 사용자 정보도 API로 출력할 수 있다. 
 
@@ -233,3 +234,5 @@ Spring 설정 Bean 중에 UserDetailSerivce가 반환한 UserDetails 객체가 S
 아래는 그 결과이다. 
 
 ![user](https://github.com/user-attachments/assets/8f9d6048-2bfb-4060-95cb-4884329a27d8)
+
+</br>
