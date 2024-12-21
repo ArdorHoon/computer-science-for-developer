@@ -24,7 +24,33 @@ Spring기반 Application 보안의 표준이다. Spring Security에서 기본으
 
 ## 1️⃣ Spring Security 동작 원리
 
+Spring Security는 Filter 기반으로 동작하기 때문에 Spring MVC와 분리되어 관리 및 동작한다. 
 
+Filter는 Client와 리소스 사이에서 요청과 응답 정보를 이용해 다양한 처리를 하는데 목적이 있다. 
+
+아래와 같은 순서로 동작한다.
+
+> **Client(request) -> Filter -> DispatcherServlet -> Interceptor -> Controller**
+
+
+
+Spring Security는 다양한 기능을 가진 필터들을 10개 이상 기본적으로 제공한다. 이러한 필터들은 **Security Filter Chain**이라고 한다.
+
+</br>
+
+### Spring Secuirty 인증 처리 과정 
+
+1. Client가 로그인 시도
+2. AuthenticationFilter에서 인증 처리
+3. AuthenticationFilter는 HttpServlletRequest에서 아이디와 비밀번호를 추출하여 UsernameAuthentication Token 발급
+4. AuthenticationManager에게 인증 객체 전달
+5. 인증을 위해 AuthenticationProvider에게 인증 객체 전달
+6. 전달받은 인증 객체 정보를 UserDetailsService에 전달
+7. UserDetails 구현 객체 생성
+8. UserDetails 객체를 AuthenticationProvider에 전달
+9. ProvideManager에게 권한을 담은 검증된 인증 객체를 전달
+10. 검증된 인증 객체를 AuthenticationFilter에게 전달
+11. 검증된 인증 객체를 SecurityContextHolder의 SecurityContext에 저장
 
 </br>
 
