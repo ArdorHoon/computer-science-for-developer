@@ -22,8 +22,16 @@ Spring기반 Application 보안의 표준이다. Spring Security에서 기본으
 
 </br>
 
+## Spring Security 동작 원리
+
+
+
+</br>
 
 ## Spring Security 시작하기
+
+
+### Spring Security 기본 설정
 
 우선 Spring Security를 설정하기 위해 dependency를 추가해준다. 
 
@@ -46,5 +54,100 @@ Using generated security password: 599ae06e-76c0-4b57-ab0f-30c13a5995fd
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
 ```
+
+우리는 저 화면을 [Configuration](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Configuration.md)을 통해 원하는 페이지에 적용할 수 있다. 이제 <code>SecurityConfig.java</code>를 만들어 보자!
+
+```java
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+
+        http.authorizeHttpRequests((authorizeRequests)
+         -> authorizeRequests
+                .anyRequest().permitAll()
+        );
+        
+        return http.build();
+    }
+}
+
+
+```
+해당 코드는 요청되는 모든 URL을 허용하겠다는 의미이다. 이렇게 하고 재실행하면 로그인 화면은 나오지 않을 것이다. 하지만 우리가 원하는 것은 
+
+Spring Security에서 인증, 인가를 처리하는 방법이기 때문에 해당 코드를 변경 해준다. 
+
+</br>
+
+### Spring Secuirty 인증
+
+Spring Security에서 아이디, 패스워드를 가지고 인증을 처리하는 방식을 확인해보자!
+
+```java
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+
+        http.authorizeHttpRequests((authorizeRequests)
+         -> authorizeRequests
+                .anyRequest().authenticated()
+        )
+                .formLogin((formLogin) -> formLogin
+                        .usernameParameter("id")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/", true)
+                );
+        return http.build();
+    }
+    
+    
+    @Bean
+    public UserDetailsService userDetailsService(){
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("user1").password("1234").build());
+        return  manager;
+    }
+    
+    
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+    
+}
+
+
+```
+
+permitAll()을 authenticated()로 변경해주고 formLogin을 추가해주면 Spring에서 제공하는 기본 로그인 화면이 등장한다. 
+
+그리고 로그인 처리가 되면 UserDetailsSerive 객체가 반환하게 되는데 여기서는 강제로 id는 user1, password는 1234로 강제했다.
+
+그리고 Spring에서 패스워드는 인코딩해야 하는데 PasswordEncoder를 통해 간단히 암호화할 수 있다. 
+
+
+### Spring Secuirty 인가
+
+또 Spring Security에서는 계정에 권한을 부여하는 인가를 통해 허용된 사이트만 들어가게 할 수 있다. 
+
+UserDetailsService에서 roles()를 통해 인가를 부여할 수 있다. 하나의 예제를 보자! 
+
+```java
+    @Bean
+    public UserDetailsService userDetailsService(){
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("user1").password("1234").roles("user")build());
+        return  manager;
+    }
 
 
