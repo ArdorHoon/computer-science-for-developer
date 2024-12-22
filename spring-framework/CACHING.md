@@ -76,7 +76,7 @@ public class CacheConfig {
 
 </br>
 
-#### 주요 속성
+#### @Cacheable 주요 속성
 
 |속성|설명|
 |------|---|
@@ -107,6 +107,8 @@ public class CacheConfig {
 
 </br>
 
+#### @CacheEvict 주요 속성
+
 |속성|설명|
 |------|---|
 |value| cacheName의 alias : String[]|
@@ -135,6 +137,8 @@ public class CacheConfig {
 ```
 
 </br>
+
+#### @CachePut 주요 속성
 
 |속성|설명|
 |------|---|
