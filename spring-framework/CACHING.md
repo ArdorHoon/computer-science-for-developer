@@ -28,14 +28,12 @@ Spring Caching은 [Configuration](https://github.com/ArdorHoon/computer-science-
 우선 Spring에서 cache사용을 위해 dependency를 추가해준다.
 
 ```gradle
- implementation 'org.springframework.boot:spring-boot-starter-cache'
+implementation 'org.springframework.boot:spring-boot-starter-cache' // Spring 내부 캐시
+implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
 ```
 </br>
 
 기본적으로 Spring에서 @Cacheable과 같은 어노테이션 기반의 캐시 기능을 사용하기 위해서는 먼저 별도의 선언이 필요하다. 그래서 Config Class에 @EnableCaching을 선언해주어야 한다.
-
-</br>
-
 ```java
 @Configuration
 @EnableCaching
@@ -45,6 +43,8 @@ public class CacheConfig {
 }
 
 ```
+
+</br>
 
 그리고 캐시를 관리해줄 CacheManager를 빈으로 등록해야 하는데 아래가 CacheManager의 종류이다. 이외에도 [공식 문서](https://docs.spring.io/spring-boot/reference/io/caching.html)에서 다양항 CacheManager를 확인할 수 있다.
 
@@ -58,11 +58,53 @@ public class CacheConfig {
 
 </br>
 
+
+### @Cacheable
+<mark>**캐시 저장소에 캐시 데이터를 저장하거나 조회하는 기능**</mark>
+
+에노테이션이 정의된 메서드를 실행하면 데이터 저장소에 캐시 데이터 유무를 확인한다. 적용된 메서드의 리턴 값을 기준으로 캐시에 값을 저장한다.
+
+
+</br>
+
+
+### @CacheEvict
+
+<mark>**캐시 데이터를 캐시에서 제거하는 목적으로 사용**</mark>
+
+원본 데이터를 변경하거나 삭제하는 메서드에 해당 애노테이션을 적용하면 된다.
+
+</br>
+
+
+### @CachePut
+
+<mark>**캐시를 생성하는 기능만 제공하는 어노테이션**</mark></br>
+
+@Cachable과 유사하게 실행 결과를 캐시에 저장하지만, 조회 시에 저장된 캐시의 내용을 사용하지는 않고 항상 메소드의 로직을 실행
+
+
+
+</br>
+
+
 오늘은 ConcurrentMapCacheManager(로컬 캐시)와 RedisCacheManager(원격 캐시)로 Spring Caching을 구현하는 방법을 확인해보자!
 
 </br>
 
 ## 2️⃣ ConcurrentMapCacheManager - local Cache
+
+```java
+@Configuration
+@EnableCaching
+public class CacheConfig {
+    @Bean
+    public CacheManager cacheManager(){
+        return new ConcurrentMapCacheManager("localCacheInfo");
+    }
+    
+}
+```java 
 
 
 </br>
