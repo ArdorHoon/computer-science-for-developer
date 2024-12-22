@@ -102,7 +102,28 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 </br>
 
+### 🔵 AOP로 Spring cache 사용
 
+일반적으로 @Cacheable 같은 어노테이션으로 캐싱을 구현할 때 내부 메서드(Service 클래스)에 구현하면 캐싱이 동작하지 않는다. 그 이유는 @Cacheable이 설정된 메소드 호출 시, Proxy객체가 생성되어 해당 호출을 intercept하는 방식으로 동작하기 때문에 AOP 방식으로 프로그래밍 해주어야 한다. 
+
+
+아래와 같이 Service와 JPA Repository 사이에 프록시 역할을 하는 Repository를 만들고 Service에서 해당 메서드를 호출하도록 구현한다.
+```java
+
+@Component
+@RequiredArgsConstructor
+public class UserRepository {
+
+    private final UserJpaRepository userJpaRepository;
+
+    @Cacheable(value = "getAllUserCount")
+    public long getAllUserCount(){
+        return UserJpaRepository.count();
+    }
+}
+
+
+```
 
 
 ### 🔵 @Cacheable
@@ -111,8 +132,6 @@ public class CacheConfig implements BeanClassLoaderAware {
 에노테이션이 정의된 메서드를 실행하면 데이터 저장소에 캐시 데이터 유무를 확인한다. 적용된 메서드의 리턴 값을 기준으로 캐시에 값을 저장한다.
 
 ```java
-
-//in UserService.java
 
    @Cacheable(key = "#id", value = "userCache")
     public Optional<User> getUserById(Long id) {
@@ -143,8 +162,6 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 ```java
 
-//in UserService.java
-
     @CacheEvict(key = "#id", value = "userCache")
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
@@ -173,8 +190,6 @@ public class CacheConfig implements BeanClassLoaderAware {
 @Cachable과 유사하게 실행 결과를 캐시에 저장하지만, 조회 시에 저장된 캐시의 내용을 사용하지는 않고 항상 메소드의 로직을 실행
 
 ```java
-
-//in UserService.java
 
    @CachePut(key = "#id", value = "customerCache")
     public User updateEmail(Long id, String email) {
