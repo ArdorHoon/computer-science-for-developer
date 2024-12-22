@@ -60,7 +60,7 @@ public class CacheConfig {
 오늘은 ConcurrentMapCacheManager로 구현해 볼 것이다.
 
 
-### 🔵 ConcurrentMapCacheManager 설정 - local Cache
+### 🔵 ConcurrentMapCacheManager 설정 
 
 ConcurrentMapCacheManager 사용 시, 캐쉬 값이 임의로 변경되는 경우가 있다. ConcurrentMapCacheManager는 기본적으로 캐쉬 저장 시, 실제 객체가 아닌 참조 값을 저장하는 특성이 있다. 그렇기 때문에 객체를 저장 시, 객체를 직렬화 하지 않아도 된다. 그렇기 때문에 아래와 같이 Config를 설정해준다.
 
