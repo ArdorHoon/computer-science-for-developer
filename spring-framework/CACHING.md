@@ -64,6 +64,12 @@ public class CacheConfig {
 
 에노테이션이 정의된 메서드를 실행하면 데이터 저장소에 캐시 데이터 유무를 확인한다. 적용된 메서드의 리턴 값을 기준으로 캐시에 값을 저장한다.
 
+```java
+   @Cacheable(key = "#id", value = "userCache")
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
+```
 
 </br>
 
@@ -74,25 +80,33 @@ public class CacheConfig {
 
 원본 데이터를 변경하거나 삭제하는 메서드에 해당 애노테이션을 적용하면 된다.
 
+```java
+    @CacheEvict(key = "#id", value = "userCache")
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+```
+
 </br>
 
 
 ### @CachePut
 
-<mark>**캐시를 생성하는 기능만 제공하는 어노테이션**</mark></br>
+<mark>**캐시에 값을 저장하는 용도로만 사용**</mark></br>
 
 @Cachable과 유사하게 실행 결과를 캐시에 저장하지만, 조회 시에 저장된 캐시의 내용을 사용하지는 않고 항상 메소드의 로직을 실행
 
-
+```java
+   @CachePut(key = "#id", value = "customerCache")
+    public User updateEmail(Long id, String email) {
+        return userRepository.updateEmail(id, email);
+    }
+```
 
 </br>
 
 
-오늘은 ConcurrentMapCacheManager(로컬 캐시)와 RedisCacheManager(원격 캐시)로 Spring Caching을 구현하는 방법을 확인해보자!
-
-</br>
-
-## 2️⃣ ConcurrentMapCacheManager - local Cache
+### ConcurrentMapCacheManager 설정 - local Cache
 
 ```java
 @Configuration
@@ -109,7 +123,7 @@ public class CacheConfig {
 
 </br>
 
-## 3️⃣  Redis - Remote Cache 
+### Redis 설정 - Remote Cache 
 
 ```java 
 
