@@ -57,7 +57,7 @@ public class CacheConfig {
 
 </br>
 
-오늘은 ConcurrentMapCacheManager로 구현해 볼 것이다.
+오늘은 ConcurrentMapCacheManager로 구현 예제를 확인해보자!
 
 </br>
 </br>
@@ -125,6 +125,8 @@ public class UserRepository {
 
 ```
 
+</br>
+
 아니면 내부 메소드 호출 시에도, Proxy Class를 경유할 수 있도록 동일한 클래스의 Proxy Bean을 가져와서 사용하게 처리하면 캐싱된 결과 값을 받을 수 있다.
 
 ```java
@@ -176,6 +178,8 @@ public class UserService{
 
 
 </br>
+</br>
+
 
 ## 2️⃣ Spring Caching 주요 annotation
 
