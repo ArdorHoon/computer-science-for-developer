@@ -102,12 +102,12 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 </br>
 
-### 🔵 AOP로 Spring cache 사용
+### 🔵 Spring caching By AOP
 
-일반적으로 @Cacheable 같은 어노테이션으로 캐싱을 구현할 때 내부 메서드(Service 클래스)에 구현하면 캐싱이 동작하지 않는다. 그 이유는 @Cacheable이 설정된 메소드 호출 시, Proxy객체가 생성되어 해당 호출을 intercept하는 방식으로 동작하기 때문에 AOP 방식으로 프로그래밍 해주어야 한다. 
+일반적으로 @Cacheable 같은 어노테이션으로 캐싱을 구현할 때 내부 메서드(Service 클래스)에 구현하면 캐싱이 동작하지 않는다. 그 이유는 @Cacheable이 설정된 메소드 호출 시, Proxy 객체가 생성되어 해당 호출을 intercept하는 AOP 기반으로 동작하기 때문에 아래와 같이 Service와 JPA Repository 사이에 프록시 역할을 하는 Repository를 만들고 Service에서 해당 메서드를 호출하도록 구현한다.
 
+</br>
 
-아래와 같이 Service와 JPA Repository 사이에 프록시 역할을 하는 Repository를 만들고 Service에서 해당 메서드를 호출하도록 구현한다.
 ```java
 
 @Component
@@ -124,6 +124,43 @@ public class UserRepository {
 
 
 ```
+
+아니면 내부 메소드 호출 시에도, Proxy Class를 경유할 수 있도록 동일한 클래스의 Proxy Bean을 가져와서 사용하게 처리하면 캐싱된 결과 값을 받을 수 있다.
+
+```java
+@Service
+@AllArgsConstructor
+public class UserService{
+	private ApplicationContext applicationContext;
+
+	@Cacheable(value = "userCache", key = "{#root.methodName}")
+	public int cacheableMethod() {
+    System.out.println("CacheableMethod() >> Make a calculation for result");
+		int result = 0;
+		for(int i = 0; i < 3; i++) {
+			System.out.println("processing...");
+			result ++;
+		}
+		return result;
+	}
+
+	public int proxyInvocaionMethod() {
+		System.out.println("proxyInvocaionMethod() >> return proxy CacheableMethod() ");
+		return this.getSpringProxy().cacheableMethod();
+	}	
+
+	private CacheService.getSpringProxy() {
+	    return applicationContext.getBean(CacheService.class);
+	}
+}
+
+```
+
+
+결과! 
+
+</br>
+
 
 ## 2️⃣ Spring Caching 주요 annotation
 
