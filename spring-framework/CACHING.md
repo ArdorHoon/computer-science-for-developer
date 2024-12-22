@@ -23,7 +23,7 @@ Spring Caching은 [Configuration](https://github.com/ArdorHoon/computer-science-
 
 </br>
 
-## 1️⃣ Spring Chacing 기본 
+## 1️⃣ Spring Chacing 사용해보기 
 
 우선 Spring에서 cache사용을 위해 dependency를 추가해준다.
 
@@ -65,6 +65,9 @@ public class CacheConfig {
 에노테이션이 정의된 메서드를 실행하면 데이터 저장소에 캐시 데이터 유무를 확인한다. 적용된 메서드의 리턴 값을 기준으로 캐시에 값을 저장한다.
 
 ```java
+
+//in UserService.java
+
    @Cacheable(key = "#id", value = "userCache")
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
@@ -73,6 +76,18 @@ public class CacheConfig {
 
 </br>
 
+#### 주요 속성
+
+|속성|설명|
+|------|---|
+|value| cacheName의 alias : String[]|
+|key| 동적인 키 값을 사용하는 SpEL 표현식 : String|
+|condition| SpEL 표현식이 참인 경우 캐싱 적용 : String|
+|unless| 캐싱을 막기 위한 SpEL 표현식 : String|
+|cacheManager| 사용할 CacheManager : String|
+
+
+</br>
 
 ### @CacheEvict
 
@@ -81,6 +96,9 @@ public class CacheConfig {
 원본 데이터를 변경하거나 삭제하는 메서드에 해당 애노테이션을 적용하면 된다.
 
 ```java
+
+//in UserService.java
+
     @CacheEvict(key = "#id", value = "userCache")
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
@@ -89,6 +107,16 @@ public class CacheConfig {
 
 </br>
 
+|속성|설명|
+|------|---|
+|value| cacheName의 alias : String[]|
+|key| 동적인 키 값을 사용하는 SpEL 표현식 : String|
+|condition| SpEL 표현식이 참인 경우 캐싱 적용 : String|
+|allEntries| 캐시 내의 모든 리소스를 삭제할지의 여부 : Boolean|
+|cacheManager| 사용할 CacheManager : String|
+|beforeInvocation| true(메서드 수행 이전 캐시 리소스 삭제), false(메소드 수행 후 캐시 리소스 삭제) : Boolean|
+
+</br>
 
 ### @CachePut
 
@@ -97,6 +125,9 @@ public class CacheConfig {
 @Cachable과 유사하게 실행 결과를 캐시에 저장하지만, 조회 시에 저장된 캐시의 내용을 사용하지는 않고 항상 메소드의 로직을 실행
 
 ```java
+
+//in UserService.java
+
    @CachePut(key = "#id", value = "customerCache")
     public User updateEmail(Long id, String email) {
         return userRepository.updateEmail(id, email);
@@ -105,6 +136,16 @@ public class CacheConfig {
 
 </br>
 
+|속성|설명|
+|------|---|
+|value| cacheName의 alias : String[]|
+|key| 동적인 키 값을 사용하는 SpEL 표현식 : String|
+|condition| SpEL 표현식이 참인 경우 캐싱 적용 : String|
+|unless| 캐싱을 막기 위한 SpEL 표현식 : String|
+|cacheManager| 사용할 CacheManager : String|
+
+
+</br>
 
 ### ConcurrentMapCacheManager 설정 - local Cache
 
