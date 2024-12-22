@@ -60,7 +60,7 @@ public class CacheConfig {
 오늘은 ConcurrentMapCacheManager로 구현해 볼 것이다.
 
 
-### ConcurrentMapCacheManager 설정 - local Cache
+### 🔵 ConcurrentMapCacheManager 설정 - local Cache
 
 ConcurrentMapCacheManager 사용 시, 캐쉬 값이 임의로 변경되는 경우가 있다. ConcurrentMapCacheManager는 기본적으로 캐쉬 저장 시, 실제 객체가 아닌 참조 값을 저장하는 특성이 있다. 그렇기 때문에 객체를 저장 시, 객체를 직렬화 하지 않아도 된다. 그렇기 때문에 아래와 같이 Config를 설정해준다.
 
@@ -102,7 +102,7 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 
 
-### @Cacheable
+### 🔵 @Cacheable
 <mark>**캐시 저장소에 캐시 데이터를 저장하거나 조회하는 기능**</mark>
 
 에노테이션이 정의된 메서드를 실행하면 데이터 저장소에 캐시 데이터 유무를 확인한다. 적용된 메서드의 리턴 값을 기준으로 캐시에 값을 저장한다.
@@ -132,7 +132,7 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 </br>
 
-### @CacheEvict
+### 🔵 @CacheEvict
 
 <mark>**캐시 데이터를 캐시에서 제거하는 목적으로 사용**</mark>
 
@@ -163,7 +163,7 @@ public class CacheConfig implements BeanClassLoaderAware {
 
 </br>
 
-### @CachePut
+### 🔵 @CachePut
 
 <mark>**캐시에 값을 저장하는 용도로만 사용**</mark></br>
 
