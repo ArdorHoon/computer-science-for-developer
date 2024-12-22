@@ -125,6 +125,7 @@ public class UserRepository {
 
 ```
 
+## 2️⃣ Spring Caching 주요 annotation
 
 ### 🔵 @Cacheable
 <mark>**캐시 저장소에 캐시 데이터를 저장하거나 조회하는 기능**</mark>
