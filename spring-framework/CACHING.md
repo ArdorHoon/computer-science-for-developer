@@ -23,13 +23,12 @@ Spring Caching은 [Configuration](https://github.com/ArdorHoon/computer-science-
 
 </br>
 
-## 1️⃣ Spring Chacing 구현
+## 1️⃣ Spring Chacing 구현 (로컬 캐시)
 
 우선 Spring에서 cache사용을 위해 dependency를 추가해준다.
 
 ```gradle
-implementation 'org.springframework.boot:spring-boot-starter-cache' // Spring 내부 캐시
-implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
+implementation 'org.springframework.boot:spring-boot-starter-cache' // Spring 내부 캐시 사용
 ```
 </br>
 
@@ -57,6 +56,50 @@ public class CacheConfig {
 * RedisCacheManager: Redis 기반 CacheManager
 
 </br>
+
+오늘은 ConcurrentMapCacheManager로 구현해 볼 것이다.
+
+
+### ConcurrentMapCacheManager 설정 - local Cache
+
+ConcurrentMapCacheManager 사용 시, 캐쉬 값이 임의로 변경되는 경우가 있다. ConcurrentMapCacheManager는 기본적으로 캐쉬 저장 시, 실제 객체가 아닌 참조 값을 저장하는 특성이 있다. 그렇기 때문에 객체를 저장 시, 객체를 직렬화 하지 않아도 된다. 그렇기 때문에 아래와 같이 Config를 설정해준다.
+
+</br>
+
+* TransactionAwareCacheManagerProxy는 캐쉬를 트랜잭션 내에서 처리되도록 하기 위한 것
+* setStoreByValue : false(기본) => 참조값 저장, true => 값을 저장
+* setStoreByValue를 true로 하였기 때문에 객체를 직렬화(Serializable)해야 한다. (setBeanClassLoader 설정)
+* ClassLoader는 JVM의 구성요소 중 하나로, '.class' 바이트 코드를 읽어 들여 class 객체를 생성하는 역할을 담당
+
+</br>
+
+```java
+@Configuration
+@EnableCaching
+public class CacheConfig implements BeanClassLoaderAware {
+    private ClassLoader classLoader;
+
+    @Bean
+    public CacheManager cacheManager() {
+        ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager();
+        cacheManager.setStoreByValue(true);
+        cacheManager.setBeanClassLoader(classLoader);
+
+        return new TransactionAwareCacheManagerProxy(cacheManager);
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        this.classLoader = classLoader;
+    }
+}
+
+```
+
+
+</br>
+
+
 
 
 ### @Cacheable
@@ -149,51 +192,4 @@ public class CacheConfig {
 |cacheManager| 사용할 CacheManager : String|
 
 
-</br>
-
-### ConcurrentMapCacheManager 설정 - local Cache
-
-ConcurrentMapCacheManager 사용 시, 캐쉬 값이 임의로 변경되는 경우가 있다. ConcurrentMapCacheManager는 기본적으로 캐쉬 저장 시, 실제 객체가 아닌 참조 값을 저장하는 특성이 있다. 그렇기 때문에 객체를 저장 시, 객체를 직렬화 하지 않아도 된다. 그렇기 때문에 아래와 같이 Config를 설정해준다.
-
-</br>
-
-* TransactionAwareCacheManagerProxy는 캐쉬를 트랜잭션 내에서 처리되도록 하기 위한 것
-* setStoreByValue : false(기본) => 참조값 저장, true => 값을 저장
-* setStoreByValue를 true로 하였기 때문에 객체를 직렬화(Serializable)해야 한다. (setBeanClassLoader 설정)
-* ClassLoader는 JVM의 구성요소 중 하나로, '.class' 바이트 코드를 읽어 들여 class 객체를 생성하는 역할을 담당
-
-</br>
-
-```java
-@Configuration
-@EnableCaching
-public class CacheConfig implements BeanClassLoaderAware {
-    private ClassLoader classLoader;
-
-    @Bean
-    public CacheManager cacheManager() {
-        ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager();
-        cacheManager.setStoreByValue(true);
-        cacheManager.setBeanClassLoader(classLoader);
-
-        return new TransactionAwareCacheManagerProxy(cacheManager);
-    }
-
-    @Override
-    public void setBeanClassLoader(ClassLoader classLoader) {
-        this.classLoader = classLoader;
-    }
-}
-
-```
-
-
-</br>
-
-### Redis 설정 - Remote Cache 
-
-```java 
-
-
-```
 </br>
