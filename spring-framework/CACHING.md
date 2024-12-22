@@ -157,10 +157,25 @@ public class UserService{
 ```
 
 
-결과! 
+테스트 코드를 실행해보면 아래와 같이 결과가 나오는데 연산 없이 캐싱된 데이터를 반환하는 것을 볼 수 있다.
+
+```java
+
+   @Test
+    void UserServiceCache() {
+
+        System.out.println("==== cacheableMethod() result #1 : " + userService.cacheableMethod() );
+        System.out.println("==== cacheableMethod() result #2 : " + userService.cacheableMethod() );
+        System.out.println("==== proxyMethod() result #1 : " + userService.proxyMethod() );
+    }
+
+```
+
+
+<img width="484" alt="cache" src="https://github.com/user-attachments/assets/7d7047b7-adb1-4f09-8dca-23fec1fdad38" />
+
 
 </br>
-
 
 ## 2️⃣ Spring Caching 주요 annotation
 
