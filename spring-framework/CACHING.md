@@ -23,7 +23,7 @@ Spring Caching은 [Configuration](https://github.com/ArdorHoon/computer-science-
 
 </br>
 
-## 1️⃣ Spring Chacing 사용해보기 
+## 1️⃣ Spring Chacing 구현
 
 우선 Spring에서 cache사용을 위해 dependency를 추가해준다.
 
