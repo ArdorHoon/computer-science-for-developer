@@ -20,6 +20,8 @@ Spring에서도 캐싱을 구축할 수 있는데 캐시 저장소 위치에 따
 
 오늘은 로컬 캐시와 원격 캐시 중 가장 유명한 Redis로 Spring Caching을 구현하는 방법을 확인해보자
 
+Spring Caching은 [Configuration](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/Configuration.md)과 [AOP](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/AOP.md)를 활용해 구현할 수 있다. 
+
 </br>
 
 ## EhCache - local Cache
