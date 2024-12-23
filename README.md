@@ -86,3 +86,4 @@
    - [Spring Event](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/%EC%9D%B4%EB%B2%A4%ED%8A%B8.md)
    - [Spring Security](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/SPRING_SECURITY.md)
    - [Spring Caching](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/CACHING.md)
+   - [Spring Logging](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/logging.md)
