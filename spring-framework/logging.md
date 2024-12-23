@@ -6,7 +6,9 @@
 
 Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본 로그 구현은 열어둔다. Java Util Logging, Log4j2 및 Logback에 대한 default 설정을 제공한다. 
 
-## log 
+</br>
+
+## Log 기본
 
 스프링 부트 라이브러리를 사용하면 spring-boot-starter-logging가 포함되고 기본적으로 [Logback](https://logback.qos.ch/)과 [SLF4J](https://www.slf4j.org/)를 포함하고 있다. 추가적으로 SLF4J를 사용하기 위해 Lombok을 추가해준다.
 
