@@ -6,13 +6,19 @@
 
 Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본 로그 구현은 열어둔다. Java Util Logging, Log4j2 및 Logback에 대한 default 설정을 제공한다. 
 
-## Logback
+## Logback & SLF4J
+
+스프링에서 로깅 라이브러리를 사용하기 위해 아래 dependency를 추가해준다.
 
 ```gradle
 
 ```
 
-로그 레벨
+로깅 라이브러리에 들어있는 [Logback](https://logback.qos.ch/)과 [SLF4J](https://www.slf4j.org/)를 통해 로그를 기록하는 방법을 확인해보자!
+
+
+
+### Log Level
 TRACE > DEBUG > INFO > WARN > ERROR
 개발 서버는 debug 출력
 운영 서버는 info 출력
