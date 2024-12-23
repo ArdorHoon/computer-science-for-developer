@@ -190,6 +190,6 @@ resources 폴더 아래에 <code>logback-spring.xml</code>를 만들어서 로�
 
 ```
 
-위와 같이 설정하면 실행 시, 아래와 같이 로그 파일을 남길 수 있다.
+위와 같이 설정하고 실행 시, 아래와 같이 로그 파일을 남길 수 있다.
 
 <img width="1394" alt="logxml" src="https://github.com/user-attachments/assets/d0ef28f6-b86f-45a3-9c1e-c0a585d27d5f" />
