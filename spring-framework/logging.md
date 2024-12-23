@@ -120,3 +120,70 @@ public class LogController {
 ![log](https://github.com/user-attachments/assets/e04f1c22-dc5c-44fb-b526-90017f33e702)
 
 
+</br>
+
+
+### 🥎 logback-spring.xml로 설정하기
+
+resources 폴더 아래에 <code>logback-spring.xml</code>를 만들어서 더 상세하게 설정할 수 있다.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+        <property name="CONSOLE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight([%-3level]) %logger{5} - %msg %n" />
+        <property name="ROLLING_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}  %logger{5} - %msg %n" />
+        <property name="FILE_NAME" value="/Users/hunmoyang/Desktop/security-sample/logs/application.log" />
+        <property name="LOG_NAME_PATTERN" value="./logs/application-%d{yyyy-MM-dd-HH-mm}.%i.log" />
+        <property name="MAX_FILE_SIZE" value="10MB" />
+        <property name="TOTAL_SIZE" value="30MB" />
+        <property name="MAX_HISTORY" value="2" />
+
+
+        <!-- Console appender 설정 -->
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <Pattern>${CONSOLE_PATTERN}</Pattern>
+            </encoder>
+        </appender>
+
+
+        <appender name="ROLLING_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <pattern>${ROLLING_PATTERN}</pattern>
+            </encoder>
+            <file>${FILE_NAME}</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_NAME_PATTERN}</fileNamePattern>
+                <maxHistory>${MAX_HISTORY}</maxHistory>
+                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+                <totalSizeCap>${TOTAL_SIZE}</totalSizeCap>
+            </rollingPolicy>
+        </appender>
+
+
+
+    <logger name="jdbc" level="OFF" />
+    <logger name="jdbc.sqlonly" level="OFF" />
+    <logger name="jdbc.sqltiming" level="OFF" />
+    <logger name="jdbc.audit" level="OFF" />
+    <logger name="jdbc.resultset" level="OFF" />
+    <logger name="jdbc.resultsettable" level="OFF" />
+    <logger name="jdbc.connection" level="OFF" />
+    <logger name="com.example.securitysample" level="DEBUG" additive="false" >
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ROLLING_LOG_FILE"/>
+    </logger>
+
+
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="error" />
+    </root>
+</configuration>
+
+```
+
+위와 같이 설정하면 실행 시, 아래와 같이 로그 파일을 남길 수 있다.
+
+<img width="1394" alt="logxml" src="https://github.com/user-attachments/assets/d0ef28f6-b86f-45a3-9c1e-c0a585d27d5f" />
