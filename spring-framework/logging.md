@@ -8,20 +8,20 @@ Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본
 
 </br>
 
-## Log 기본
+## Sprin에서 Log 사용하기
 
 스프링 부트 라이브러리를 사용하면 spring-boot-starter-logging가 포함되고 기본적으로 [Logback](https://logback.qos.ch/)과 [SLF4J](https://www.slf4j.org/)를 포함하고 있다. 추가적으로 SLF4J를 사용하기 위해 Lombok을 추가해준다.
 
 </br>
 
-### <mark>**로그출력 포맷**</mark> 
+### 🥎 로그출력 포맷
 ```gradle
 //날짜       |시간             |로그레벨|프로세스ID | 쓰레드명          | 클래스명                                   |로그메세지
 2024-12-23T16:35:44.300+09:00  INFO 17708 --- [p-nio-80-exec-2] c.example.securitysample.LogController   : info  log =Spring-SLf4j-test
 2024-12-23T16:35:44.303+09:00  WARN 17708 --- [p-nio-80-exec-2] c.example.securitysample.LogController   : warn  log =Spring-SLf4j-test
 ```
 
-### Log Level
+### 🥎 Log Level
 > LEVEL : TRACE > DEBUG > INFO > WARN > ERROR
 
 
@@ -30,7 +30,7 @@ Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본
 
 </br>
 
-### Application 단위에서 로그 레벨 설정
+### 🥎 Application 단위에서 로그 레벨 설정
 
 <code>application.properties</code>나 <code>application.yml</code>에서 로그 레벨을 설정할 수 있다. (기본은 INFO) 
 
@@ -47,9 +47,9 @@ logging.level.hello.test =debug
 </br>
 
 
-### Logback & SLF4J으로 로그 구현하기
+### 🥎 Logback & SLF4J으로 로그 구현하기
 
-#### Logback
+#### 🔵 Logback
 
 ``` java
 @RestController
@@ -76,8 +76,9 @@ public class LogController {
 
 
 ```
+</br>
 
-#### SLF4J
+#### 🔵 SLF4J
 
 ```java
 
@@ -106,8 +107,9 @@ public class LogController {
 
 ```
 
+</br>
 
-#### Log 결과
+#### 🔵 Log 결과
 ![log](https://github.com/user-attachments/assets/e04f1c22-dc5c-44fb-b526-90017f33e702)
 
 
