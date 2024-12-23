@@ -125,7 +125,13 @@ public class LogController {
 
 ### 🥎 logback-spring.xml로 설정하기
 
-resources 폴더 아래에 <code>logback-spring.xml</code>를 만들어서 더 상세하게 설정할 수 있다.
+resources 폴더 아래에 <code>logback-spring.xml</code>를 만들어서 로그를 더 상세하게 설정하거나 파일로 저장할 수 있다.
+
+여기서는 간단하게 주로 사용되는 옵션만 확인해보겠다. 
+* ConsoleAppender : 로그 콘솔에 출력 설정 부분
+* RollingFileAppender : 특정 크기 제한에 도달하거나 날짜/시간 패턴이 더 이상 적용되지 않으면 로그 파일을 롤오버를 설정 할 수 있는 부분 
+
+</br>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -147,7 +153,7 @@ resources 폴더 아래에 <code>logback-spring.xml</code>를 만들어서 더 �
             </encoder>
         </appender>
 
-
+        <!-- RollingFileAppender 설정 -->
         <appender name="ROLLING_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <encoder>
                 <pattern>${ROLLING_PATTERN}</pattern>
