@@ -52,6 +52,27 @@ logging.level.hello.test =debug
 #### Logback
 
 ``` java
+@RestController
+public class LogController {
+
+    private final Logger log = LoggerFactory.getLogger(LogController.class);
+
+    @RequestMapping("log-logback")
+    private String logTest(){
+        String name = "Spring-logback-test";
+
+        System.out.println("name : " + name);
+
+        log.trace("trace log = {}", name);
+        log.debug("debug log = {}", name);
+        log.info("info log = {}", name);
+        log.warn("warn log = {}", name);
+        log.error("error log = {}", name);
+
+        return "ok";
+    }
+
+}
 
 
 ```
@@ -84,3 +105,9 @@ public class LogController {
 
 
 ```
+
+
+#### Log 결과
+![log](https://github.com/user-attachments/assets/e04f1c22-dc5c-44fb-b526-90017f33e702)
+
+
