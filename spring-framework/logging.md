@@ -2,16 +2,21 @@
 
 <mark>**Log란? 시스템에서 발생되는 모든 행위와 이벤트 정보를 시간에 따라 남겨둔 데이터를 지칭한다. 그러한 로그를 남기는 행위를 logging**</mark>이라고 한다. 
 
-일반적으로 Log는 System.out.println()으로 남길 수 있지만 실제 실무에서는 Spring에서 logging 라이브러리를 통해 로그를 남긴다. (spring-boot-starter-logging)
+일반적으로 Log는 System.out.println()으로 남길 수 있지만 실제 실무에서는 Spring에서 logging 라이브러리를 통해 로그를 남긴다.
 
 Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본 로그 구현은 열어둔다. Java Util Logging, Log4j2 및 Logback에 대한 default 설정을 제공한다. 
 
 </br>
 
-## Sprin에서 Log 사용하기
+## 🟥 Sprin에서 Log 사용하기
 
 스프링 부트 라이브러리를 사용하면 spring-boot-starter-logging가 포함되고 기본적으로 [Logback](https://logback.qos.ch/)과 [SLF4J](https://www.slf4j.org/)를 포함하고 있다. 추가적으로 SLF4J를 사용하기 위해 Lombok을 추가해준다.
 
+로그 설정 시, 불필요한 문자 연산이 발생하지 않게 아래와 같이 사용해준다.
+
+```java
+log.debug("data={}", data) 
+```
 </br>
 
 ### 🥎 로그출력 포맷
@@ -21,12 +26,14 @@ Spring Boot에서는 내부 로깅에 Commons Logging을 사용 하지만 기본
 2024-12-23T16:35:44.303+09:00  WARN 17708 --- [p-nio-80-exec-2] c.example.securitysample.LogController   : warn  log =Spring-SLf4j-test
 ```
 
+</br>
+
 ### 🥎 Log Level
+
 > LEVEL : TRACE > DEBUG > INFO > WARN > ERROR
 
-
-개발 서버는 debug 출력
-운영 서버는 info 출력
+로그 레벨 설정을 변경해서 출력 결과를 다르게 할 수 있다. 
+(보통 개발 서버는 debug, 운영 서버는 info를 사용)
 
 </br>
 
