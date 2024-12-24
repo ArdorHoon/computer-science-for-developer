@@ -125,3 +125,7 @@ Spring에서 제공하는 [배치 튜토리얼](https://spring.io/guides/gs/batc
 
 
 
+해당 Application을 다시 실행하고 H2-console을 통해 People 테이블을 확인하면 데이터가 들어간 것을 확인할 수 있다.
+
+![result](https://github.com/user-attachments/assets/952e2974-d995-4e28-b219-76f95bdd93cb)
+
