@@ -24,18 +24,21 @@ Spring Batch는 대량의 데이터를 효율적으로 처리하기 위한 프�
 
 ### 🏷️ Job
 
-<mark>**Job은 배치처리 과정을 하나의 단위로 만들어 놓은 객체**</mark>, 또한 배치처리 과정에 있어 전체 계층 최상단에 위치
+<mark>**Job은 배치처리 과정을 하나의 단위로 만들어 놓은 객체**</mark>, 또한 배치처리 과정에 있어 전체 계층 최상단에 위치</br>
+
 </br>
 
 ### 🏷️ JobInstance
 
 <mark>**Job의 실제 실행 인스턴스를 의미**</mark>
+
 </br>
 
 ### 🏷️ JobParameters
 <mark>**JobParameters는 JobInstance를 생성하고 구별하는 데 사용되는 파라미터**</mark>
 
 스프링 배치는 String, Double, Long, Date 이렇게 4가지 타입의 파라미터를 지원
+
 </br>
 
 ### 🏷️ JobExecution
@@ -43,6 +46,7 @@ Spring Batch는 대량의 데이터를 효율적으로 처리하기 위한 프�
 <mark>**JobInstance의 실행에 대한 정보를 저장**</mark>
 
 JobExecution은 실행 상태, 시작시간, 종료시간, 생성시간 등 JobInstance의 실행에 대한 세부 정보를 담고 있다.
+
 </br>
 
 
@@ -66,8 +70,6 @@ Step은 Tasklet 혹은 Chunk 방식으로 구성
 
 </br>
 
-
-
 ### 🏷️ ExecutionContext
 <mark>**Step 간 또는 Job 실행 도중 데이터를 공유하는 데 사용되는 저장소**</mark> 
 
@@ -79,19 +81,21 @@ Step은 Tasklet 혹은 Chunk 방식으로 구성
 ### 🏷️ JobRepository
 <mark>**배치 작업에 관련된 모든 정보를 저장하고 관리하는 메커니즘**</mark> 
 
-Job 실행정보(JobExecution), Step 실행정보(StepExecution), Job 파라미터(JobParameters)등을 저장하고 관리합니다.
-Job이 실행될 때, JobRepository는 새로운 JobExecution과 StepExecution을 생성하고, 이를 통해 실행 상태를 추적합니다.
+* Job 실행정보(JobExecution), Step 실행정보(StepExecution), Job 파라미터(JobParameters)등을 저장하고 관리
+* Job이 실행될 때, JobRepository는 새로운 JobExecution과 StepExecution을 생성하고, 이를 통해 실행 상태를 추적
+
 </br>
 
 ### 🏷️ JobLauncher
 <mark>**Job과 JobParameters를 받아 Job을 실행하는 역할**</mark> 
 
+전반적인 Job의 생명 주기를 관리하며, JobRepository를 통해 실행 상태를 유지
 
-이는 전반적인 Job의 생명 주기를 관리하며, JobRepository를 통해 실행 상태를 유지합
 </br>
 
 ### 🏷️ ItemReader
 <mark>**배치 작업에서 처리할 아이템을 읽어오는 역할**</mark> 
+
 </br>
 
 ### 🏷️ ItemProcessor
