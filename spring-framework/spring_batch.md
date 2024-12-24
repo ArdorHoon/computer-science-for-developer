@@ -130,9 +130,9 @@ Spring에서 제공하는 [배치 튜토리얼](https://spring.io/guides/gs/batc
 프로젝트 파일 구성은 아래와 같다.
 
 * <code>Person.java</code> : Entity
-* <code>BatchConfiguration.java</code> :
-* <code>PersonItemProcessor.java</code> :
-* <code>JobCompletionNotificationListener.java</code> :
+* <code>BatchConfiguration.java</code> :  배치 작업 Configuration 클래스 (**핵심**)
+* <code>PersonItemProcessor.java</code> : ItemReader로부터 읽어온 아이템을 처리하는 역할
+* <code>JobCompletionNotificationListener.java</code> :  배치 작업이 완료될 때 알림을 받기 위한 리스너
 
 
 main() 메서드는 배치 파일 특성 상, 한 사이클돌리고 종료하기 때문에 System.exit()로 구현했지만 여기서 DB에 정상적으로 데이터가 들어갔는지 확인을 위해서 일반적인 실행으로 테스트하였다. 
@@ -155,6 +155,144 @@ public class SpringBatchTestApplication {
 
 ### 🏷️ 소스 코드
 
+
+#### PersonItemProcessor
+배치 작업에서 처리할 아이템을 가공하는 역할, ItemProcessor를 implements 받아서 구현했다.
+
+Person 객체를 받아서, (upper-cased)Person으로 가공해준다.
+
+```java
+@Slf4j
+public class PersonItemProcessor implements ItemProcessor<Person, Person> {
+
+
+    @Override
+    public Person process(Person person) throws Exception {
+
+        final Long id = person.getId();
+        final String firstName = person.getFirstName().toUpperCase();
+        final String lastName = person.getLastName().toUpperCase();
+
+        final Person transformedPerson = new Person(id, firstName, lastName);
+
+        log.info("Converting (" + person + ") into (" + transformedPerson + ")");
+
+        return transformedPerson;
+    }
+}
+
+
+```
+</br>
+
+
+
+#### BatchConfiguration
+실제 배치 작업을 만들기 위한 Configuration 클래스
+
+여기서 Spring 컨테이너에 reader, processeor, writer 빈을 등록해준다. 
+
+```java
+
+@Configuration
+public class BatchConfiguration {
+
+    //Reader : csv파일을 읽어 드림
+    @Bean
+    public FlatFileItemReader<Person> reader() {
+        return new FlatFileItemReaderBuilder<Person>()
+                .name("personItemReader")
+                .resource(new ClassPathResource("sample-data.csv"))
+                .delimited()
+                .names("id","firstName", "lastName")
+                .targetType(Person.class)
+                .build();
+    }
+
+    //processeor : 아이템 가공하는 역할
+    @Bean
+    public PersonItemProcessor processor() {
+        return new PersonItemProcessor();
+    }
+
+
+    // writer : Spring Boot에서 만든 datasource의 사본을 자동으로 가져옴 (단일 Person 객체를 DB에 쓰기 위한 SQL문도 포함)
+    @Bean
+    public JdbcBatchItemWriter<Person> writer(DataSource dataSource) {
+        return new JdbcBatchItemWriterBuilder<Person>()
+                .sql("INSERT INTO people (person_id, first_name, last_name) VALUES (:id, :firstName, :lastName)")
+                .dataSource(dataSource)
+                .beanMapped()
+                .build();
+    }
+
+    // tag::jobstep[]
+    // job을 정의 (step으로 부터 build) 
+    @Bean
+    public Job importUserJob(JobRepository jobRepository, Step step1, JobCompletionNotificationListener listener) {
+        return new JobBuilder("importUserJob", jobRepository)
+                .listener(listener)
+                .start(step1)
+                .build();
+    }
+
+   //step을 정의 (각 스텝은 a reader, a processor, and a writer 포함한다..)
+   //여기서는 최대 3개의 레코드를 한 번에 쓴다. (<Person, Person> chunk(3, transactionManager))
+    @Bean
+    public Step step1(JobRepository jobRepository, DataSourceTransactionManager transactionManager,
+                      FlatFileItemReader<Person> reader, PersonItemProcessor processor, JdbcBatchItemWriter<Person> writer) {
+        return new StepBuilder("step1", jobRepository)
+                .<Person, Person> chunk(3, transactionManager)
+                .reader(reader)
+                .processor(processor)
+                .writer(writer)
+                .build();
+    }
+    // end::jobstep[]
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+}
+
+
+```
+
+
+</br>
+
+#### JobCompletionNotificationListener
+
+배치 작업이 완료될 때 알림을 받기 위한 리스너이다.
+
+```java
+
+@Slf4j
+@Component
+public class JobCompletionNotificationListener implements JobExecutionListener {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public JobCompletionNotificationListener(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public void afterJob(JobExecution jobExecution) {
+        if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
+            log.info("!!! JOB FINISHED! Time to verify the results");
+
+            jdbcTemplate
+                    .query("SELECT first_name, last_name FROM people", new DataClassRowMapper<>(Person.class))
+                    .forEach(person -> log.info("Found <{{}}> in the database.", person));
+        }
+    }
+}
+
+
+
+```
 
 </br>
 
