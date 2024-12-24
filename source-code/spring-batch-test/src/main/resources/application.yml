@@ -1,0 +1,30 @@
+spring:
+  # H2 Setting Info (H2 Console? ???? ?? ???? ??)
+  h2:
+    console:
+      enabled: true  # H2 Console? ???? ?? (H2 Console? H2 Database? UI? ????? ??)
+      path: /h2-console  # H2 Console? Path
+  # Database Setting Info (Database? H2? ???? ?? H2?? ?? ??)
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        #  show_sql: true
+        format_sql: true
+        use_sql_comments: true # sql ? ?? jpql ??????  ???? ??
+    defer-datasource-initialization: true
+
+
+#
+#  batch:
+#    job:
+#      enabled: false # ?? ???? ?? ???? ??
+#      jdbc:
+#        initialize-schema: always
