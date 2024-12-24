@@ -166,6 +166,35 @@ public class SpringBatchTestApplication {
 <img src="https://github.com/user-attachments/assets/952e2974-d995-4e28-b219-76f95bdd93cb" width="60%" height="60%"></br>
 </p></br>
 
+</br>
+
+**실행 시 Console 로그**
+``` gradle
+2024-12-24T14:20:35.214+09:00  INFO 12856 --- [           main] c.e.s.SpringBatchTestApplication         : Started SpringBatchTestApplication in 6.177 seconds (process running for 6.959)
+2024-12-24T14:20:35.220+09:00  INFO 12856 --- [           main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2024-12-24T14:20:35.303+09:00  INFO 12856 --- [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importUserJob]] launched with the following parameters: [{}]
+2024-12-24T14:20:35.341+09:00  INFO 12856 --- [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2024-12-24T14:20:35.390+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@307e9c02) into (com.example.springbatchtest.Person@682270ff)
+2024-12-24T14:20:35.391+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@6bc08a77) into (com.example.springbatchtest.Person@37922937)
+2024-12-24T14:20:35.392+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@73483d4b) into (com.example.springbatchtest.Person@8961e55)
+2024-12-24T14:20:35.404+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@62b0792) into (com.example.springbatchtest.Person@2fd409c1)
+2024-12-24T14:20:35.404+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@121c1a08) into (com.example.springbatchtest.Person@3013e1e8)
+2024-12-24T14:20:35.404+09:00  INFO 12856 --- [           main] c.e.springbatchtest.PersonItemProcessor  : Converting (com.example.springbatchtest.Person@6e5a77ef) into (com.example.springbatchtest.Person@61cff1e4)
+2024-12-24T14:20:35.412+09:00  INFO 12856 --- [           main] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 70ms
+2024-12-24T14:20:35.417+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : !!! JOB FINISHED! Time to verify the results
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@5058fefb}> in the database.
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@198a0416}> in the database.
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@1f207142}> in the database.
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@65871cfd}> in the database.
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@723f8990}> in the database.
+2024-12-24T14:20:35.424+09:00  INFO 12856 --- [           main] c.e.s.JobCompletionNotificationListener  : Found <{com.example.springbatchtest.Person@3bdc8975}> in the database.
+2024-12-24T14:20:35.427+09:00  INFO 12856 --- [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importUserJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 99ms
+2024-12-24T14:32:37.752+09:00  INFO 12856 --- [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-24T14:32:38.057+09:00  INFO 12856 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+```
+</br>
+
 그리고 csv 파일에 **6,Kate,Hoon** 추가 후 다시 실행하면
 
 ```csv
