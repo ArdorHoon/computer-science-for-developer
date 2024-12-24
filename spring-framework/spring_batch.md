@@ -127,7 +127,7 @@ Spring에서 제공하는 [배치 튜토리얼](https://spring.io/guides/gs/batc
 ### 🏷️ 사전 준비
 우선 프로젝트 resource 폴더 아래에 schema-all.sql, sample-data.csv 파일을 준비해둔다. Spring 튜토리얼에서는 HyperSQL Database를 사용했지만 나는 H2 DB를 사용했다. 
 
-프로젝트 파일 구성은 아래와 같다.
+프로젝트 파일 구성은 아래와 같다. ([프로젝트](https://github.com/ArdorHoon/computer-science-for-developer/tree/main/source-code/spring-batch-test)는 링크를 클릭)
 
 * <code>Person.java</code> : Entity
 * <code>BatchConfiguration.java</code> :  배치 작업 Configuration 클래스 (**핵심**)
