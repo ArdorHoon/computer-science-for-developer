@@ -120,3 +120,8 @@ Step은 Tasklet 혹은 Chunk 방식으로 구성
 </br>
 
 ## 3️⃣ Spring Batch 사용하기
+
+Spring에서 제공하는 [배치 튜토리얼](https://spring.io/guides/gs/batch-processing)을 표본으로 batch를 어떻게 사용하는지 알아보자!
+
+
+
