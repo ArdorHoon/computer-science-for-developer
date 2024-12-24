@@ -124,8 +124,63 @@ Step은 Tasklet 혹은 Chunk 방식으로 구성
 Spring에서 제공하는 [배치 튜토리얼](https://spring.io/guides/gs/batch-processing)을 표본으로 batch를 어떻게 사용하는지 알아보자!
 
 
+### 🏷️ 사전 준비
+우선 프로젝트 resource 폴더 아래에 schema-all.sql, sample-data.csv 파일을 준비해둔다. Spring 튜토리얼에서는 HyperSQL Database를 사용했지만 나는 H2 DB를 사용했다. 
+
+프로젝트 파일 구성은 아래와 같다.
+
+* <code>Person.java</code> : Entity
+* <code>BatchConfiguration.java</code> :
+* <code>PersonItemProcessor.java</code> :
+* <code>JobCompletionNotificationListener.java</code> :
+
+
+main() 메서드는 배치 파일 특성 상, 한 사이클돌리고 종료하기 때문에 System.exit()로 구현했지만 여기서 DB에 정상적으로 데이터가 들어갔는지 확인을 위해서 일반적인 실행으로 테스트하였다. 
+
+```java
+@SpringBootApplication
+public class SpringBatchTestApplication {
+
+    public static void main(String[] args) {
+        //한 번 실행 후 종료 
+        //System.exit(SpringApplication.exit(SpringApplication.run(SpringBatchTestApplication.class, args)));
+
+        SpringApplication.run(SpringBatchTestApplication.class, args);
+    }
+
+}
+```
+
+</br>
+
+### 🏷️ 소스 코드
+
+
+</br>
+
+### 🏷️ 결과
 
 해당 Application을 다시 실행하고 H2-console을 통해 People 테이블을 확인하면 데이터가 들어간 것을 확인할 수 있다.
 
-![result](https://github.com/user-attachments/assets/952e2974-d995-4e28-b219-76f95bdd93cb)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/952e2974-d995-4e28-b219-76f95bdd93cb" width="60%" height="60%"></br>
+</p></br>
+
+그리고 csv 파일에 **6,Kate,Hoon** 추가 후 다시 실행하면
+
+```csv
+1,Jill,Doe
+2,Joe,Doe
+3,Justin,Doe
+4,Jane,Doe
+5,John,Doe
+6,Kate,Hoon
+```
+</br>
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/70590332-c52a-421d-8f9c-041e178f0c5c" width="60%" height="60%"></br>
+</p></br>
+
+
 
