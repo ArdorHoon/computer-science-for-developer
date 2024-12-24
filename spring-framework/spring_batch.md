@@ -17,3 +17,65 @@ Spring Batch는 대량의 데이터를 효율적으로 처리하기 위한 프�
 
 
 </br>
+
+
+
+## Spring Batch 용어
+
+### Job
+
+<mark>**Job은 배치처리 과정을 하나의 단위로 만들어 놓은 객체**</mark>, 또한 배치처리 과정에 있어 전체 계층 최상단에 위치
+
+</br>
+
+### JobInstance
+
+</br>
+
+### JobParameters
+
+</br>
+
+### JobExecution
+
+</br>
+
+
+### Step
+
+</br>
+
+
+### StepExecution
+
+</br>
+
+
+
+### ExecutionContext
+
+</br>
+
+### JobRepository
+</br>
+
+### JobLauncher
+
+</br>
+
+### ItemReader
+</br>
+
+### ItemWriter
+
+
+</br>
+
+### ItemProcessor
+
+</br>
+ 
+
+## Batch 사용 사례
+
+</br>
