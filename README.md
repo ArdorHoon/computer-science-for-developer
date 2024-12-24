@@ -87,3 +87,4 @@
    - [Spring Security](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/SPRING_SECURITY.md)
    - [Spring Caching](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/CACHING.md)
    - [Spring Logging](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/logging.md)
+   - [Spring Batch](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/spring_batch.md)
