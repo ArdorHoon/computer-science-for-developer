@@ -266,6 +266,8 @@ public class BatchConfiguration {
 
 배치 작업이 완료될 때 알림을 받기 위한 리스너이다.
 
+배치 작업이 끝나고 결과를 보기 위한 JdbcTemplate도 사용
+
 ```java
 
 @Slf4j
