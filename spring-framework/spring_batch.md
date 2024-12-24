@@ -156,7 +156,7 @@ public class SpringBatchTestApplication {
 ### 🏷️ 소스 코드
 
 
-#### PersonItemProcessor
+#### 🔵 PersonItemProcessor
 배치 작업에서 처리할 아이템을 가공하는 역할, ItemProcessor를 implements 받아서 구현했다.
 
 Person 객체를 받아서, (upper-cased)Person으로 가공해준다.
@@ -187,7 +187,7 @@ public class PersonItemProcessor implements ItemProcessor<Person, Person> {
 
 
 
-#### BatchConfiguration
+#### 🔵 BatchConfiguration
 실제 배치 작업을 만들기 위한 Configuration 클래스
 
 여기서 Spring 컨테이너에 reader, processeor, writer 빈을 등록해준다. 
@@ -262,7 +262,7 @@ public class BatchConfiguration {
 
 </br>
 
-#### JobCompletionNotificationListener
+#### 🔵 JobCompletionNotificationListener
 
 배치 작업이 완료될 때 알림을 받기 위한 리스너이다.
 
