@@ -1,17 +1,17 @@
 # Spring Data JDBC
 
 
-## JDBC란?
+## 1️⃣ JDBC(Java Database Connectivity)란?
 
 
 </br>
 
-## Spring JDBC의 특징
+## 2️⃣ Spring JDBC의 특징
 
 
 </br>
 
-## Spring JDBC 활용
+## 3️⃣ Spring JDBC 활용
 
 
 </br>
