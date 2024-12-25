@@ -1,4 +1,4 @@
-# Spring Data JDBC
+# Spring JDBC
 
 
 ## 1️⃣ JDBC(Java Database Connectivity)란?
