@@ -4,6 +4,7 @@
 ## 1️⃣ JDBC(Java Database Connectivity)란?
 <mark>**자바에서 데이터베이스에 접속할 수 있도록 도와주는 API**</mark></br>
 
+![jdbc](https://github.com/user-attachments/assets/1a7bb8b1-27f2-44dc-a9e0-35407b52917e)
 
 
 
