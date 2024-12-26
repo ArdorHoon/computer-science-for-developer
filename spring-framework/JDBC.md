@@ -207,7 +207,7 @@ public int updateAccountBalance(String accountId, double amount) {
 
 </br>
 
-## 3️⃣ Spring JDBC 활용
+## 3️⃣ Spring JDBC 활용 (in Spring MVC)
 
 이제 Spring에서 jdbcTemplate를 활용해서 USER를 insert, update, delete하는 소스코드를 아래에서 확인해보자!
 
