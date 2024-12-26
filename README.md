@@ -88,4 +88,4 @@
    - [Spring Caching](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/CACHING.md)
    - [Spring Logging](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/logging.md)
    - [Spring Batch](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/spring_batch.md)
-   - [JDBC](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/JDBC.md)
+   - [Spring JDBC](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/JDBC.md)
