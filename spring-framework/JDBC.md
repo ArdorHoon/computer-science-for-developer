@@ -2,7 +2,16 @@
 
 
 ## 1️⃣ JDBC(Java Database Connectivity)란?
+<mark>**자바에서 데이터베이스에 접속할 수 있도록 도와주는 API**</mark></br>
 
+
+
+
+JDBC는 3가지 기능을 표준 인터페이스로 정의하여 제공
+
+* java.sql.Connection - 연결
+* java.sql.Statement - SQL을 담은 내용
+* java.sql.ResultSet - SQL 요청 응답
 
 </br>
 
