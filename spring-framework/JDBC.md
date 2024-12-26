@@ -32,6 +32,9 @@ JDBC는 3가지 기능을 표준 인터페이스로 정의하여 제공
 </br>
 
 ## 2️⃣ Spring JDBC의 특징
+Spring JDBC는 Spring Framewor에서 제공하는 JDBC 기반의 데이터 액세스 기술
+
+Spring JDBC를 통해 JDBC를 보다 쉽고 효율적으로 사용할 수 있도록 추상화된 기능을 제공한다. 
 
 
 </br>
