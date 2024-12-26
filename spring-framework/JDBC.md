@@ -209,5 +209,138 @@ public int updateAccountBalance(String accountId, double amount) {
 
 ## 3️⃣ Spring JDBC 활용
 
+이제 Spring에서 jdbcTemplate를 활용해서 USER를 insert, update, delete하는 소스코드를 아래에서 확인해보자!
+
+코드 흐름은 <mark>**Application -> Controller -> Service -> Repository -> DB**</mark> 이다. 
+
+
+### 🍊USER 객체
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+}
+
+```
 
 </br>
+
+### 🍊 application.yml에 datasource설정
+
+```yml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: user
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+```
+
+</br>
+
+### 🍊 UserRepository.java 
+
+```java
+
+@Repository
+public class UserRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public int insertUser(User user) {
+        String sql = "INSERT INTO users (name, email) VALUES (?, ?)";
+        return jdbcTemplate.update(sql, user.getName(), user.getEmail());
+    }
+
+    public int updateUser(User user) {
+        String sql = "UPDATE users SET name = ?, email = ? WHERE id = ?";
+        return jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getId());
+    }
+
+    public int deleteUser(Long id) {
+        String sql = "DELETE FROM users WHERE id = ?";
+        return jdbcTemplate.update(sql, id);
+    }
+
+}
+
+```
+</br>
+
+### 🍊 UserService.java
+
+```java
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public void addUser(User user) {
+        int rows = userRepository.insertUser(user);
+        if (rows > 0) {
+            System.out.println("User added successfully.");
+        } else {
+            System.out.println("Failed to add user.");
+        }
+    }
+
+    public void modifyUser(User user) {
+        int rows = userRepository.updateUser(user);
+        if (rows > 0) {
+            System.out.println("User updated successfully.");
+        } else {
+            System.out.println("Failed to update user.");
+        }
+    }
+
+    public void deleteUser(Long id) {
+        int rowsAffected = userRepository.deleteUser(id);
+        if (rowsAffected > 0) {
+            System.out.println("User deleted successfully.");
+        } else {
+            throw new RuntimeException("Failed to delete user. User with ID " + id + " not found.");
+        }
+    }
+
+}
+
+```
+
+</br>
+
+### 🍊 UserController.java
+
+```java
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public ResponseEntity<User> addUser(@RequestBody User user) {
+        User createdUser = userService.addUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        User updatedUser = userService.updateUser(id, user);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+
+```
