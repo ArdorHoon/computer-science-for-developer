@@ -75,3 +75,10 @@ public void saveUser(User user) {
 여기서 entityManager는 JPA 표준 API이며, 이 내부에서 Hibernate가 실제로 데이터를 처리한다. 결국 JPA를 통해 Hibernate와 같은 ORM 구현체를 사용하여 데이터베이스 작업을 쉽게 처리할 수 있다.
 
 </br>
+
+![jpa](https://github.com/user-attachments/assets/ff81396e-6643-43ab-a745-d6389656f94f)
+
+
+실제로 위의 사진처럼 JPA와 Hibernate의 상속 및 구현 관계를 보면 JPA의 EntityManager, EntityManager, EntityTransaction을 Hibernate에서 SessionFactory, Session, Transaction으로 상속 받고 각각 Impl로 구현하고 있다는 것을 확인할 수 있다. 
+
+</br>
