@@ -140,7 +140,7 @@ public class Book {
 
 </br>
 
-#### 🔵 Repository
+### 🔵 Repository
 ```java
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
@@ -151,7 +151,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 ```
 </br>
 
-#### 🔵 OrderService
+### 🔵 OrderService
 ```java
 
 @Service
@@ -198,7 +198,7 @@ public class OrderService {
 
 </br>
 
-#### 🔵 OrderController
+### 🔵 OrderController
 
 ```java
 @RestController
@@ -231,7 +231,7 @@ public class OrderController {
 
 </br>
 
-#### 🔵 테스트 데이터 삽입
+### 🔵 테스트 데이터 삽입
 ```java
 @Component
 public class DataLoader implements CommandLineRunner {
