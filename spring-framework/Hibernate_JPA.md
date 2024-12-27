@@ -1,4 +1,4 @@
-# Hibernate & JPA
+# JPA & Hibernate
 
 
 ## JPA
