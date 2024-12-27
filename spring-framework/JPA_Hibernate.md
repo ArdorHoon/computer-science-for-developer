@@ -82,3 +82,13 @@ public void saveUser(User user) {
 실제로 위의 사진처럼 JPA와 Hibernate의 상속 및 구현 관계를 보면 JPA의 EntityManager, EntityManager, EntityTransaction을 Hibernate에서 SessionFactory, Session, Transaction으로 상속 받고 각각 Impl로 구현하고 있다는 것을 확인할 수 있다. 
 
 </br>
+
+## 4️⃣ Spring Data JPA와 활용 예시
+
+실제로 Spring에서 JPA를 사용하기 위해서 Spring Data JPA라는 라이브러리를 제공한다. Spring Data JPA는 JPA를 한 단계 더 추상화 시켜서 좀 더 쉽게 사용할 수 있게 해준다.
+
+
+### 🥎 Spring Data JPA를 활용한 DB 접근 소스 코드
+
+
+
