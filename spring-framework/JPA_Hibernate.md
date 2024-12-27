@@ -1,12 +1,12 @@
 # JPA & Hibernate
 
 
-## JPA
+## 1️⃣ JPA
 <mark>**JAVA 객체와 관계형 데이터베이스(RDBMS) 간의 매핑을 처리하는 Java 표준 API**</mark>
 
 </br>
 
-### JPA 특징
+### 🥎 JPA 특징
 
 * 데이터베이스 작업을 객체 지향적으로 처리
 * 엔티티(Entity)라는 자바 클래스를 사용하여 데이터베이스 테이블과 매핑
@@ -14,12 +14,12 @@
 
 </br>
 
-## Hibernate
+## 2️⃣ Hibernate
 <mark>**JPA의 구현체(Implementation) 중 하나인 ORM(Object-Relational Mapping) 프레임워크**</mark>입니다. 즉, JPA 인터페이스를 구현하여 실제로 데이터베이스와 상호작용하는 기능을 제공
 
 </br>
 
-### Hibernate 특징
+### 🥎  Hibernate 특징
 
 * 객체-관계 매핑을 자동으로 처리하여, 개발자가 SQL을 직접 작성할 필요를 줄임
 * 세션(Session)을 사용하여 데이터베이스와의 연결을 관리
@@ -29,7 +29,7 @@
 </br>
 
 
-### Hibernate 장점
+### 🥎 Hibernate 장점
 
 * 생산성 :SQL을 직접 사용하지 않고, 메서드 호출로 쿼리를 수행
 * 유지보수 : 테이블 컬럼 변경 시, 테이블과 관련된 DAO의 파라미터, 결과, SQL 등을 대신 수행
@@ -38,7 +38,7 @@
 
 </br>
 
-### Hibernate 단점
+### 🥎 Hibernate 단점
 
 * 성능 : 메서드 호출만으로 쿼리를 수행하는 것은 SQL을 작성하는 것보다 성능상 좋지 않음
 * 세밀함이 떨어짐 : 메서드 호출만으로 DB데이터를 조작하기에는 한계가 있음(이를 보완하기 위해 JPQL 지원)
@@ -46,7 +46,7 @@
 
 </br>
 
-## JPA에서 Hibernate 사용 예시 
+## 3️⃣ JPA와 Hibernate 사용 예시 및 관계
 
 ```java
 
