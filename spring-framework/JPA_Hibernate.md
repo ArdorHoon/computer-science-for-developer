@@ -97,11 +97,11 @@ public void saveUser(User user) {
 
 ### 🥎 Spring Data JPA를 활용한 DB 접근 소스 코드
 
-아래는 도서 주문 관련 REST API를 Spring Data JPA로 만든 예제이다. 
+아래는 도서 주문 관련 간단한 REST API를 Spring Data JPA로 만든 예제이다. 
 
 </br>
 
-### Entity
+### 🔵 Entity
 ```java
 @Entity
 @Getter
@@ -140,7 +140,7 @@ public class Book {
 
 </br>
 
-#### Repository
+#### 🔵 Repository
 ```java
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
@@ -151,7 +151,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 ```
 </br>
 
-#### OrderService
+#### 🔵 OrderService
 ```java
 
 @Service
@@ -198,7 +198,7 @@ public class OrderService {
 
 </br>
 
-#### OrderController
+#### 🔵 OrderController
 
 ```java
 @RestController
@@ -231,7 +231,7 @@ public class OrderController {
 
 </br>
 
-#### 테스트 데이터 삽입
+#### 🔵 테스트 데이터 삽입
 ```java
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -254,7 +254,7 @@ public class DataLoader implements CommandLineRunner {
 
 </br>
 
-### 테스트
+### 🔵 테스트
 
 > **GET /api/orders/1**
 
