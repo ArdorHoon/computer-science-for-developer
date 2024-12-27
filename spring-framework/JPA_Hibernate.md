@@ -97,5 +97,176 @@ public void saveUser(User user) {
 
 ### 🥎 Spring Data JPA를 활용한 DB 접근 소스 코드
 
+아래는 도서 주문 관련 REST API를 Spring Data JPA로 만든 예제이다. 
+
 </br>
 
+### Entity
+```java
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private Long bookId;   // Book 엔티티와 연관
+    private String customerName;
+    private Integer quantity;
+    private Double totalPrice;
+}
+
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Book {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String title;
+    private String author;
+    private Double price;
+}
+```
+
+</br>
+
+#### Repository
+```java
+public interface OrderRepository extends JpaRepository<Order, Long> {
+
+}
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+}
+```
+</br>
+
+#### OrderService
+```java
+
+@Service
+public class OrderService {
+
+    private final BookRepository bookRepository;
+    private final OrderRepository orderRepository;
+
+    @Autowired
+    public OrderService(BookRepository bookRepository, OrderRepository orderRepository) {
+        this.bookRepository = bookRepository;
+        this.orderRepository = orderRepository;
+    }
+
+    // 주문 생성
+    public Order createOrder(Long bookId, String customerName, Integer quantity) {
+        // Book 정보를 찾음
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found"));
+
+        // 총 가격 계산
+        Double totalPrice = book.getPrice() * quantity;
+
+        // 새로운 주문 객체 생성
+        Order order = new Order();
+        order.setBookId(bookId);
+        order.setCustomerName(customerName);
+        order.setQuantity(quantity);
+        order.setTotalPrice(totalPrice);
+
+        // 주문 저장
+        return orderRepository.save(order);
+    }
+
+    // 주문 ID로 조회
+    public Order getOrder(Long orderId) {
+        return orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+    }
+}
+
+```
+
+
+</br>
+
+#### OrderController
+
+```java
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+
+    private final OrderService orderService;
+
+    @Autowired
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    // 주문 생성 API
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Order createOrder(@RequestParam Long bookId, 
+                             @RequestParam String customerName, 
+                             @RequestParam Integer quantity) {
+        return orderService.createOrder(bookId, customerName, quantity);
+    }
+
+    // 주문 조회 API
+    @GetMapping("/{id}")
+    public Order getOrder(@PathVariable Long id) {
+        return orderService.getOrder(id);
+    }
+}
+```
+
+</br>
+
+#### 테스트 데이터 삽입
+```java
+@Component
+public class DataLoader implements CommandLineRunner {
+
+    private final BookRepository bookRepository;
+
+    public DataLoader(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        // 테스트 도서 데이터 삽입
+        bookRepository.save(new Book(null, "Spring in Action", "Craig Walls", 35.99));
+        bookRepository.save(new Book(null, "Hibernate Tips", "Thorben Janssen", 29.99));
+    }
+}
+
+```
+
+</br>
+
+### 테스트
+
+> **GET /api/orders/1**
+
+```json
+{
+    "id": 1,
+    "bookId": 1,
+    "customerName": "JohnDoe",
+    "quantity": 2,
+    "totalPrice": 71.98
+}
+
+```
+
+</br>
