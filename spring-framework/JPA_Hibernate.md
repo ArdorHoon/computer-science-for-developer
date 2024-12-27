@@ -88,7 +88,12 @@ public void saveUser(User user) {
 실제로 Spring에서 JPA를 사용하기 위해서 Spring Data JPA라는 라이브러리를 제공한다. Spring Data JPA는 JPA를 한 단계 더 추상화 시켜서 좀 더 쉽게 사용할 수 있게 해준다.
 
 
+![springdatajpa](https://github.com/user-attachments/assets/05414461-745f-4790-8b33-4da7cf457748)
+
+
+</br>
+
 ### 🥎 Spring Data JPA를 활용한 DB 접근 소스 코드
 
-
+</br>
 
