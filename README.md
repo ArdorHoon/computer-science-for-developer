@@ -89,3 +89,4 @@
    - [Spring Logging](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/logging.md)
    - [Spring Batch](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/spring_batch.md)
    - [Spring JDBC](https://github.com/ArdorHoon/computer-science-for-developer/blob/main/spring-framework/JDBC.md)
+   - [Hibernate &_JPA]()
