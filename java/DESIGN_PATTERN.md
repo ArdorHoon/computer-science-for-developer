@@ -8,7 +8,7 @@
 </br>
 
 
-## Adapter Pattern
+## 1️⃣ Adapter Pattern
 
 <정의>
 
@@ -28,28 +28,28 @@
 </br>
 
 
-## Command Pattern
+## 2️⃣ Command Pattern
 
 
 </br>
 
-## Decorator Pattern
+## 3️⃣ Decorator Pattern
 
 
 </br>
 
-## Facade Pattern
+## 4️⃣ Facade Pattern
 
 
 </br>
 
-## Factory method Pattern
+## 5️⃣ Factory method Pattern
 
 
 </br>
 
 
-## Singleton Pattern
+## 6️⃣ Singleton Pattern
 
 <mark>**싱글턴 패턴은 인스턴스가 오직 하나만 생성하는 것을 보장하고 어디에서든 이 인스턴스를 접근할 수 있도록 하는 디자인 패턴**</mark>
 
@@ -240,7 +240,7 @@ pulbic class V12Printer implements Printer{
 </br>
 
 
-## Strategy Pattern
+## 7️⃣ Strategy Pattern
 
 
 </br>
