@@ -204,9 +204,9 @@ public class Main{
 ```
 
 
-하지만 다음과 같은 요구 사항이 발생했을 때는 문제가 생긴다.
+하지만 다음과 같은 요구 사항이 발생했을 때는 일반적인 방식으로 해결하려고 하면 문제가 생긴다.
 
-* 누군가 버튼을 눌렀을 때 램프가 켜지는 대신 다른 기능을 실행하게 되려면 어떤 변경 작업을 해야 하는가? => 기존 Button클래스를 수정하는 것은 OCP에 위배 (pressed 메서드 전체 변경이 필요)
+* 누군가 버튼을 눌렀을 때 램프가 켜지는 대신 다른 기능을 실행하게 되려면 어떤 변경 작업을 해야 하는가? => 기존 Button클래스의 pressed 메서드 전체를 수정하는 것은 OCP에 위배
 * 버튼을 누르는 동작에 따라 다른 기능을 실행하게 하려면 어떤 변경 작업을 해야 하는가? => 다른 기능이 추가 될 때마다 Button클래스의 코드가 수정되어야 함
 
 이를 해결하기 위해 우리는 **Command Pattern**을 사용할 수 있다. 
@@ -214,6 +214,114 @@ public class Main{
 </br>
 
 ### 🏷️ 해법 및 구현
+
+커맨드 패턴의 아래와 같이 구성되어 있다. (위의 예제와 함께 묶어서 생각해보자)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/153cbb5f-46cc-4abe-a43f-38a8b87b344e" width="70%" height="70%">
+</p></br>
+
+* Command : 실행될 기능에 대한 인터페이스, 실행될 기능을 execute 메서드로 선언
+* ConcreteCommand : 실제로 실행되는 기능을 구현, 즉 Command라는 인터페이스를 구현
+* Invoker : 기능의 실행을 요청하는 호출자 클래스
+* Receiver : ConcreteCommand에서 execute 메서드를 구현할 때 필요한 클래스, 즉 Concrete Command의 기능을 실행하기 위해 사용하는 수신자 클래스
+
+</br>
+
+이제 커맨드 패턴을 위의 만능 버튼 예제에 적용하면 아래와 같다.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/71b1c926-eb11-4299-bcd4-c91b70d37257" width="70%" height="70%">
+</p></br>
+
+이를 코드로 표현하면 다음과 같다.
+
+```java
+//Command 인터페이스 
+interface Command{
+    public abstract void execute();
+}
+
+//램프 on command 클래스
+class LampOnCommand implements Command{
+
+    private Lamp theLamp;
+
+    LampOnCommand(Lamp theLamp){
+        this.theLamp = theLamp;
+    }
+
+    @Override
+    public void execute() {
+        theLamp.turnOn();
+    }
+}
+
+//램프 off command 클래스
+class LampOffCommand implements Command{
+
+    private Lamp theLamp;
+
+    LampOffCommand(Lamp theLamp){
+        this.theLamp = theLamp;
+    }
+
+    @Override
+    public void execute() {
+        theLamp.turnOff();
+    }
+}
+
+
+
+//Lamp 클래스
+class Lamp{
+    public void turnOn(){
+        System.out.println("Lamp On!");
+    }
+
+    public void turnOff(){
+        System.out.println("Lamp Off!");
+    }
+}
+
+//Button 클래스
+class Button{
+    private Command command;
+
+    public Button(Command command){
+        setCommand(command);
+    }
+
+    public void setCommand(Command command){
+        this.command = command;
+    }
+
+    public void pressed(){
+        command.execute();
+    }
+}
+
+//실행 함수
+public class Main {
+
+    public static void main(String[] args) {
+        Lamp lamp = new Lamp();
+        Command lampOnCommand = new LampOnCommand(lamp);
+        Command lampOffCommand =  new LampOffCommand(lamp);
+
+        Button button = new Button(lampOnCommand);
+        //lamp on
+        button.pressed();
+
+        button.setCommand(lampOffCommand);
+
+        //lamp off
+        button.pressed();
+    }
+}
+
+```
 
 </br>
 
