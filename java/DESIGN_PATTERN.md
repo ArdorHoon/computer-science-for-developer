@@ -624,7 +624,7 @@ class ElevatorManagerWithDynamicScheduling extends ElevatorManager{
 위의 컬레보레이션과 맞게 예제를 적용해서 다이어그램을 그려보면 다음과 같다.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/f8e45419-20ff-4835-b527-9767d9796502" width="70%" height="70%">
+<img src="https://github.com/user-attachments/assets/f8e45419-20ff-4835-b527-9767d9796502" width="90%" height="90%">
 </p></br>
 
 
