@@ -603,6 +603,19 @@ class ElevatorManagerWithDynamicScheduling extends ElevatorManager{
 
 </br>
 
+정리하면 팩토리 메서드 패턴을 다이어그램으로 표현하면 다음과 같다. 
+
+
+
+</br>
+
+
+위의 컬레보레이션과 맞게 예제를 적용해서 다이어그램을 그려보면 다음과 같다.
+
+![elevatorfc drawio](https://github.com/user-attachments/assets/f8e45419-20ff-4835-b527-9767d9796502)
+
+
+</br>
 
 ## 6️⃣ Singleton Pattern
 
