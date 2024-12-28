@@ -405,7 +405,32 @@ class Direction{
 
 ```
 
+하지만 해당 구조에서 크게 2가지 요구사항이 발생했을 때 문제가 생길 수 있다.
 
+1. 만약 작업 처리량 스케줄링이 아닌 다른 스케줄링을 사용해야 할 경우
+2. 프로그램 실행 중에 스케줄링 전략을 변경해야 하는 경우 (동적 스케줄링 지원이 필요한 경우)
+
+우선 스트래티지 패턴을 통해서 시간에 따라 <code>requestElevator()</code>를 아래와 같이 변경할 수 있다.
+```java
+    void requestElevator(int destination, Direction direction){
+
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        
+        if (hour < 12){
+            scheduler = new ResponseTimeScheduler();
+        }else{
+            scheduler = new ThroughputScheduler();
+        }
+        
+        //스케줄러 통해서 엘리베이터 선택
+        int selectedElevator = scheduler.selectElevator(this, destination, direction);
+        controllers.get(selectedElevator).gotoFloor(destination);
+    }
+
+```
+
+이는 ElevatorScheculer라는 인터페이스를 만들고 이를 implements를 받아서 ThroughputScheduler와 ResponseTimeScheduler를 구현해서 적용했다.
+엘리베이터 스케줄링 전략이 변경될 때마다 requestElevator 메서드도 수정이 되어야 한다. 하지만 requestElevator 메서드는 엘리베이터 선택과 선택된 엘리베이터를 이동시키는 근본 책임이다. 즉 전략이 변경에 따라 해당 메서드가 변경되는 것은 바람직하지 않다. 
 
 </br>
 
