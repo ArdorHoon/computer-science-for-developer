@@ -12,13 +12,13 @@
 
 <mark>**어댑터 패턴은 서로 호환되지 않는 인터페이스를 가진 객체들이 서로 협업할 수 있도록 하는 구조적 디자인 패턴**</mark>
 
-### 문제
+### 🏷️ 문제
 
 이미 구축된 것을 어떠한 새로운 것을 사용할 때 양 쪽 간의 호환성을 유지해 주기 위해 사용한다. 예를 들어 기존 시스템에 타사의 새로운 라이브러리를 통합하여 시스템을 개선하려고 한다. 기존 시스템은 XML 형식으로 데이터를 처리하는 반면, 새로운 라이브러리는 JSON 형태로 데이터를 처리한다. 이 간극으로 인해 라이브러리를 있는 그대로 사용할 수 없다.
 
 </br>
 
-### 해법 및 구현
+### 🏷️ 해법 및 구현
 이 때 시스템과 라이브러리 사이에 XML과 JSON을 서로 변환시켜주는 어댑터가 필요하게 된다. 어댑터 패턴 구조는 크게 2가지로 나누어 진다.
 </br>
 
@@ -29,7 +29,11 @@
 * 합성을 활용하기ㅣ 때문에 런타임 중에 Adaptee가 결정되어 유연
 * 그러나 Adaptee 객체를 필드 변수로 저장해야하기 때문에 공간 차지 비용 든다.
 
-![objectadapter drawio](https://github.com/user-attachments/assets/97108023-92ab-41df-9c28-94516a0a0fbc)
+</br>
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/97108023-92ab-41df-9c28-94516a0a0fbc" width="70%" height="70%">
+</p></br>
 
 
 
@@ -96,6 +100,11 @@ class Client {
 * Adaptee를 상속했기 때문에 따로 객체 구현 없이 바로 코드 재사용 가능
 * 상속은 대표적으로 구현된 코드를 재사용하는 방식이지만, 자바에서는 다중 상속 불가 문제 때문에 전반적으로 권장하지 않는 방법
 
+</br>
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/e98ea4bb-ea07-4166-b78f-2fd0ac55cc00" width="70%" height="70%">
+</p></br>
 
 
 1. Adaptee(Service) : 어댑터 대상 객체, 기존 시스템/ 외부 시스템/ 써드파티 라이브러리
