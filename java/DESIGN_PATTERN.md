@@ -86,8 +86,8 @@ class Client {
         //어댑터 생성
         Target adapter = new Adapter(new Service());
 
-        //Client Interfac의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행
-        adapter.method(1);
+        //Client Interface의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행
+        adapter.method(100);
     }
 }
 
