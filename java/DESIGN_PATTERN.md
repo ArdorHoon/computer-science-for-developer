@@ -20,15 +20,17 @@
 
 ### 해법 및 구현
 이 때 시스템과 라이브러리 사이에 XML과 JSON을 서로 변환시켜주는 어댑터가 필요하게 된다. 어댑터 패턴 구조는 크게 2가지로 나누어 진다.
-
 </br>
 
-#### 객체 어댑터 (Object Adaptor)
+#### ♦️ 객체 어댑터 (Object Adaptor)
 
 * 합성(Composition)된 맴버에게 위임을 이용한 어댑터 패턴
 * 위임 : 자기가 해야 할 일을 클래스 맴버 객체의 메소드에게 다시 시킴으로써 목적을 달성하는 것
 * 합성을 활용하기ㅣ 때문에 런타임 중에 Adaptee가 결정되어 유연
 * 그러나 Adaptee 객체를 필드 변수로 저장해야하기 때문에 공간 차지 비용 든다.
+
+![objectadapter drawio](https://github.com/user-attachments/assets/97108023-92ab-41df-9c28-94516a0a0fbc)
+
 
 
 1. Adaptee(Service) : 어댑터 대상 객체, 기존 시스템/ 외부 시스템/ 써드파티 라이브러리
@@ -41,12 +43,12 @@
 ```java
 
 // Adaptee : 클라이언트에서 사용하고 싶은 기존의 서비스 (하지만 호환이 안되서 바로 사용 불가능)
-class Service {
-
-    void specificMethod(int specialData) {
-        System.out.println("기존 서비스 기능 호출 + " + specialData);
+class NewService{
+    void specificMethod(int specialData){
+        System.out.println("Call Client Service Feature + " + specialData);
     }
 }
+
 
 // Client Interface : 클라이언트가 접근해서 사용할 고수준의 어댑터 모듈
 interface Target {
@@ -54,11 +56,19 @@ interface Target {
 }
 
 // Adapter : Adaptee 서비스를 클라이언트에서 사용하게 할 수 있도록 호환 처리 해주는 어댑터
-class Adapter extends Service implements Target {
+class Adapter implements  Target{
 
-    // 어댑터의 메소드가 호출되면, 부모 클래스 Adaptee의 메소드를 호출
+    NewService adaptee; // 합성(composition)으로 Service 객체를 class field로
+
+    // 어댑터가 인스턴스화되면 호환시킬 기존 서비스를 설정
+    Adapter(NewService adaptee){
+        this.adaptee = adaptee;
+    }
+
+    // 어댑터 메서드 호출되면, adaptee 메소드 호출 
+    @Override
     public void method(int data) {
-        specificMethod(data);
+        adaptee.specificMethod(data);
     }
 }
 
@@ -69,23 +79,76 @@ class Adapter extends Service implements Target {
 
 class Client {
     public static void main(String[] args) {
-        // 1. 어댑터 생성 (기존 서비스를 인자로 받아 호환 작업 처리)
+        //어댑터 생성
         Target adapter = new Adapter(new Service());
 
-        // 2. Client Interfac의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행된다.
+        //Client Interfac의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행
         adapter.method(1);
     }
 }
 
 ```
+</br>
 
-#### 객체 어댑터 (Object Adaptor)
+#### ♦️ 클래스 어댑터 (Class Adaptor)
 
+* 클래스 상속을 이용한 어댑터 패턴
+* Adaptee를 상속했기 때문에 따로 객체 구현 없이 바로 코드 재사용 가능
+* 상속은 대표적으로 구현된 코드를 재사용하는 방식이지만, 자바에서는 다중 상속 불가 문제 때문에 전반적으로 권장하지 않는 방법
+
+
+
+1. Adaptee(Service) : 어댑터 대상 객체, 기존 시스템/ 외부 시스템/ 써드파티 라이브러리
+2. Target(Client Inteface) : Adapter가 구현하는 인터페이스
+3. Adapter : Client와 Adaptee 중간에서 호환성이 없는 둘을 연결시켜주는 역할을 담당(핵심)
+4. Client : 기존 시스템을 어댑터를 통해 이용하려는 쪽, Client interface를 통하여 Service 이용
+
+</br>
+
+```java
+
+// Adaptee : 클라이언트에서 사용하고 싶은 기존의 서비스 (하지만 호환이 안되서 바로 사용 불가능)
+class NewService{
+    void specificMethod(int specialData){
+        System.out.println("Call Client Service Feature + " + specialData);
+    }
+}
+
+
+// Client Interface : 클라이언트가 접근해서 사용할 고수준의 어댑터 모듈
+interface Target {
+    void method(int data);
+}
+
+// Adapter : Adaptee 서비스를 클라이언트에서 사용하게 할 수 있도록 호환 처리 해주는 어댑터
+class Adapter extends NewService implements  Target{
+
+    // 어댑터의 메소드가 호출되면, 부모 클래스 Adaptee의 메소드를 호출
+    public void method(int data) {
+        adaptee.specificMethod(data);
+    }
+}
+
+```
 
 </br>
 
 
+```java
 
+class Client {
+    public static void main(String[] args) {
+        //어댑터 생성
+        Target adapter = new Adapter();
+
+        //인터페이스의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행
+        adapter.method(100);
+    }
+}
+
+```
+
+</br>
 
 ## 2️⃣ Command Pattern
 
