@@ -476,6 +476,7 @@ void requestElevator(int destination, Direction direction){
 ```
 
 하지만 위와 같이 스케줄링을 선택하는 SchedulerFactory 클래스를 만들어서 ThroughputScheduler 객체나 ResponseTimeScheduler 객체를 생성할 수 있지만 ElevatorManager클래스의 하위 클래스로 정의할 수 있다. 
+(<code>**ElevatorManagerWithThroughputSchedulingr**</code>, <code>**ElevatorManagerWithResponseTimeScheduling**</code>, <code>**ElevatorManagerWithDynamicScheduling**</code>)
 
 이를 코드로 구현하면 아래와 같다. 
 
@@ -484,6 +485,7 @@ interface ElevatorScheduler{
     public int selectElevator(ElevatorManager manager, int destination, Direction direction);
 }
 
+//ElevatorManager
 abstract class ElevatorManager{
     private List<ElevatorController> controllers;
 
@@ -527,8 +529,8 @@ class ElevatorController{
     }
 }
 
-
-class ElevatorManagerWithResponseTimeScheduler extends ElevatorManager{
+//대기 시간 최소화 스케줄링
+class ElevatorManagerWithResponseTimeScheduling extends ElevatorManager{
 
     ElevatorManagerWithResponseTimeScheduler(int controllerCount){
         super(controllerCount);
@@ -547,7 +549,8 @@ class ElevatorManagerWithResponseTimeScheduler extends ElevatorManager{
     }
 }
 
-class ElevatorManagerWithThroughputScheduler extends ElevatorManager {
+//작업 처리량 스케줄링
+class ElevatorManagerWithThroughputScheduling extends ElevatorManager {
 
     ElevatorManagerWithThroughputScheduler(int controllerCount){
         super(controllerCount);
@@ -562,6 +565,33 @@ class ElevatorManagerWithThroughputScheduler extends ElevatorManager {
     protected ElevatorScheduler getScheduler() {
         //싱글턴 패턴
         ElevatorScheduler scheduler = ThroughputScheduler.getInstance();
+        return scheduler;
+    }
+}
+
+//동적 스케줄링!!
+class ElevatorManagerWithDynamicScheduling extends ElevatorManager{
+
+    ElevatorManagerWithDynamicScheduling(int controllerCount){
+        super(controllerCount);
+    }
+
+    public int selectElevator(ElevatorManager manager, int destination, Direction direction){
+        //임의 선택
+        return 0;
+    }
+
+    @Override
+    protected ElevatorScheduler getScheduler() {
+        ElevatorScheduler scheduler = null;
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        
+        if(hour < 12){
+             scheduler = ThroughputScheduler.getInstance();
+        }else{
+             scheduler = ResponseTimeScheduler.getInstance();     
+        }
+       
         return scheduler;
     }
 }
