@@ -161,6 +161,59 @@ class Client {
 
 ## 2️⃣ Command Pattern
 
+<mark>**커맨드 패턴은 이벤트가 발생했을 때 실행될 기능이 다양하면서도 변경이 필요한 경우에 이벤트를 발생시키는 클래스를 변경하지 않고 재사용하고자 할 때 유용한 디자인 패턴**</mark>
+
+### 🏷️ 문제
+
+눌리면 특정 기능을 수행하는 버튼이 있다고 하자. 이걸 클래스 다이어그램으로 표현하면 아래와 같다.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/5b45377d-32fc-4b18-951a-f9558743041c" width="70%" height="70%">
+</p></br>
+
+```java
+//Lamp 클래스
+public class Lamp{
+    public void turnOn(){
+        System.out.println("Lamp On!");
+    }
+}
+
+//Button 클래스
+public class Button{
+    private Lamp theLamp;
+
+    public Button(Lamp theLamp){
+        this.theLamp = theLamp;
+    }
+
+    public void pressed(){
+        theLamp.turnOn();
+    }
+}
+
+//Main 클래스
+public class Main{
+    public static void main(String[] args){
+        Lamp lamp = new Lamp();
+        Button lampButton = new Button(lamp);
+        lampButton.pressed();
+    }    
+}
+
+```
+
+
+하지만 다음과 같은 요구 사항이 발생했을 때는 문제가 생긴다.
+
+* 누군가 버튼을 눌렀을 때 램프가 켜지는 대신 다른 기능을 실행하게 되려면 어떤 변경 작업을 해야 하는가? => 기존 Button클래스를 수정하는 것은 OCP에 위배 (pressed 메서드 전체 변경이 필요)
+* 버튼을 누르는 동작에 따라 다른 기능을 실행하게 하려면 어떤 변경 작업을 해야 하는가? => 다른 기능이 추가 될 때마다 Button클래스의 코드가 수정되어야 함
+
+이를 해결하기 위해 우리는 **Command Pattern**을 사용할 수 있다. 
+
+</br>
+
+### 🏷️ 해법 및 구현
 
 </br>
 
