@@ -343,7 +343,10 @@ public class Main {
 
 여러 대의 엘리베이터가 있고 각 엘리베이터는 ElevatorController가 책임을 진다. 이를 ElevatorManager 클래스가 엘리베이터를 스케줄링하고 이동 요청을 처리한다. 그리고 스케줄링을 위해 ThroughputScheduler 객체를 갖는다. ThroughputScheduler는 작업 처리량에 따라 엘리베이터를 스케줄링해주는 객체이다. 이를 클래스 다이어그램으로 나타내면 아래와 같다.
 
-![ele drawio](https://github.com/user-attachments/assets/a4e06291-6883-45a0-81b1-5af4970816cb)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/a4e06291-6883-45a0-81b1-5af4970816cb" width="70%" height="70%">
+</p></br>
 
 ```java
 class ElevatorManager{
@@ -606,16 +609,25 @@ class ElevatorManagerWithDynamicScheduling extends ElevatorManager{
 정리하면 팩토리 메서드 패턴을 다이어그램으로 표현하면 다음과 같다. 
 
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/569130a1-3146-453a-a699-11d5b4040c76" width="70%" height="70%">
+</p></br>
+
+* Product : 팩토리 메서드로 생성될 객체의 공통 인터페이스
+* ConcreteProduct : 구체적으로 객체가 생성되는 클래스
+* Creator : 팩토리 메서드를 갖는 클래스
+* ConcreteCreator : 팩토리 메서드를 구현하는 클래스로 ConcreteProduct 객체를 생성 
 
 </br>
 
 
 위의 컬레보레이션과 맞게 예제를 적용해서 다이어그램을 그려보면 다음과 같다.
 
-![elevatorfc drawio](https://github.com/user-attachments/assets/f8e45419-20ff-4835-b527-9767d9796502)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/f8e45419-20ff-4835-b527-9767d9796502" width="70%" height="70%">
+</p></br>
 
 
-</br>
 
 ## 6️⃣ Singleton Pattern
 
