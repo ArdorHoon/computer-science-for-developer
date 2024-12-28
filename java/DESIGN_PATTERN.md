@@ -10,22 +10,81 @@
 
 ## 1️⃣ Adapter Pattern
 
-<정의>
+<mark>**어댑터 패턴은 서로 호환되지 않는 인터페이스를 가진 객체들이 서로 협업할 수 있도록 하는 구조적 디자인 패턴**</mark>
 
 ### 문제
 
+이미 구축된 것을 어떠한 새로운 것을 사용할 때 양 쪽 간의 호환성을 유지해 주기 위해 사용한다. 예를 들어 기존 시스템에 타사의 새로운 라이브러리를 통합하여 시스템을 개선하려고 한다. 기존 시스템은 XML 형식으로 데이터를 처리하는 반면, 새로운 라이브러리는 JSON 형태로 데이터를 처리한다. 이 간극으로 인해 라이브러리를 있는 그대로 사용할 수 없다.
 
 </br>
 
 ### 해법 및 구현
+이 때 시스템과 라이브러리 사이에 XML과 JSON을 서로 변환시켜주는 어댑터가 필요하게 된다. 어댑터 패턴 구조는 크게 2가지로 나누어 진다.
+
+</br>
+
+#### 객체 어댑터 (Object Adaptor)
+
+* 합성(Composition)된 맴버에게 위임을 이용한 어댑터 패턴
+* 위임 : 자기가 해야 할 일을 클래스 맴버 객체의 메소드에게 다시 시킴으로써 목적을 달성하는 것
+* 합성을 활용하기ㅣ 때문에 런타임 중에 Adaptee가 결정되어 유연
+* 그러나 Adaptee 객체를 필드 변수로 저장해야하기 때문에 공간 차지 비용 든다.
+
+
+1. Adaptee(Service) : 어댑터 대상 객체, 기존 시스템/ 외부 시스템/ 써드파티 라이브러리
+2. Target(Client Inteface) : Adapter가 구현하는 인터페이스
+3. Adapter : Client와 Adaptee 중간에서 호환성이 없는 둘을 연결시켜주는 역할을 담당(핵심)
+4. Client : 기존 시스템을 어댑터를 통해 이용하려는 쪽, Client interface를 통하여 Service 이용
+
+</br>
+
+```java
+
+// Adaptee : 클라이언트에서 사용하고 싶은 기존의 서비스 (하지만 호환이 안되서 바로 사용 불가능)
+class Service {
+
+    void specificMethod(int specialData) {
+        System.out.println("기존 서비스 기능 호출 + " + specialData);
+    }
+}
+
+// Client Interface : 클라이언트가 접근해서 사용할 고수준의 어댑터 모듈
+interface Target {
+    void method(int data);
+}
+
+// Adapter : Adaptee 서비스를 클라이언트에서 사용하게 할 수 있도록 호환 처리 해주는 어댑터
+class Adapter extends Service implements Target {
+
+    // 어댑터의 메소드가 호출되면, 부모 클래스 Adaptee의 메소드를 호출
+    public void method(int data) {
+        specificMethod(data);
+    }
+}
+
+```
+</br>
+
+```java
+
+class Client {
+    public static void main(String[] args) {
+        // 1. 어댑터 생성 (기존 서비스를 인자로 받아 호환 작업 처리)
+        Target adapter = new Adapter(new Service());
+
+        // 2. Client Interfac의 스펙에 따라 메소드를 실행하면 기존 서비스의 메소드가 실행된다.
+        adapter.method(1);
+    }
+}
+
+```
+
+#### 객체 어댑터 (Object Adaptor)
 
 
 </br>
 
-### 결과 
 
-
-</br>
 
 
 ## 2️⃣ Command Pattern
