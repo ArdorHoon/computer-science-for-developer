@@ -337,9 +337,75 @@ public class Main {
 
 ## 5️⃣ Factory method Pattern
 
-<mark>**객체의 생성 코드를 별도의 클래스/메서드로 분리함으로써 객체 생성의 변화에 대비하는데 유용한 디자인 패턴**<mark>
+<mark>**팩토리 메서드 패턴은 객체의 생성 코드를 별도의 클래스/메서드로 분리함으로써 객체 생성의 변화에 대비하는데 유용한 디자인 패턴**<mark>
 
 ### 🏷️ 문제
+
+여러 대의 엘리베이터가 있고 각 엘리베이터는 ElevatorController가 책임을 진다. 이를 ElevatorManager 클래스가 엘리베이터를 스케줄링하고 이동 요청을 처리한다. 그리고 스케줄링을 위해 ThroughputScheduler 객체를 갖는다. ThroughputScheduler는 작업 처리량에 따라 엘리베이터를 스케줄링해주는 객체이다. 이를 클래스 다이어그램으로 나타내면 아래와 같다.
+
+![ele drawio](https://github.com/user-attachments/assets/a4e06291-6883-45a0-81b1-5af4970816cb)
+
+```java
+class ElevatorManager{
+    private List<ElevatorController> controllers;
+    private ThroughputScheduler scheduler;
+    
+    public ElevatorManager(int controllerCount){
+        controllers = new ArrayList<>(controllerCount);
+        
+        for(int i = 0 ; i< controllerCount; i++){
+            ElevatorController controller = new ElevatorController(i);
+            controllers.add(controller);
+        }
+        
+        //스케줄러 생성
+        scheduler = new ThroughputScheduler();
+    }
+    
+    void requestElevator(int destination, Direction direction){
+        
+        //스케줄러 통해서 엘리베이터 선택
+        int selectedElevator = scheduler.selectElevator(this, destination, direction);
+        
+        // 선택한 엘리베이터 이동
+        controllers.get(selectedElevator).gotoFloor(destination);
+    }
+    
+}
+
+class ElevatorController{
+    private int id;
+    private int curFloor;
+    
+    public ElevatorController(int id){
+        this.id = id;
+        curFloor = 1;
+    }
+    
+    public void gotoFloor(int destination){
+        System.out.println("Elevator [" + id + "] Floor : " + curFloor);
+        
+        curFloor = destination;
+        System.out.println("==>" + curFloor);
+
+    }
+}
+
+class ThroughputScheduler{
+    public int selectElevator(ElevatorManager manager, int destination, Direction direction){
+        //임의 선택
+        return 0;
+    }
+}
+
+//임시 값 
+class Direction{
+    
+}
+
+```
+
+
 
 </br>
 
