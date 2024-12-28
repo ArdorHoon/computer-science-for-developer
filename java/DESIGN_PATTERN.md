@@ -436,6 +436,141 @@ class Direction{
 
 ### 🏷️ 해법 및 구현
 
+주어진 기능을 실제로 제공하는 적절한 클래스 생성 작업을 별도의 클래스 / 메서드로 분리시키는 편이 좋다. 예를 들어 엘리베이터 스케줄링 전략에 일치하는 클래스를 생성하는 코드를 requestElevator 메서드에서 분리해 별도의 클래스/메서드를 정의하면 된다.
+
+```java
+
+pubic enum SchedulingStrategyID { RESPONSE_TIME, THROUGHPUT }
+
+public class SchedulerFactory{
+
+    public static ElevatorScheduler getScheduer(SchedulingStrategyID startegyID){
+        ElevatorScheduler scheduler = null;
+        switch(stratgeyID){
+            case RESPONSE_TIME:
+                //전략 객체는 싱글 인스턴스로 동작하기 위해 싱글턴 패턴 적용 
+                scheduler = ResponseTimeScheduler.getInstance(); 
+                break;
+            case THROUGHPUT:
+                scheduler = ThroughputScheduler.getInstance();
+                break;
+        }
+
+        return scheduler;
+    }
+}
+
+//위의 Factory 클래스를 통해 전략 선택 (in ElevatorManager.java)
+
+private SchedulingStrategyID strategyID; // 생성자에서 선택
+
+void requestElevator(int destination, Direction direction){
+    //주어진 전략 ID에 해당되는 ElevatorScheduler를 사용
+    ElevatorScheduer scheduler = SchedulerFactory.getScheduler(strategyID);
+    
+    //스케줄러 통해서 엘리베이터 선택
+    int selectedElevator = scheduler.selectElevator(this, destination, direction);
+    controllers.get(selectedElevator).gotoFloor(destination);
+}
+
+```
+
+하지만 위와 같이 스케줄링을 선택하는 SchedulerFactory 클래스를 만들어서 ThroughputScheduler 객체나 ResponseTimeScheduler 객체를 생성할 수 있지만 ElevatorManager클래스의 하위 클래스로 정의할 수 있다. 
+
+이를 코드로 구현하면 아래와 같다. 
+
+```java
+interface ElevatorScheduler{
+    public int selectElevator(ElevatorManager manager, int destination, Direction direction);
+}
+
+abstract class ElevatorManager{
+    private List<ElevatorController> controllers;
+
+
+    public ElevatorManager(int controllerCount){
+        controllers = new ArrayList<>(controllerCount);
+
+        for(int i = 0 ; i< controllerCount; i++){
+            ElevatorController controller = new ElevatorController(i);
+            controllers.add(controller);
+        }
+    }
+
+    protected abstract ElevatorScheduler getScheduler();
+
+    void requestElevator(int destination, Direction direction){
+
+        ElevatorScheduler scheduler = getScheduler();
+        //스케줄러 통해서 엘리베이터 선택
+        int selectedElevator = scheduler.selectElevator(this, destination, direction);
+        controllers.get(selectedElevator).gotoFloor(destination);
+    }
+
+}
+
+class ElevatorController{
+    private int id;
+    private int curFloor;
+
+    public ElevatorController(int id){
+        this.id = id;
+        curFloor = 1;
+    }
+
+    public void gotoFloor(int destination){
+        System.out.println("Elevator [" + id + "] Floor : " + curFloor);
+
+        curFloor = destination;
+        System.out.println("==>" + curFloor);
+
+    }
+}
+
+
+class ElevatorManagerWithResponseTimeScheduler extends ElevatorManager{
+
+    ElevatorManagerWithResponseTimeScheduler(int controllerCount){
+        super(controllerCount);
+    }
+
+    public int selectElevator(ElevatorManager manager, int destination, Direction direction){
+        //임의 선택
+        return 0;
+    }
+
+    @Override
+    protected ElevatorScheduler getScheduler() {
+        //싱글턴 패턴
+        ElevatorScheduler scheduler = ResponseTimeScheduler.getInstance();
+        return scheduler;
+    }
+}
+
+class ElevatorManagerWithThroughputScheduler extends ElevatorManager {
+
+    ElevatorManagerWithThroughputScheduler(int controllerCount){
+        super(controllerCount);
+    }
+
+    public int selectElevator(ElevatorManager manager, int destination, Direction direction){
+        //임의 선택
+        return 0;
+    }
+
+    @Override
+    protected ElevatorScheduler getScheduler() {
+        //싱글턴 패턴
+        ElevatorScheduler scheduler = ThroughputScheduler.getInstance();
+        return scheduler;
+    }
+}
+
+```
+
+
+
+
 </br>
 
 
