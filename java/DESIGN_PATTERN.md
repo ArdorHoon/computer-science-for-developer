@@ -379,6 +379,7 @@ abstract class Display{
     public abstract void draw();
 }
 
+//기본 기능 표시 클래스
 class RoadDisplay extends Display{
 
     @Override
@@ -387,6 +388,7 @@ class RoadDisplay extends Display{
     }
 }
 
+//다양한 추가 기능에 대한 공통 클래스
 abstract class DisplayDecorator extends Display{
     private Display decoratedDisplay;
 
@@ -401,7 +403,7 @@ abstract class DisplayDecorator extends Display{
 }
 
 
-
+//교통량 기능 추가하는 클래스
 class TrafficDecorator extends DisplayDecorator{
     public TrafficDecorator(Display decoratedDisplay){
         super(decoratedDisplay);
@@ -418,6 +420,7 @@ class TrafficDecorator extends DisplayDecorator{
 
 }
 
+//차선 표시를 추가하는 클래스
 class LaneDecorator extends DisplayDecorator{
     public LaneDecorator(Display decoratedDisplay){
         super(decoratedDisplay);
