@@ -344,7 +344,7 @@ public class Main {
 * 또다른 도로 표시 기능을 추가하고 싶다면 어떻게 해야 하는가? => 예) 기본 도로 표시 + 교통량 표시 기능
 * 여러 가지 추가 기능을 조합해 제공하고 싶다면 어떻게 해야 하는가? => 예) 기본 도로 표시 + 차선 표시 기능 + 교통량 표시 기능
 
-일반적으로 상속으로 구현할 수 있지만 이는 기능이 더해질수록 조합 수가 무한정 늘어난다. 이는 나중에 유지보수 관리가 어려울 수 있다. (RoadDisplayWithTrafficCrossing, RoadDisplayWithCrossing, RoadDisplayWithLane, RoadDisplayWithLaneCrossing 등등)
+일반적으로 상속으로 구현할 수 있지만 이는 기능이 더해질수록 조합 수가 무한정 늘어난다. 이는 나중에 유지보수 관리가 어려울 수 있다. (<code>RoadDisplayWithTrafficCrossing</code>, <code>RoadDisplayWithCrossing</code>, <code>RoadDisplayWithLane</code>, <code>RoadDisplayWithLaneCrossing</code> 등등)
 
 </br>
 
@@ -352,9 +352,26 @@ public class Main {
 데코레이터 패턴을 이용하면 필요한 추가 기능의 조합을 런타임에서 동적으로 생성할 수 있다. 데코레이터할 대상 객체를 새로운 행동들을 포함한 특수 장식자 객체에 넣어서 행동들을 해당 장식자 객체마다 연결시켜, 서브클래스로 구성할때 보다 훨씬 유연하게 기능을 확장할 수 있다. 
 
 데코레이터 패턴 구조는 아래와 같다. 
+</br>
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/e5eaaf26-2eea-4248-baba-5b4d2ada5507" width="70%" height="70%">
+</p></br>
 
+* Component : 기본 기능을 뜻하는 ConcreteComponent와 추가 기능을 뜻하는 Decorator의 공통 기능을 정의. 즉 클라이언트는 Component를 통해 실제 객체를 사용
+* ConcreteComponent : 기본 기능을 구현하는 클래스
+* Decorator : 많은 수가 존재하는 구체적인 Decorator의 공통 기능을 제공
+* ConcreteDecoratorA, ConcreteDecoratorB : Decorator의 하위 클래스로 기본 기능에 추가되는 개별적인 기능을 뜻함
 
+</br>
+
+이를 도로 표시 예제에 적용하면 아래와 같다. 
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/ba436fa7-a87d-404f-9326-d39c3821a32b" width="70%" height="70%">
+</p></br>
+
+이를 코드로 나타내면 아래와 같다. 
 
 </br>
 
