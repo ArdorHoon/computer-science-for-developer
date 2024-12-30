@@ -1070,5 +1070,28 @@ pulbic class V12Printer implements Printer{
 
 ## 7️⃣ Strategy Pattern
 
+### 🏷️ 문제
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/aadf2252-e760-4f60-bf86-abdecca053a4" width="70%" height="70%">
+</p></br>
+
+
+</br>
+
+### 🏷️ 해법 및 구현 방법
+
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/bf752324-e463-429a-8f22-e3ce62224689" width="70%" height="70%">
+</p></br>
+
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/def5b2d0-e999-41ca-b377-52b4f3217bd9" width="70%" height="70%">
+</p></br>
 
 </br>
