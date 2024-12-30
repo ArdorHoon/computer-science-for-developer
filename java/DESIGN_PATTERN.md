@@ -344,7 +344,7 @@ public class Main {
 * 또다른 도로 표시 기능을 추가하고 싶다면 어떻게 해야 하는가? => 예) 기본 도로 표시 + 교통량 표시 기능
 * 여러 가지 추가 기능을 조합해 제공하고 싶다면 어떻게 해야 하는가? => 예) 기본 도로 표시 + 차선 표시 기능 + 교통량 표시 기능
 
-일반적으로 상속으로 구현할 수 있지만 이는 기능이 더해질수록 조합 수가 무한정 늘어난다. 이는 나중에 유지보수 관리가 어려울 수 있다.
+일반적으로 상속으로 구현할 수 있지만 이는 기능이 더해질수록 조합 수가 무한정 늘어난다. 이는 나중에 유지보수 관리가 어려울 수 있다. (RoadDisplayWithTrafficCrossing, RoadDisplayWithCrossing, RoadDisplayWithLane, RoadDisplayWithLaneCrossing 등등)
 
 </br>
 
