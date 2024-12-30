@@ -1070,6 +1070,8 @@ pulbic class V12Printer implements Printer{
 
 ## 7️⃣ Strategy Pattern
 
+<mark>**전략(일을 수행하는 방식, 문제를 해결하는 알고리즘, 비즈니스 규칙)을 쉽게 바꿀 수 있도록 해주는 디자인 패턴**</mark>
+
 ### 🏷️ 문제
 
 2가지 로봇을 만들려고 하는데 이름은 atom과 태권 V다. 이 두 로봇은 공격 기능과 이동 기능이 있다. 아톰은 공격할 때 주먹만 사용하지만 하늘을 날 수 있고 태권 v는 미사일로 공격을 할 수 있지만 날아다니지는 못하고 걸을 수만 았다.
@@ -1091,16 +1093,26 @@ pulbic class V12Printer implements Printer{
 
 ### 🏷️ 해법 및 구현 방법
 
-우리는 여기서 변화된 것을 찾은 후에 이를 클래스로 캡슐화하여 해결할 수 있다. 여기서는 공격 기능과 이동 기능이 변한다는 것을 알 수 있기 때문에 이를 각각 AttackStrategy
+위의 문제를 우리는 스트래티지 패턴을 통해서 해결할 수 있다. 우선적으로 전략이 될 만한 부분(변화된 것) 찾은 후에 이를 클래스로 캡슐화하여 해결할 수 있다. 
+
+아래는 스트래티지 패턴의 구조이다. 
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/bf752324-e463-429a-8f22-e3ce62224689" width="70%" height="70%">
 </p></br>
 
-
+위 예제에서는 공격 기능과 이동 기능이 변한다는 것을 알 수 있기 때문에 이를 각각 인터페이스로 만들고 이들을 실제 실현한 클래스를 만들어주면 된다. 
+아래는 예제에 스트래티지 패턴을 적용한 다이어그램이다. 
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/def5b2d0-e999-41ca-b377-52b4f3217bd9" width="70%" height="70%">
 </p></br>
+
+이제 이를 코드로 나타내면 아래와 같다. 
+
+```java
+
+
+```
 
 </br>
