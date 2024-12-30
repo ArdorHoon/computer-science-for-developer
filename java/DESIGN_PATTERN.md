@@ -1110,9 +1110,130 @@ pulbic class V12Printer implements Printer{
 
 이제 이를 코드로 나타내면 아래와 같다. 
 
+로봇 부분 
 ```java
+abstract class Robot {
+    private String name;
+    private AttackStrategy attackStrategy;
+    private MovingStrategy movingStrategy;
+
+    public Robot(String name) {
+        this.name = name;
+    }
+
+    public void move() {
+        movingStrategy.move();
+    }
+
+
+    public void attack() {
+        attackStrategy.attack();
+    }
+
+    public void setAttackStrategy(AttackStrategy attackStrategy) {
+        this.attackStrategy = attackStrategy;
+    }
+
+    public void setMovingStrategy(MovingStrategy movingStrategy) {
+        this.movingStrategy = movingStrategy;
+    }
+}
+
+class Atom extends Robot {
+
+    public Atom(String name) {
+        super(name);
+    }
+}
+
+class TaekwonV extends Robot {
+    public TaekwonV(String name) {
+        super(name);
+    }
+}
 
 
 ```
 
 </br>
+
+전략 부분 
+```java
+
+interface AttackStrategy {
+    public void attack();
+}
+
+interface MovingStrategy {
+    public void move();
+}
+
+
+
+class FlyingStrategy implements MovingStrategy {
+    @Override
+    public void move() {
+        System.out.println("fly");
+    }
+}
+
+class WalkingStrategy implements MovingStrategy {
+    @Override
+    public void move() {
+        System.out.println("walk");
+    }
+}
+
+class MissileStrategy implements AttackStrategy {
+    @Override
+    public void attack() {
+        System.out.println("Missile");
+    }
+}
+
+class PunchStrategy implements AttackStrategy {
+    @Override
+    public void attack() {
+        System.out.println("Punch");
+    }
+}
+
+
+```
+
+</br>
+
+Main 함수
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        Robot taekwonV = new TaekwonV("TKV");
+        Robot atom = new Atom("atom");
+
+        taekwonV.setAttackStrategy(new MissileStrategy());
+        taekwonV.setMovingStrategy(new WalkingStrategy());
+
+        taekwonV.attack();
+        taekwonV.move();
+
+        System.out.println();
+
+        atom.setAttackStrategy(new PunchStrategy());
+        atom.setMovingStrategy(new FlyingStrategy());
+
+        atom.attack();
+        atom.move();
+
+    }
+}
+
+/** =====RESULT====
+
+Missile
+walk
+
+Punch
+fly
+*/
+```
