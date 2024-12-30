@@ -373,6 +373,103 @@ public class Main {
 
 이를 코드로 나타내면 아래와 같다. 
 
+```java
+
+abstract class Display{
+    public abstract void draw();
+}
+
+class RoadDisplay extends Display{
+
+    @Override
+    public void draw() {
+        System.out.println("기본 도로 표시");
+    }
+}
+
+abstract class DisplayDecorator extends Display{
+    private Display decoratedDisplay;
+
+    public DisplayDecorator(Display decoratedDisplay){
+        this.decoratedDisplay = decoratedDisplay;
+    }
+
+    @Override
+    public void draw() {
+        decoratedDisplay.draw();
+    }
+}
+
+
+
+class TrafficDecorator extends DisplayDecorator{
+    public TrafficDecorator(Display decoratedDisplay){
+        super(decoratedDisplay);
+    }
+
+    public void draw(){
+        super.draw();
+        drawTraffic();
+    }
+
+    private void drawTraffic(){
+        System.out.println("\t교통량 표시");
+    }
+
+}
+
+class LaneDecorator extends DisplayDecorator{
+    public LaneDecorator(Display decoratedDisplay){
+        super(decoratedDisplay);
+    }
+
+    public void draw(){
+        super.draw();
+        drawLane();
+    }
+
+    private void drawLane(){
+        System.out.println("\t차선 표시");
+    }
+
+}
+
+```
+</br>
+
+이를 Main에서 사용하면 아래와 같이 사용할 수 있다. 
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        Display road = new RoadDisplay();
+        road.draw(); // 기본 도로 표시
+
+        Display roadWithLane = new LaneDecorator(new RoadDisplay());
+        roadWithLane.draw(); // 기본 도로 표시 + 차선 표시
+
+        Display roadWithTraffic = new TrafficDecorator(new RoadDisplay());
+        roadWithTraffic.draw(); // 기본 도로 표시 + 차선 표시
+
+        Display roadWithLandAndTraffic = new TrafficDecorator(new LaneDecorator(new RoadDisplay()));
+        roadWithLandAndTraffic.draw();
+    }
+}
+
+/* RESULT
+기본 도로 표시
+기본 도로 표시
+	차선 표시
+기본 도로 표시
+	교통량 표시
+기본 도로 표시
+	차선 표시
+	교통량 표시
+*/
+
+```
+
 </br>
 
 ## 4️⃣ Facade Pattern
