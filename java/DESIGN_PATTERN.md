@@ -326,7 +326,15 @@ public class Main {
 </br>
 
 ## 3️⃣ Decorator Pattern
+<mark>**기본 기능에 추가할 수 있는 기능의 종류가 많은 경우에 각 추가 기능을 Decorator 클래스를 정의한 후에 필요한 Decorator 객체를 조합함으로써 추가 기능의 조합을 설계하는 방식**</mark>
 
+
+### 🏷️ 문제
+
+
+</br>
+
+### 🏷️ 해법 및 구현
 
 </br>
 
