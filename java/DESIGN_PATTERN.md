@@ -1074,7 +1074,7 @@ pulbic class V12Printer implements Printer{
 
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/aadf2252-e760-4f60-bf86-abdecca053a4" width="70%" height="70%">
+<img src="https://github.com/user-attachments/assets/aadf2252-e760-4f60-bf86-abdecca053a4" width="50%" height="50%">
 </p></br>
 
 
