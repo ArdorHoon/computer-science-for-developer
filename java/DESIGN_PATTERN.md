@@ -1097,6 +1097,8 @@ pulbic class V12Printer implements Printer{
 
 아래는 스트래티지 패턴의 구조이다. 
 
+</br>
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/bf752324-e463-429a-8f22-e3ce62224689" width="70%" height="70%">
 </p></br>
@@ -1108,7 +1110,7 @@ pulbic class V12Printer implements Printer{
 <img src="https://github.com/user-attachments/assets/def5b2d0-e999-41ca-b377-52b4f3217bd9" width="70%" height="70%">
 </p></br>
 
-이제 이를 코드로 나타내면 아래와 같다. 
+이제 이를 코드로 구현하면 아래와 같다. 
 
 로봇 부분 
 ```java
