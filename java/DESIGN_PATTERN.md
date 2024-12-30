@@ -330,7 +330,11 @@ public class Main {
 
 
 ### 🏷️ 문제
-내비게이션 SW에서 도로를 표시하는 기능이 있다고 하자. 가장 기본적인 기능은 도로를 간단한 선으로 표시하는 것(RoadDisplay)이다. 그리고 내비게이션 SW에 따라 도로의 차선을 표시하는 기능(RoadDisplayWithLane)도 제공한다. 여기서 RoadDisplayWithLane 클래스 역시 도로 표시 기능을 제공하므로 RoadDisplay 클래스의 하위 클래스로 설계한다. 이를 클래스 다이어그램으로 나타내면 아래와 같다.
+내비게이션 SW에서 도로를 표시하는 기능이 있다고 하자. 가장 기본적인 기능은 도로를 간단한 선으로 표시하는 것(RoadDisplay)이다. 그리고 내비게이션 SW에 따라 도로의 차선을 표시하는 기능(RoadDisplayWithLane)도 제공한다.   
+
+여기서 RoadDisplayWithLane 클래스 역시 도로 표시 기능을 제공하므로 RoadDisplay 클래스의 하위 클래스로 설계한다. 
+
+이를 클래스 다이어그램으로 나타내면 아래와 같다.
 
 
 <p align="center">
